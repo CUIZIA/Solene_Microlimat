@@ -80,7 +80,7 @@ def dataframe_to_xml(df, xml_file):
     with open(xml_file, "w", encoding="utf-8") as f:
         f.write(pretty_xml_str)
 
-# xls_file = "/Users/.../test1.xlsx" 
-# xml_file = "/Users/.../test1.xml"
+# xls_file = "/Users/.../famille.xlsx" 
+# xml_file = "/Users/.../famille.xml"
 # df = pd.read_excel(xls_file)
 # dataframe_to_xml(df, xml_file)
