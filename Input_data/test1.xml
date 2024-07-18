@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<familles>
+  <famille>
+    <name>Pavement1</name>
+    <classe>sol</classe>
+    <albedo>0.22</albedo>
+    <transmittance>0.0</transmittance>
+    <emissivite>0.9</emissivite>
+    <layers>
+      <layer>
+        <position>1</position>
+        <materiau>beton</materiau>
+        <epaisseur>0.2</epaisseur>
+      </layer>
+    </layers>
+    <soleneID>0.0</soleneID>
+    <saturneID>0.0</saturneID>
+  </famille>
+
+  <famille>
+    <name>sol</name>
+    <classe>sol</classe>
+    <albedo>0.25</albedo>
+    <transmittance>0.0</transmittance>
+    <emissivite>0.9</emissivite>
+    <layers>
+      <layer>
+        <position>1</position>
+        <materiau>asphalte</materiau>
+        <epaisseur>0.1</epaisseur>
+      </layer>
+      <layer>
+        <position>2</position>
+        <materiau>beton</materiau>
+        <epaisseur>1</epaisseur>
+      </layer>
+    </layers>
+    <soleneID>0.0</soleneID>
+    <saturneID>0.0</saturneID>
+  </famille>
+
+  <famille>
+    <name>building</name>
+    <classe>paroi_veg</classe>
+    <albedo>0.3</albedo>
+    <transmittance>0.0</transmittance>
+    <emissivite>0.9</emissivite>
+    <layers>
+      <layer>
+        <position>1</position>
+        <materiau>beton</materiau>
+        <epaisseur>0.2</epaisseur>
+      </layer>
+    </layers>
+    <LAI>1.0</LAI>
+    <epaisseur_feuillage>0.5</epaisseur_feuillage>
+    <coeff_extinction>0.9</coeff_extinction>
+    <soleneID>0.0</soleneID>
+    <saturneID>0.0</saturneID>
+  </famille>
+
+  <famille>
+    <name>place</name>
+    <classe>sol_veg</classe>
+    <albedo>0.25</albedo>
+    <transmittance>0.0</transmittance>
+    <emissivite>0.9</emissivite>
+    <layers>
+      <layer>
+        <position>1</position>
+        <materiau>asphalte</materiau>
+        <epaisseur>0.15</epaisseur>
+      </layer>
+      <layer>
+        <position>2</position>
+        <materiau>beton</materiau>
+        <epaisseur>0.2</epaisseur>
+      </layer>
+    </layers>
+    <LAI>1.0</LAI>
+    <epaisseur_feuillage>0.5</epaisseur_feuillage>
+    <coeff_extinction>0.9</coeff_extinction>
+    <soleneID>0.0</soleneID>
+    <saturneID>0.0</saturneID>
+  </famille>
+
+  <famille>
+    <name>ciel</name>
+    <classe>sat_sym</classe>
+    <soleneID>0</soleneID>
+    <saturneID>0</saturneID>
+  </famille>
+
+  <famille>
+    <name>veinelat</name>
+    <classe>sat_inlet</classe>
+    <soleneID>0</soleneID>
+    <saturneID>0</saturneID>
+  </famille>
+
+  <famille>
+    <name>air</name>
+    <classe>volume_air</classe>
+    <soleneID>0</soleneID>
+    <saturneID>0</saturneID>
+  </famille>
+
+</familles>
