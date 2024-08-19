@@ -106,7 +106,7 @@ def calculer_hc(Tsurf,Tair,Vair):
 ############### 04: Dendy model ###############
 # - Air temperature (degree)
 # - height (m)
-# - roughness length for m
+# - roughness length for (m)
 ############### 04: Dendy model ###############
 def calculer_hc(Vair, z, z0):
       rhoa = 1.2
