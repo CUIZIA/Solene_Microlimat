@@ -104,13 +104,13 @@ def calculer_hc(Tsurf,Tair,Vair):
       return h
 
 ############### 04: Dendy model ###############
-# - Surface temperature (degree)
 # - Air temperature (degree)
-# - wind speed (m/s)
+# - height (m)
+# - roughness length for m
 ############### 04: Dendy model ###############
-def calculer_df():
+def calculer_hc(Vair, z, z0):
       rhoa = 1.2
       Cp = 1006
       k = 0.4
-      rT = log/(Vair*k**2)
+      rT = math.log(z/z0)*math.log(10*z/z0)/(Vair*k**2)
       h = rhoa*Cp/rT 
