@@ -14,39 +14,25 @@ $$
 
 Where:
 
-- \( v(z) \) is the wind speed at height \( z \)
-- \( v_{\text{ref}} \) is the wind speed at the reference height \( z_{\text{ref}} \)
-- \( z_0 \) is the surface roughness length
+- $$\( v(z) \)$$ is the wind speed at height $$\( z \)$$
+- $$\( v_{\text{ref}} \)$$ is the wind speed at the reference height $$\( z_{\text{ref}} \)$$
+- $$\( z_0 \)$$ is the surface roughness length
 
-## Surface Roughness Length Values \( z_0 \)
+## Surface Roughness Length Values $$\( z_0 \)$$
 
-The surface roughness length \( z_0 \) varies depending on the type of terrain:
+The surface roughness length $$\( z_0 \)$$ varies depending on the type of terrain:
 
-| Surface Type        | \( z_0 \) (meters) |
-|---------------------|--------------------|
-| Open water          | 0.0002             |
-| Short grass         | 0.03               |
-| Farmland            | 0.1                |
-| Urban area          | 1.0                |
-| Forest              | 1.3                |
+| Roughness Class | Roughness Length $$\( z_0 \)$$ | Land Cover Types                                                                 |
+|-----------------|----------------------------|----------------------------------------------------------------------------------|
+| 0               | 0.0002 m                   | Water surfaces: seas and lakes                                                   |
+| 0.5             | 0.0024 m                   | Open terrain with smooth surface, e.g., concrete, airport runways, mown grass, etc. |
+| 1               | 0.03 m                     | Open agricultural land without fences and hedges; maybe some far-apart buildings and very gentle hills |
+| 1.5             | 0.055 m                    | Agricultural land with a few buildings and 8 m high hedges separated by more than 1 km |
+| 2               | 0.1 m                      | Agricultural land with a few buildings and 8 m high hedges separated by approx. 500 m |
+| 2.5             | 0.2 m                      | Agricultural land with many trees, bushes, and plants, or 8 m high hedges separated by approx. 250 m |
+| 3               | 0.4 m                      | Towns, villages, agricultural land with many or high hedges, forests, and very rough and uneven terrain |
+| 3.5             | 0.6 m                      | Large towns with high buildings                                                  |
+| 4               | 1.6 m                      | Large cities with high buildings and skyscrapers                                  |
 
-By adjusting the surface roughness length \( z_0 \), the model can simulate wind speed distribution in different environments. This model is particularly useful for studies related to wind farm siting and other wind energy applications.
 
-## Usage Example
-
-You can calculate the wind speed at a certain height using the following Python code:
-
-```python
-import numpy as np
-
-def wind_speed_at_height(z, v_ref, z_ref, z_0):
-    return v_ref * np.log(z / z_0) / np.log(z_ref / z_0)
-
-# Example parameters
-z = 50  # Target height (meters)
-v_ref = 10  # Wind speed at reference height (m/s)
-z_ref = 10  # Reference height (meters)
-z_0 = 0.03  # Surface roughness for short grass (meters)
-
-v_z = wind_speed_at_height(z, v_ref, z_ref, z_0)
-print(f"Wind speed at {z} meters: {v_z:.2f} m/s")
+By adjusting the surface roughness length $$\( z_0 \)$$, the model can simulate wind speed distribution in different environments. In our case, our study area situated in a village near Paris so I picked 0.4m as the roughness length.
