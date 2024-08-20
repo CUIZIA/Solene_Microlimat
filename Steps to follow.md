@@ -1,7 +1,5 @@
 # Steps to Follow - How Convection and Conduction Influence the Temporal Variation of Surface Temperatures
 
-Each of us continues working on his geometry and data.
-
 ## Reference Simulation with Solene
 
 - Use the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow.
@@ -33,3 +31,17 @@ Change one model at a time:
 - Documents describing Baptiste's model: [link](https://cerema.app.box.com/file/1454813073067).
 - Documents describing MH Azam's model: [link](https://hal.science/hal-01629430v1/file/urban-soil-model_V1.pdf).
 
+## Simulation Scenario 3: Testing Different Convective Heat Transfer Coefficients (CHTC) Correlations for Wall and Roof
+
+Change one correlation at a time:
+
+- Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
+- **3.1** Use MH Azam correlation for walls, roofs, and ground (script for calculation of hc in Python: [link](https://cerema.app.box.com/file/1557148585662)).
+- **3.2** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832), script for calculation of hc in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with ac=1.4 and dc=0.5, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)) for ground.
+- **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density, heat capacity of dry air, and aerodynamic resistance for temperature [link](https://cerema.app.box.com/file/1593887985213), with `rhoa = 1.2 kg/m^3`, `cpair = 1006 J/(K·kg)` and `rT = log(10/z0) * log(10/(z0/10)) * 1/(v * 0.16) (s/m)` as described in [link](https://cerema.app.box.com/file/1601751411797) for wall, roof, and ground.
+
+## Selected Outputs
+
+Please, for each simulation, select the surface temperature of at least 2 walls (e.g., in a canyon), 1 ground, and 1 roof. Show the temporal evolution for these selected surfaces for the 5 days selected for each scenario (7 in total).
+
+*Special thanks to Margot for providing the detailed simulation scenarios and files that made this project possible.*
