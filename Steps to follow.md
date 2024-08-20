@@ -47,7 +47,6 @@ Change one correlation at a time:
   $$
   r_T = \frac{\log(10/z_0) \cdot \log(10/(z_0/10))}{v \cdot 0.16} \, \text{(s/m)}
   $$
-
   as described in [link](https://cerema.app.box.com/file/1601751411797)[5] for wall, roof, and ground.
 
 ## Selected Outputs
