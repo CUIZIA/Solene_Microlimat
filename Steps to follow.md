@@ -41,7 +41,7 @@ Change one correlation at a time:
 - **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density ($\rho_a$), heat capacity of dry air ($c_{pair}$), and aerodynamic resistance for temperature ($r_T$) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
 
 $$
-\rho_a = 1.2 \, \text{kg/m}^3, \quad c_{pair} = 1006 \, \text{J/(K\cdot kg)}
+\rho_a = 1.2 \, \text{kg/m}^3, \quad c_{pair} = 1006 \, \text{J/(K·kg)}
 $$
 
 $$
