@@ -36,9 +36,19 @@ Change one model at a time:
 Change one correlation at a time:
 
 - Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
-- **3.1** Use MH Azam correlation for walls, roofs, and ground (script for calculation of hc in Python: [link](https://cerema.app.box.com/file/1557148585662)).
-- **3.2** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of hc in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with ac=1.4 and dc=0.5, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213))[4] for ground.
-- **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density, heat capacity of dry air, and aerodynamic resistance for temperature [link](https://cerema.app.box.com/file/1593887985213)[4], with `rhoa = 1.2 kg/m^3`, `cpair = 1006 J/(K·kg)` and `rT = log(10/z0) * log(10/(z0/10)) * 1/(v * 0.16) (s/m)` as described in [link](https://cerema.app.box.com/file/1601751411797)[5] for wall, roof, and ground.
+- **3.1** Use MH Azam correlation for walls, roofs, and ground (script for calculation of \( h_c \) in Python: [link](https://cerema.app.box.com/file/1557148585662)).
+- **3.2** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of \( h_c \) in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with \( a_c = 1.4 \) and \( d_c = 0.5 \), you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
+- **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density (\( \rho_a \)), heat capacity of dry air (\( c_{pair} \)), and aerodynamic resistance for temperature (\( r_T \)) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
+
+  \[
+  \rho_a = 1.2 \, \text{kg/m}^3, \quad c_{pair} = 1006 \, \text{J/(K·kg)}, 
+  \]
+
+  \[
+  r_T = \frac{\log(10/z_0) \cdot \log(10/(z_0/10))}{v \cdot 0.16} \, (\text{s/m})
+  \]
+
+  as described in [link](https://cerema.app.box.com/file/1601751411797)[5] for wall, roof, and ground.
 
 ## Selected Outputs
 
