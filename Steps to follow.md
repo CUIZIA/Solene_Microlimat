@@ -1,5 +1,5 @@
 # Steps to Follow - How Convection and Conduction Influence the Temporal Variation of Surface Temperatures
-
+*Special thanks to Margot for providing the detailed simulation scenarios and files that made this project possible.*
 ## Reference Simulation with Solene
 
 - Use the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow.
@@ -43,5 +43,3 @@ Change one correlation at a time:
 ## Selected Outputs
 
 Please, for each simulation, select the surface temperature of at least 2 walls (e.g., in a canyon), 1 ground, and 1 roof. Show the temporal evolution for these selected surfaces for the 5 days selected for each scenario (7 in total).
-
-*Special thanks to Margot for providing the detailed simulation scenarios and files that made this project possible.*
