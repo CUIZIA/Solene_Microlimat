@@ -3,7 +3,7 @@
 ## Reference Simulation with Solene
 
 - Use the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow.
-- Use the Jayamaha correlation (5.7 + 3.8 * v) [link](https://cerema.app.box.com/file/1592730894436) + wind taken at 10m.
+- Use the ASHRAE correlation (5.7 + 3.8 * v) [link](https://cerema.app.box.com/file/1592730894436)[1] + wind taken at 10m.
 - In the meteo file, you should use the weather file corresponding to your site (the one you are using currently) but correct the wind intensity: a wind below 0.5m/s should be fixed to 0.5m/s.
 
 You can do this by adding these lines to your Python script:
@@ -29,7 +29,7 @@ Change one model at a time:
 **Note:**
 
 - Documents describing Baptiste's model: [link](https://cerema.app.box.com/file/1454813073067).
-- Documents describing MH Azam's model: [link](https://hal.science/hal-01629430v1/file/urban-soil-model_V1.pdf).
+- Documents describing MH Azam's model: [link](https://hal.science/hal-01629430v1/file/urban-soil-model_V1.pdf)[2].
 
 ## Simulation Scenario 3: Testing Different Convective Heat Transfer Coefficients (CHTC) Correlations for Wall and Roof
 
@@ -37,9 +37,17 @@ Change one correlation at a time:
 
 - Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
 - **3.1** Use MH Azam correlation for walls, roofs, and ground (script for calculation of hc in Python: [link](https://cerema.app.box.com/file/1557148585662)).
-- **3.2** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832), script for calculation of hc in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with ac=1.4 and dc=0.5, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)) for ground.
-- **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density, heat capacity of dry air, and aerodynamic resistance for temperature [link](https://cerema.app.box.com/file/1593887985213), with `rhoa = 1.2 kg/m^3`, `cpair = 1006 J/(K·kg)` and `rT = log(10/z0) * log(10/(z0/10)) * 1/(v * 0.16) (s/m)` as described in [link](https://cerema.app.box.com/file/1601751411797) for wall, roof, and ground.
+- **3.2** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of hc in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with ac=1.4 and dc=0.5, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213))[4] for ground.
+- **3.3** Use Denby model, which estimates the convection coefficient using the atmospheric density, heat capacity of dry air, and aerodynamic resistance for temperature [link](https://cerema.app.box.com/file/1593887985213)[4], with `rhoa = 1.2 kg/m^3`, `cpair = 1006 J/(K·kg)` and `rT = log(10/z0) * log(10/(z0/10)) * 1/(v * 0.16) (s/m)` as described in [link](https://cerema.app.box.com/file/1601751411797)[5] for wall, roof, and ground.
 
 ## Selected Outputs
 
 Please, for each simulation, select the surface temperature of at least 2 walls (e.g., in a canyon), 1 ground, and 1 roof. Show the temporal evolution for these selected surfaces for the 5 days selected for each scenario (7 in total).
+
+References
+
+1. Odunfa, K. M., C. J. Nnakwe, and V. O. Odunfa. "Building energy efficiency in Nigeria major climatic zones." Journal of Building Construction and Planning Research 6.4 (2018): 251-266.
+2. Azam, Marie-Hélène, et al. "A new urban soil model for SOLENE-microclimat: Review, sensitivity analysis and validation on a car park." Urban climate 24 (2018): 728-746.
+3. Montazeri, Hamid, and Bert Blocken. "New generalized expressions for forced convective heat transfer coefficients at building facades and roofs." Building and Environment 119 (2017): 153-168.
+4. Chen, Jiaqi, Hao Wang, and Pengyu Xie. "Pavement temperature prediction: Theoretical models and critical affecting factors." Applied thermal engineering 158 (2019): 113755.
+5. Denby, Bruce Rolstad, et al. "A coupled road dust and surface moisture model to predict non-exhaust road traffic induced particle emissions (NORTRIP). Part 2: Surface moisture and salt impact modelling." Atmospheric Environment 81 (2013): 485-503.
