@@ -100,7 +100,7 @@ def calculer_hc(Tsurf,Tair,Vair):
       Tm = (Tsurf + Tair)/2
       a = 1.4
       d = 0.5
-      h = 698.24*a*(0.00144*Tm**0.3*Vair**d + 0.00097*abs(Tsurf - Tair)**0.3)
+      h = 698.24*a*(0.00144*(Tm+273.15)**0.3*Vair**d + 0.00097*abs(Tsurf - Tair)**0.3)
       return h
 
 ############### 04: Dendy model ###############
