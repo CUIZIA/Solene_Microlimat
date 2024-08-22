@@ -22,9 +22,9 @@ Reference script for piloting Solene simulations: [link](https://cerema.app.box.
 
 Change one model at a time:
 
-- **2.1** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBatBB4.exe` (which is a model of Baptiste; don't forget to replace the py codes, access given here: [link](https://cerema.app.box.com/folder/250767419663)) and no airflow.
-- **2.2** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBatBB5.exe` (which is a model of Baptiste, access here: [link](https://cerema.app.box.com/folder/250767419663)) and no airflow.
-- **2.3** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBat_new.exe` (which is the model of MH Azam, modified version available here: [link](https://cerema.app.box.com/folder/275394700098)) and no airflow. It is also necessary to change the `pySolene` directory. To use MH Azam's soil model, you need to change the soil class from `sol` to `sol_new` in the file `famille`.
+- **BB4** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBatBB4.exe` (which is a model of Baptiste; don't forget to replace the py codes, access given here: [link](https://cerema.app.box.com/folder/250767419663)) and no airflow.
+- **BB5** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBatBB5.exe` (which is a model of Baptiste, access here: [link](https://cerema.app.box.com/folder/250767419663)) and no airflow.
+- **MHA** Replace `simulation_Ts_EnergieBat.exe` with `simulation_Ts_EnergieBat_new.exe` (which is the model of MH Azam, modified version available here: [link](https://cerema.app.box.com/folder/275394700098)) and no airflow. It is also necessary to change the `pySolene` directory. To use MH Azam's soil model, you need to change the soil class from `sol` to `sol_new` in the file `famille`.
 
 **Note:**
 
@@ -35,10 +35,10 @@ Change one model at a time:
 
 Change one correlation at a time:
 
-- **01** Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
-- **02** Use MH Azam correlation for walls, roofs, and ground (script for calculation of $h_c$ in Python: [link](https://cerema.app.box.com/file/1557148585662)).
-- **03** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of $h_c$ in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with $a_c = 1.4$ and $d_c = 0.5$, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
-- **04** Use Denby model, which estimates the convection coefficient using the atmospheric density ($\rho_a$), heat capacity of dry air ($c_{pair}$), and aerodynamic resistance for temperature ($r_T$) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
+- **"01"** Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
+- **"02"** Use MH Azam correlation for walls, roofs, and ground (script for calculation of $h_c$ in Python: [link](https://cerema.app.box.com/file/1557148585662)).
+- **"03"** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of $h_c$ in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with $a_c = 1.4$ and $d_c = 0.5$, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
+- **"04"** Use Denby model, which estimates the convection coefficient using the atmospheric density ($\rho_a$), heat capacity of dry air ($c_{pair}$), and aerodynamic resistance for temperature ($r_T$) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
 
 $$
 \rho_a = 1.2 \, \text{kg/m}^3, \quad c_{pair} = 1006 \, \text{J/(K·kg)}
