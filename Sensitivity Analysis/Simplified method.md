@@ -9,6 +9,7 @@ The goal of this sensitivity analysis is to evaluate the impact of four input pa
 - Albedo (Surface Reflectivity)
 
 ## Steps
+
 **1** Establish a Baseline Model:
 - Select a set of baseline values for the four parameters. These should represent reasonable and typical values for the materials or conditions being simulated.
 - Run the simulation with these baseline values to generate the baseline temperature profile over time.
@@ -35,3 +36,26 @@ The goal of this sensitivity analysis is to evaluate the impact of four input pa
 - Identify which parameters have the most significant impact on the surface temperature.
 - Discuss any potential interactions or non-linear effects observed during the analysis.
 - Based on the findings, recommend any further analysis or adjustments to the simulation parameters.
+
+## Baseline Model Parameters
+
+The baseline parameters for the model are set as follows:
+- Conductivite thermique (Thermal Conductivity): 2.0 W/m·K
+- Capacite thermique (Heat Capacity): 900 J/kg·K
+- Masse volumique (Density): 2300 kg/m³
+- Albedo (Surface Reflectivity): 0.4
+
+**1** Variation Range:
+Each parameter will be varied within ±50% of its baseline value. The resulting ranges are:
+- Thermal Conductivity: 1.0 W/m·K to 3.0 W/m·K
+- Heat Capacity: 450 J/kg·K to 1350 J/kg·K
+- Density: 1150 kg/m³ to 3450 kg/m³
+- Albedo: 0.2 to 0.6
+
+**2** 16-Step Variation Series
+For each parameter, a 16-step series is generated, covering the range from -50% to +50%. The series includes 8 values below the baseline and 8 values above. The reason I set it up this way is that the model itself contains 16 study areas, and I can use the model directly for fast simulation (without considering the occlusion of surrounding buildings, each study area enjoys the same weather conditions).
+
+- Thermal Conductivity: [1.0, 1.13, 1.25, 1.38, 1.5, 1.63, 1.75, 1.88,**2.0**, 2.13, 2.25, 2.38, 2.5, 2.63, 2.75, 2.88, 3.0] W/(m·K)
+- Heat Capacity: [450, 506.25, 562.5, 618.75, 675, 731.25, 787.5, 843.75,**900**, 956.25, 1012.5, 1068.75, 1125, 1181.25, 1237.5, 1293.75, 1350] J/(kg·K)
+- Density: [1000, 1125, 1250, 1375, 1500, 1625, 1750, 1875, **2000**, 2125, 2250, 2375, 2500, 2625, 2750, 2875, 3000]kg/m³
+- Albedo: [0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375, **0.4**, 0.425, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6]
