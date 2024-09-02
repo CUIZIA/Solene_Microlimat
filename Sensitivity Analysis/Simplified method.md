@@ -40,9 +40,9 @@ The goal of this sensitivity analysis is to evaluate the impact of four input pa
 ## Baseline Model Parameters
 
 The baseline parameters for the model are set as follows:
-- Conductivite thermique (Thermal Conductivity): 2.0 W/m·K
-- Capacite thermique (Heat Capacity): 900 J/kg·K
-- Masse volumique (Density): 2300 kg/m³
+- Conductivite thermique (Thermal Conductivity): 2.0 W/(m·K)
+- Capacite thermique (Heat Capacity): 900 J/(kg·K)
+- Masse volumique (Density): 2000 kg/m³
 - Albedo (Surface Reflectivity): 0.4
 
 **Variation Range**
