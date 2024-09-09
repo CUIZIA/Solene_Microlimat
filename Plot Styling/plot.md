@@ -98,3 +98,6 @@ def plot_comparison(path):
     plt.grid(True)
     plt.show()
 ```
+
+## Output example:
+![Temperature comparison between different conduction model](/Users/cuiziang/Desktop/SOLENE/fig/conduction/Comp_01_9.png)
