@@ -100,4 +100,4 @@ def plot_comparison(path):
 ```
 
 ## Output example:
-![Temperature comparison between different conduction model](/Users/cuiziang/Desktop/SOLENE/fig/conduction/Comp_01_9.png)
+![Temperature comparison between different conduction model](/Plot Styling/Comp_01_9.png)
