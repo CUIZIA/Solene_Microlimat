@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<materiaux>
+  <materiau>
+    <nom>grave_GR1</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>500</capacite_thermique>
+    <masse_volumique>1000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR2</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>500</capacite_thermique>
+    <masse_volumique>1000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR3</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>1500</capacite_thermique>
+    <masse_volumique>1000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR4</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>1500</capacite_thermique>
+    <masse_volumique>1000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR5</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>500</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR6</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>500</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR7</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>1500</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR8</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>1500</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>asphalte</nom>
+    <conductivite>2.0</conductivite>
+    <capacite_thermique>900</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton</nom>
+    <conductivite>1.96</conductivite>
+    <capacite_thermique>777</capacite_thermique>
+    <masse_volumique>3000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>air</nom>
+    <conductivite>0.04</conductivite>
+    <capacite_thermique>1000</capacite_thermique>
+    <masse_volumique>1.25</masse_volumique>
+  </materiau>
+
+</materiaux>
