@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<materiaux>
+  <materiau>
+    <nom>beton1</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>390</capacite_thermique>
+    <masse_volumique>1150.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton2</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>390</capacite_thermique>
+    <masse_volumique>1150.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton3</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>1170</capacite_thermique>
+    <masse_volumique>1150.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton4</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>1170</capacite_thermique>
+    <masse_volumique>1150.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton5</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>390</capacite_thermique>
+    <masse_volumique>3450.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton6</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>390</capacite_thermique>
+    <masse_volumique>3450.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton7</nom>
+    <conductivite>1.0</conductivite>
+    <capacite_thermique>1170</capacite_thermique>
+    <masse_volumique>3450.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton8</nom>
+    <conductivite>3.0</conductivite>
+    <capacite_thermique>1170</capacite_thermique>
+    <masse_volumique>3450.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>asphalte</nom>
+    <conductivite>2.0</conductivite>
+    <capacite_thermique>900</capacite_thermique>
+    <masse_volumique>2000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>beton</nom>
+    <conductivite>1.96</conductivite>
+    <capacite_thermique>777</capacite_thermique>
+    <masse_volumique>2301.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>grave_GR1</nom>
+    <conductivite>1.8</conductivite>
+    <capacite_thermique>964</capacite_thermique>
+    <masse_volumique>2000.0</masse_volumique>
+  </materiau>
+
+  <materiau>
+    <nom>air</nom>
+    <conductivite>0.04</conductivite>
+    <capacite_thermique>1000</capacite_thermique>
+    <masse_volumique>1.25</masse_volumique>
+  </materiau>
+
+</materiaux>
