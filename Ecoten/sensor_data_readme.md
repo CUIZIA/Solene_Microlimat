@@ -1,17 +1,3 @@
-# Creating the .md content with the relevant table and important information in markdown format
-
-md_content = """
-# README for Sensor Data at Pražská Holešovická Tržnice
-
-## Overview
-
-This file contains environmental sensor data from **Pražská Holešovická Tržnice**, specifically from the sensor located at the public lighting system. The location is described as an **area without greenery (areál bez zeleně)**, with a **surface of asphalt/concrete (asfalt/beton)**, and the **orientation is east-west (východ-západ)**. The geographic coordinates of the location are:
-
-- **Latitude**: 50.0989344
-- **Longitude**: 14.4450222
-
-The sensor records several environmental parameters at two different heights: 200 cm and 50 cm above ground level. The measurements include air humidity, air temperature, atmospheric pressure, and more.
-
 ## Location Information
 - **Point Name**: Pražská tržnice osvětlení
 - **Location**: Pražská Holešovická tržnice
@@ -41,23 +27,3 @@ The following measurements are recorded by the sensor:
 | wind_dir300     | Wind direction, 300 cm (Směr větru, 300 cm)      | °     | 300 cm             |
 | wind_impact300  | Wind gust, 300 cm (Náraz větru, 300 cm)          | km/h  | 300 cm             |
 | wind_speed300   | Wind speed, 300 cm (Rychlost větru, 300 cm)      | km/h  | 300 cm             |
-
-## Data Format
-
-Each measurement contains a unique identifier (`measure`), a Czech description (`measure_cz`), and the respective unit (`unit`). Measurements are made at different heights, as indicated in the table above.
-
-## Usage
-
-This dataset can be used for studying environmental conditions such as humidity, temperature, wind speed, and solar radiation in urban environments. It can also be used in microclimate analysis, especially in locations with limited greenery and mostly asphalt/concrete surfaces.
-
-## License
-
-Specify the applicable license for this dataset (if any).
-"""
-
-# Saving the content to a markdown file
-file_path = '/mnt/data/sensor_data_readme.md'
-with open(file_path, 'w') as md_file:
-    md_file.write(md_content)
-
-file_path
