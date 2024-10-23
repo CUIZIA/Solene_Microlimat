@@ -64,3 +64,101 @@ $$
 Where:
 
 - $T_{\infty}$ is the deep soil temperature $[K]$.
+
+
+
+## test
+### Implicit Finite Element Discretization for the Soil Model
+
+We consider the soil model divided into \(n\) layers, and we solve the heat conduction problem using the implicit finite element method (FEM). The model consists of three parts:
+
+1. Surface boundary condition (soil-air interface),
+2. Internal nodes,
+3. Deep soil boundary condition.
+
+### (1) Surface Boundary Condition (Soil-Air Interface)
+
+At the surface node \(i = 0\), the energy balance equation accounts for latent heat, radiation, and conduction between the surface and the first layer beneath it:
+
+$$
+C_s \frac{dT_s}{dt} + \frac{T_s - T_a}{R_c} + \frac{T_s - T_1}{R_1} = R_{\text{net}} - L E
+$$
+
+In matrix form, this equation can be discretized using the implicit time-stepping method. Assuming \(T_s^n\) is the temperature at the current time step and \(T_s^{n+1}\) is at the next time step:
+
+$$
+C_s \frac{T_s^{n+1} - T_s^n}{\Delta t} + \frac{T_s^{n+1} - T_a}{R_c} + \frac{T_s^{n+1} - T_1^{n+1}}{R_1} = R_{\text{net}} - L E
+$$
+
+This forms part of the matrix system where \(T_s^{n+1}\) depends on the surface and the first internal node.
+
+### (2) Internal Nodes
+
+For internal nodes \(i\), the energy balance equation is:
+
+$$
+C_i \frac{dT_i}{dt} + \frac{T_i - T_{\text{i+1}}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}} - T_i}{R_i} = 0
+$$
+
+Using the implicit method, this can be written as:
+
+$$
+C_i \frac{T_i^{n+1} - T_i^n}{\Delta t} + \frac{T_i^{n+1} - T_{\text{i+1}}^{n+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{n+1} - T_i^{n+1}}{R_i} = 0
+$$
+
+### (3) Deep Soil Boundary Condition
+
+At the deep soil boundary, the temperature is assumed to approach a constant \(T_\infty\). The energy balance equation at the bottom node \(i = n\) is:
+
+$$
+C_i \frac{dT_i}{dt} + \frac{T_i - T_{\infty}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}} - T_i}{R_i} = 0
+$$
+
+In implicit form:
+
+$$
+C_i \frac{T_i^{n+1} - T_i^n}{\Delta t} + \frac{T_i^{n+1} - T_{\infty}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{n+1} - T_i^{n+1}}{R_i} = 0
+$$
+
+### Assembling the Matrix System
+
+The soil model with \(n\) layers forms a system of equations that can be written in matrix form as:
+
+$$
+\mathbf{C} \frac{\mathbf{T}^{n+1} - \mathbf{T}^n}{\Delta t} + \mathbf{A} \mathbf{T}^{n+1} = \mathbf{b}
+$$
+
+Where:
+
+- \(\mathbf{C}\) is the heat capacity matrix (diagonal),
+- \(\mathbf{A}\) is the matrix representing thermal resistances between the nodes,
+- \(\mathbf{T}^{n+1}\) is the temperature vector at the next time step,
+- \(\mathbf{b}\) is the vector containing boundary conditions (radiation, latent heat, etc.).
+
+For a soil model with \(n\) layers, the matrix form looks like:
+
+\[
+\begin{bmatrix}
+C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \dots & 0 \\
+-\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \dots & 0 \\
+0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n}
+\end{bmatrix}
+\begin{bmatrix}
+T_s^{n+1} \\
+T_1^{n+1} \\
+T_2^{n+1} \\
+\vdots \\
+T_n^{n+1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+R_{\text{net}} - LE + \frac{T_a}{R_c} \\
+0 \\
+0 \\
+\vdots \\
+\frac{T_{\infty}}{R_{n+1}}
+\end{bmatrix}
+\]
+
