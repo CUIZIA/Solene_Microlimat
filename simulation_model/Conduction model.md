@@ -4,18 +4,18 @@ SOLENE-Microclimat 模型是耦合了基于SOLENE的辐射、热模型以及Code
 
 地面热传导模型采用的是Marie-Hélène Azam开发的土壤模型，她提出的土壤模型是为路面涂层等不透水表面设计的。因此，只考虑热传递（忽略水分传递）。土壤模型是一维的，其中每层都有自己的特性。在非稳定状态下，温度波动是根据方程 (1) 计算的，这是热方程在一维问题中的应用。SOLENE中的热传导的核心是使用电类比的隐式差分形式来求解。热阻代表了通过地面层的热传递阻力，热容代表了地面层的热存储能力，如图1所示。土壤模型由n个节点组成。
 
-First of all, the general heat conduction equation in soil can be written as:
+The general heat conduction equation in soil can be written as:
 
 $$
-\frac{\partial T}{\partial t} = \alpha_{\text{soil}} \frac{\partial^2 T}{\partial x^2} 
+\frac{\partial T}{\partial t} = \alpha_{\text{soil}} \frac{\partial^2 T}{\partial x^2}
 $$
 
 Where:
 
-- \( T \) is the temperature \([K]\).
-- \( t \) is the time \([s]\).
-- \( x \) is the spatial coordinate \([m]\).
-- \( \alpha_{\text{soil}} \) is the thermal diffusivity of the soil \([m^2/s]\).
+- $T$ is the temperature $[K]$.
+- $t$ is the time $[s]$.
+- $x$ is the spatial coordinate $[m]$.
+- $\alpha_{\text{soil}}$ is the thermal diffusivity of the soil $[m^2/s]$.
 
 将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 \(i\)；（3）深层土壤的边界条件。
 
