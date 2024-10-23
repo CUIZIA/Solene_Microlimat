@@ -137,6 +137,18 @@ Where:
 
 For a soil model with \(n\) layers, the matrix form can be expressed as:
 
+$$
+\left[
+\begin{matrix}
+C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
+-\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
+0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \dots & 0 \\\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\\\
+0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
+\end{matrix}
+\right] \tag{5}
+$$
+
 \[
 \begin{pmatrix}
 C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \dots & 0 \\
