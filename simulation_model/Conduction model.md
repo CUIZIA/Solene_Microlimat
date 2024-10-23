@@ -162,3 +162,10 @@ R_{\text{net}} - LE + \frac{T_a}{R_c} \\
 \end{pmatrix}
 \]
 
+\[
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\]
+
