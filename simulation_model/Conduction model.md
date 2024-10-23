@@ -39,11 +39,11 @@ Where:
 （2）能量平衡方程在内部节点$i$处计算：
 
 $$
-C_i\frac{dT_i}{dt} + \frac{T_i-T_{\text{i+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}-T_i}{R_i} = 0
+C_i\frac{dT_i}{dt} + \frac{T_i-T_{\text{i+1}}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}-T_i}{R_i} = 0
 $$
 
 Where:
 
 - $C_i$ is the heat capacity of the layer at the node $i$ $[J/m^2K]$.
-- $T_i$ is the temperature of the node i $[K]$.
+- $T_i$ is the temperature of the node $i$ $[K]$.
 - $R_i$ is the heat resistance of the layer between the node $i-1$ and $i$ $[K/W]$.
