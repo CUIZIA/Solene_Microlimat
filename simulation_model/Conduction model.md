@@ -36,7 +36,7 @@ Where:
 - $R_{\text{net}}$ is the net radiation $[W/m^2]$.
 - $LE$ is the latent heat flux $[W/m^2]$.
 
-（2）能量平衡方程在内部节点$i$处计算：
+（2）能量平衡方程在内部节点 $i$ 处计算：
 
 $$
 C_i\frac{dT_i}{dt} + \frac{T_i-T_{\text{i+1}}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}-T_i}{R_i} = 0
