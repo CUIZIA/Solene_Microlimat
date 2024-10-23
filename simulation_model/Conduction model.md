@@ -56,4 +56,4 @@ $$
 
 Where:
 
-- T_{\infty} is the deep soil temperature $[K]$.
+- $T_{\infty}$ is the deep soil temperature $[K]$.
