@@ -22,20 +22,16 @@ Where:
 （1）能量平衡方程在表面节点 \(i = 0\) 处计算，需要考虑潜热和辐射。
 
 $$
-C_s \frac{dT_s}{dt} = h_c (T_a - T_s) + \varepsilon \sigma (T_s^4 - T_{sky}^4) - \frac{T_s - T_1}{R_1} - L E
+C_s \frac{dT_s}{dt} + \frac{T_s - T_a}/R_c + \frac{T_s - T_1}{R_1} = R_net  - L E
 $$
 
 Where:
 
-- \( C_s \) is the surface heat capacity \([J/m²K]\).
-- \( T_s \) is the surface temperature \([K]\).
-- \( T_1 \) is the temperature at the first node beneath the surface \([K]\).
-- \( T_a \) is the air temperature \([K]\).
-- \( T_{sky} \) is the sky temperature \([K]\).
-- \( h_c \) is the convective heat transfer coefficient \([W/m²K]\).
-- \( \varepsilon \) is the emissivity of the surface (dimensionless).
-- \( \sigma \) is the Stefan-Boltzmann constant \( 5.67 \times 10^{-8} \, W/m^2K^4 \).
-- \( R_1 \) is the thermal resistance between the surface and the first node \([K/W]\).
-- \( L \) is the latent heat of vaporization \([J/kg]\).
-- \( E \) is the rate of evaporation (or evapotranspiration) \([kg/m²s]\).
-
+- $C_s$ is the surface layer heat capacity $[J/m^2K]$.
+- $T_s$ is the surface temperature $[K]$.
+- $T_1$ is the temperature at the first node beneath the surface $[K]$.
+- $T_a$ is the air temperature $[K]$.
+- $R_c$ is defined as $R_c = \frac{1}{h_c}$, where $h_c$ is the convective heat transfer coefficient $[W/m²K]$.
+- $R_1$ is the thermal resistance between the surface and the first node $[K/W]$.
+- $R_net$ is the net radiation $[W/m^2]$.
+- $LE$ is the latent heat flux $[W/m^2]$.
