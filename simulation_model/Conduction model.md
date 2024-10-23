@@ -125,15 +125,14 @@ $$
 The soil model with $n$ layers forms a system of equations that can be written in matrix form as:
 
 $$
-\mathbf{C} \frac{\mathbf{T}^{n+1} - \mathbf{T}^n}{\Delta t} + \mathbf{A} \mathbf{T}^{n+1} = \mathbf{b}
+\mathbf{A} \mathbf{T}^{t+1} = \mathbf{B}
 $$
 
 Where:
 
-- \(\mathbf{C}\) is the heat capacity matrix (diagonal),
-- \(\mathbf{A}\) is the matrix representing thermal resistances between the nodes,
-- \(\mathbf{T}^{n+1}\) is the temperature vector at the next time step,
-- \(\mathbf{b}\) is the vector containing boundary conditions (radiation, latent heat, etc.).
+- \(\mathbf{A}\) represents the system's coefficient matrix,
+- \(\mathbf{T}^{t+1}\) is the unknown temperature vector at the next time step $t+1$,
+- \(\mathbf{b}\) is a combination of known values, including constant terms and contributions from the previous time step $n$.
 
 For a soil model with \(n\) layers, the matrix form can be expressed as:
 
@@ -167,8 +166,4 @@ T_n^{t+1} \\\\
 \frac{C_i}{\Delta t} T_i^t - \frac{T_{\infty}}{R_{\text{i+1}}} \\\\
 \end{matrix}
 \right]
-$$
-
-$$
-T_s^{ t}
 $$
