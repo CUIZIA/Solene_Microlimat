@@ -22,7 +22,7 @@ Where:
 （1）能量平衡方程在表面节点 \(i = 0\) 处计算，需要考虑潜热和辐射。
 
 $$
-C_s \frac{dT_s}{dt} + \frac{T_s - T_a}/R_c + \frac{T_s - T_1}{R_1} = R_net  - L E
+C_s \frac{dT_s}{dt} + \frac{T_s - T_a}/R_c + \frac{T_s - T_1}{R_1} = R_{\text{net}}  - L E
 $$
 
 Where:
@@ -33,5 +33,5 @@ Where:
 - $T_a$ is the air temperature $[K]$.
 - $R_c$ is defined as $R_c = \frac{1}{h_c}$, where $h_c$ is the convective heat transfer coefficient $[W/m²K]$.
 - $R_1$ is the thermal resistance between the surface and the first node $[K/W]$.
-- $R_net$ is the net radiation $[W/m^2]$.
+- $R_{\text{net}}$ is the net radiation $[W/m^2]$.
 - $LE$ is the latent heat flux $[W/m^2]$.
