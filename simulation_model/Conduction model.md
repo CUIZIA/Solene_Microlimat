@@ -145,7 +145,6 @@ C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \dots & 0 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n}
 \end{bmatrix}
-
 \begin{bmatrix}
 T_s^{n+1} \\
 T_1^{n+1} \\
@@ -153,7 +152,6 @@ T_2^{n+1} \\
 \vdots \\
 T_n^{n+1}
 \end{bmatrix}
-
 =
 \begin{bmatrix}
 R_{\text{net}} - LE + \frac{T_a}{R_c} \\
@@ -163,5 +161,3 @@ R_{\text{net}} - LE + \frac{T_a}{R_c} \\
 \frac{T_{\infty}}{R_{n+1}}
 \end{bmatrix}
 \]
-
-
