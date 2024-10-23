@@ -159,6 +159,7 @@ C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
 0 & \cdots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
 \end{matrix}
 \right]
+
 \left[
 \begin{matrix}
 T_s^{n+1} \\\\
@@ -168,6 +169,7 @@ T_2^{n+1} \\\\
 T_n^{n+1} \\\\
 \end{matrix}
 \right]
+
 =
 \left[
 \begin{matrix}
