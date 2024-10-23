@@ -22,7 +22,7 @@ Where:
 （1）能量平衡方程在表面节点 \(i = 0\) 处计算，需要考虑潜热和辐射。
 
 $$
-C_s \frac{dT_s}{dt} + \frac{T_s - T_a}/R_c + \frac{T_s - T_1}{R_1} = R_{\text{net}}  - L E
+C_s \frac{dT_s}{dt} + \frac{T_s - T_a}{R_c} + \frac{T_s - T_1}{R_1} = R_{\text{net}}  - L E
 $$
 
 Where:
