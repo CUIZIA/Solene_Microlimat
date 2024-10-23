@@ -180,18 +180,19 @@ R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
 \right]
 $$
 
-   \[  \begin{bmatrix}
-         0 & 1\\ 
-         0 & 0 
-     \end{bmatrix}
-     \times
-     \begin{bmatrix}
-         0 & 0\\ 
-         1 & 0  
-     \end{bmatrix}
-      =
-     \begin{bmatrix}
-         1 & 0\\ 
-         0 & 0   
-     \end{bmatrix} \] 
-\end{document}
+\begin{equation}
+\label{eqk27}
+\begin{align}
+\bm{\mathrm{w}}^\mathrm{T} \bm{X}^\mathrm{T} & = [w_1, \hspace{0.1cm} w_2, \hspace{0.1cm} cdots, \hspace{0.1cm} w_n] 
+\left[
+\begin{matrix} 
+x_{1,1} & x_{2,1} & \cdots & x_{n,1} \\
+x_{1,2} & x_{2,2} & \cdots & x_{n,2} \\
+\vdots  & \vdots & \vdots & \vdots \\
+x_{1,n} & x_{2,n} & \cdots & x_{n,n} 
+\end{matrix}
+\right] \\
+
+& = [\sum_{i=1}^{} w_i x_{1,i}, \hspace{0.1cm} \sum_{i=1}^{} w_i x_{2,i}, \hspace{0.1cm} \cdots, \hspace{0.1cm} \sum_{i=1}^{} w_i x_{2,i} ]
+\end{align}
+\end{equation}
