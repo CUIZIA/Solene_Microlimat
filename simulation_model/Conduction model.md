@@ -87,7 +87,7 @@ $$
 In matrix form, this equation can be discretized using the implicit time-stepping method. Assuming \(T_s^n\) is the temperature at the current time step and \(T_s^{n+1}\) is at the next time step:
 
 $$
-C_s \frac{T_s^{n+1} - T_s^n}{\Delta t} + \frac{T_s^{n+1} - T_a}{R_c} + \frac{T_s^{n+1} - T_1^{n+1}}{R_1} = R_{\text{net}} - L E
+C_s \frac{T_s^{n+1} - T_s^n}{\Delta t} + \frac{T_s^{n+1} - T_a^{n+1}}{R_c} + \frac{T_s^{n+1} - T_1^{n+1}}{R_1} = R_{\text{net}} - L E
 $$
 
 This forms part of the matrix system where \(T_s^{n+1}\) depends on the surface and the first internal node.
@@ -136,18 +136,6 @@ Where:
 - \(\mathbf{b}\) is the vector containing boundary conditions (radiation, latent heat, etc.).
 
 For a soil model with \(n\) layers, the matrix form can be expressed as:
-
-$$
-\left[
-\begin{matrix}
-C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
--\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
-0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \dots & 0 \\\\
-\vdots & \vdots & \vdots & \ddots & \vdots \\\\
-0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
-\end{matrix}
-\right]
-$$
 
 $$
 \left[
