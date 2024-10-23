@@ -17,9 +17,9 @@ Where:
 - $x$ is the spatial coordinate $[m]$.
 - $\alpha_{\text{soil}}$ is the thermal diffusivity of the soil $[m^2/s]$.
 
-将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 \(i\)；（3）深层土壤的边界条件。
+将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 $i$；（3）深层土壤的边界条件。
 
-（1）能量平衡方程在表面节点 ($i = 0$) 处计算，需要考虑潜热和辐射。
+（1）能量平衡方程在表面节点 (i = 0) 处计算，需要考虑潜热和辐射。
 
 $$
 C_s \frac{dT_s}{dt} + \frac{T_s - T_a}{R_c} + \frac{T_s - T_1}{R_1} = R_{\text{net}}  - L E
