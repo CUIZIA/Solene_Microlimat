@@ -169,7 +169,7 @@ T_2^{n+1} \\\\
 T_n^{n+1} \\\\
 \end{matrix}
 \right]
-\quad
+\quad \text{=} \quad
 \left[
 \begin{matrix}
 R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
