@@ -2,8 +2,8 @@
 
 SOLENE-Microclimat 模型是耦合了基于SOLENE的辐射、热模型以及Code_Saturne的流体力学模型。根据表面的类型分为不同的热辐射平衡方案：不透水地面、植被地面和建筑物墙壁（这里我们只详细解释不透水地面的情况，只考虑热传递而忽略湿气传递）。另外在此模型是一维的，所以
 那么
-地面热传导模型采用的是Marie-Hélène Azam开发的土壤模型，她提出的土壤模型是为路面涂层等不透水表面设计的。因此，只考虑热传递（忽略水分传递）。土壤模型是一维的，其中每层都有自己的特性。在非稳定状态下，温度波动是根据方程 (1) 计算的，这是热方程在一维问题中的应用。SOLENE中的热传导的核心是使用隐式差分形式来求解。The general heat conduction equation in soil can be written as:
-
+地面热传导模型采用的是Marie-Hélène Azam开发的土壤模型，她提出的土壤模型是为路面涂层等不透水表面设计的。因此，只考虑热传递（忽略水分传递）。土壤模型是一维的，其中每层都有自己的特性。在非稳定状态下，温度波动是根据方程 (1) 计算的，这是热方程在一维问题中的应用。SOLENE中的热传导的核心是使用电类比的隐式差分形式来求解。热阻代表了通过地面层的热传递阻力，热容代表了地面层的热存储能力，如图1所示。土壤模型由n个节点组成。
+First of all, The general heat conduction equation in soil can be written as:
 $$
 \frac{\partial T}{\partial t} = \alpha_{soil} \frac{\partial^2 T}{\partial x^2} 
 $$
@@ -15,4 +15,22 @@ Where:
 - \( $x$ ) is the spatial coordinate $[m]$.
 - \( $\alpha_{soil}$ ) is the thermal diffusivity of the soil $[m^2/s]$.
 
-This equation describes the transient heat conduction through a one-dimensional medium (e.g., soil) and is used to model how temperature changes over time and space within the soil.
+将土壤分解为n层，我们可以分3中情况考虑，包括（1）土壤与空气接触的边界条件；（2）土壤内部节点i；（3）深层土壤边界条件。
+（1）能量平衡方程在表面节点（i = 0）处计算，需要考虑潜热和辐射。
+$$
+C_s \\frac{dT_s}{dt} = h_c (T_a - T_s) + \\varepsilon \\sigma (T_s^4 - T_{sky}^4) - \\frac{T_s - T_1}{R_1} - L E
+$$
+
+Where:
+
+- \( C_s \) is the surface heat capacity [J/m²K].
+- \( T_s \) is the surface temperature [K].
+- \( T_1 \) is the temperature at the first node beneath the surface [K].
+- \( T_a \) is the air temperature [K].
+- \( T_{sky} \) is the sky temperature [K].
+- \( h_c \) is the convective heat transfer coefficient [W/m²K].
+- \( \\varepsilon \) is the emissivity of the surface (dimensionless).
+- \( \\sigma \) is the Stefan-Boltzmann constant \( 5.67 \\times 10^{-8} \, W/m^2K^4 \), accounting for radiation.
+- \( R_1 \) is the thermal resistance between the surface and the first node [K/W].
+- \( L \) is the latent heat of vaporization [J/kg].
+- \( E \) is the rate of evaporation (or evapotranspiration) [kg/m²s].
