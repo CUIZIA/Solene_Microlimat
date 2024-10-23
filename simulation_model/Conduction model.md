@@ -20,7 +20,7 @@ Where:
 将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 $i$；（3）深层土壤的边界条件。
 
 <p align="center">
-  <img src="./Conduction_MHA.png" alt="Figure 1: Schematic representation of the soil model." width="50%">
+  <img src="./Conduction_MHA.png" alt="Figure 1: Schematic representation of the soil model." width="10%">
 </p>
 
 （1）能量平衡方程在表面节点 (i = 0) 处计算，需要考虑潜热和辐射。
