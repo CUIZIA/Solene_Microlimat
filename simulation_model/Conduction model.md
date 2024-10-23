@@ -160,11 +160,11 @@ T_n^{t+1} \\\\
 \quad \text{=} \quad
 \left[
 \begin{matrix}
-C_s \frac{T_s^t}{\Delta t} + R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
-C_1 \frac{T_1^t}{\Delta t} \\\\
-C_2 \frac{T_2^t}{\Delta t} \\\\
+\frac{C_s}{\Delta t} T_s^t + R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
+\frac{C_1}{\Delta t} T_1^t \\\\
+\frac{C_2}{\Delta t} T_2^t \\\\
 \vdots \\\\
-C_i \frac{T_i^t}{\Delta t} - \frac{T_{\infty}}{R_{\text{i+1}}} \\\\
+\frac{C_i}{\Delta t} T_i^t - \frac{T_{\infty}}{R_{\text{i+1}}} \\\\
 \end{matrix}
 \right]
 $$
