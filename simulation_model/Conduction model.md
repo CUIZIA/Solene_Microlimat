@@ -146,38 +146,37 @@ C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
 \vdots & \vdots & \vdots & \ddots & \vdots \\\\
 0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
 \end{matrix}
-\right] \tag{5}
+\right]
 $$
 
-\[
-\begin{pmatrix}
-C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \dots & 0 \\
--\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \dots & 0 \\
-0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \dots & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & \dots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n}
-\end{pmatrix}
-\begin{pmatrix}
-T_s^{n+1} \\
-T_1^{n+1} \\
-T_2^{n+1} \\
-\vdots \\
-T_n^{n+1}
-\end{pmatrix}
+$$
+\left[
+\begin{matrix}
+C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
+-\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
+0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \cdots & 0 \\\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\\\
+0 & \cdots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+T_s^{n+1} \\\\
+T_1^{n+1} \\\\
+T_2^{n+1} \\\\
+\vdots \\\\
+T_n^{n+1} \\\\
+\end{matrix}
+\right]
 =
-\begin{pmatrix}
-R_{\text{net}} - LE + \frac{T_a}{R_c} \\
-0 \\
-0 \\
-\vdots \\
-\frac{T_{\infty}}{R_{n+1}}
-\end{pmatrix}
-\]
-
-\[
-\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}
-\]
+\left[
+\begin{matrix}
+R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
+0 \\\\
+0 \\\\
+\vdots \\\\
+\frac{T_{\infty}}{R_{n+1}} \\\\
+\end{matrix}
+\right]
+$$
 
