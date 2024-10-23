@@ -140,7 +140,7 @@ For a soil model with \(n\) layers, the matrix form can be expressed as:
 $$
 \left[
 \begin{matrix}
-C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
+\frac{C_s}{\Delta t} + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
 -\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
 0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \cdots & 0 \\\\
 \vdots & \vdots & \vdots & \ddots & \vdots \\\\
@@ -160,11 +160,11 @@ T_n^{n+1} \\\\
 \quad \text{=} \quad
 \left[
 \begin{matrix}
-R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
-0 \\\\
-0 \\\\
+C_s \frac{T_s^n}{\Delta t} + R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
+C_1 \frac{T_1^n}{\Delta t} \\\\
+C_2 \frac{T_2^n}{\Delta t} \\\\
 \vdots \\\\
-\frac{T_{\infty}}{R_{n+1}} \\\\
+C_i \frac{T_i^n}{\Delta t} - \frac{T_{\infty}}{R_{\text{i+1}}} \\\\
 \end{matrix}
 \right]
 $$
