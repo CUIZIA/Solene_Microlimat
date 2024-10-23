@@ -25,7 +25,8 @@ Where:
 
 <p align="center"><b>Figure 1: Schematic representation of the soil model.</b></p>
 
-## Nomenclature
+## Conduction model methodology
+### Nomenclature
 - $C_s$ is the surface layer heat capacity $[J/m^2K]$.
 - $T_s$ is the surface temperature $[K]$.
 - $T_1$ is the temperature at the first node beneath the surface $[K]$.
@@ -39,9 +40,6 @@ Where:
 - $R_i$ is the heat resistance of the layer between the node $i-1$ and $i$ $[K/W]$.
 - $T_{\infty}$ is the deep soil temperature $[K]$.
 
-
-
-## test
 ### Implicit Finite Element Discretization for the Soil Model
 
 We consider the soil model divided into \(n\) layers, and we solve the heat conduction problem using the implicit finite element method (FEM). The model consists of three parts:
