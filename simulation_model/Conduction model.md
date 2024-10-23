@@ -130,9 +130,9 @@ $$
 
 Where:
 
-- \(\mathbf{A}\) represents the system's coefficient matrix,
-- \(\mathbf{T}^{t+1}\) is the unknown temperature vector at the next time step $t+1$,
-- \(\mathbf{b}\) is a combination of known values, including constant terms and contributions from the previous time step $n$.
+- $\mathbf{A}$ represents the system's coefficient matrix,
+- $\mathbf{T}^{t+1}$ is the unknown temperature vector at the next time step $t+1$,
+- $\mathbf{b}$ is a combination of known values, including constant terms and contributions from the previous time step $n$.
 
 For a soil model with \(n\) layers, the matrix form can be expressed as:
 
