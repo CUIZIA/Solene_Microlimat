@@ -141,10 +141,10 @@ $$
 \left[
 \begin{matrix}
 \frac{C_s}{\Delta t} + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
--\frac{1}{R_1} & C_1 + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
-0 & -\frac{1}{R_2} & C_2 + \frac{1}{R_2} + \frac{1}{R_3} & \cdots & 0 \\\\
+-\frac{1}{R_1} & \frac{C_1}{\Delta t} + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
+0 & -\frac{1}{R_2} & \frac{C_2}{\Delta t}+ \frac{1}{R_2} + \frac{1}{R_3} & \cdots & 0 \\\\
 \vdots & \vdots & \vdots & \ddots & \vdots \\\\
-0 & \cdots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
+0 & \cdots & 0 & -\frac{1}{R_n} & \frac{C_n}{\Delta t} + \frac{1}{R_n} \\\\
 \end{matrix}
 \right]
 \times
