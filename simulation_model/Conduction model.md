@@ -19,7 +19,7 @@ Where:
 
 将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 \(i\)；（3）深层土壤的边界条件。
 
-（1）能量平衡方程在表面节点 \(i = 0\) 处计算，需要考虑潜热和辐射。
+（1）能量平衡方程在表面节点 ($i = 0$) 处计算，需要考虑潜热和辐射。
 
 $$
 C_s \frac{dT_s}{dt} + \frac{T_s - T_a}{R_c} + \frac{T_s - T_1}{R_1} = R_{\text{net}}  - L E
@@ -31,7 +31,19 @@ Where:
 - $T_s$ is the surface temperature $[K]$.
 - $T_1$ is the temperature at the first node beneath the surface $[K]$.
 - $T_a$ is the air temperature $[K]$.
-- $R_c$ is defined as $R_c = \frac{1}{h_c}$, where $h_c$ is the convective heat transfer coefficient $[W/m²K]$.
-- $R_1$ is the thermal resistance between the surface and the first node $[K/W]$.
+- $R_c$ is defined as $R_c = \frac{1}{h_c}$, where $h_c$ is the convective heat transfer coefficient.
+- $R_1$ is the heat resistance between the surface and the first node $[K/W]$.
 - $R_{\text{net}}$ is the net radiation $[W/m^2]$.
 - $LE$ is the latent heat flux $[W/m^2]$.
+
+（2）能量平衡方程在内部节点$i$处计算：
+
+$$
+C_i\frac{dT_i}{dt} + \frac{T_i-T_{\text{i+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}-T_i}{R_i} = 0
+$$
+
+Where:
+
+- $C_i$ is the heat capacity of the layer at the node $i$ $[J/m^2K]$.
+- $T_i$ is the temperature of the node i $[K]$.
+- $R_i$ is the heat resistance of the layer between the node $i-1$ and $i$ $[K/W]$.
