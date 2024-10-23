@@ -10,9 +10,9 @@ $$
 
 Where:
 
-- \( T \) is the temperature [K].
-- \( t \) is the time [s].
-- \( x \) is the spatial coordinate [m].
+- \( $T$ ) is the temperature $[K]$.
+- \( $t$ ) is the time $[s]$.
+- \( $x$ ) is the spatial coordinate $[m]$.
 - \( $\alpha_{soil}$ ) is the thermal diffusivity of the soil $[m^2/s]$.
 
 This equation describes the transient heat conduction through a one-dimensional medium (e.g., soil) and is used to model how temperature changes over time and space within the soil.
