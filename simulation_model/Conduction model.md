@@ -159,6 +159,7 @@ C_s + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
 0 & \cdots & 0 & -\frac{1}{R_n} & C_n + \frac{1}{R_n} \\\\
 \end{matrix}
 \right]
+\times
 \left[
 \begin{matrix}
 T_s^{n+1} \\\\
@@ -179,3 +180,18 @@ R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
 \right]
 $$
 
+   \[  \begin{bmatrix}
+         0 & 1\\ 
+         0 & 0 
+     \end{bmatrix}
+     \times
+     \begin{bmatrix}
+         0 & 0\\ 
+         1 & 0  
+     \end{bmatrix}
+      =
+     \begin{bmatrix}
+         1 & 0\\ 
+         0 & 0   
+     \end{bmatrix} \] 
+\end{document}
