@@ -148,8 +148,9 @@ T(z,t) = T_{\text{ma}} + A_a \cdot exp(-\frac{z}{zd_a})sin(w_a(t-t_0)-\frac{z}{z
 $$
 
 Where,
-$T_{\text{ma}}$ is mean annual temperature $[°C]$.
-$A_a$ is annual half amplitude of the climatic thermal wave at the surface $[°C]$.
-$zd_a$ is damping depth with an annual beat $[m]$.
-$w_a$ is annual beat $w_a = 2 \cdot \pi / 31536000 [rad.s^-1]$.
-$t_0$ is day of the year where the surface temperature was the coldest.
+- $T_{\text{ma}}$ is mean annual temperature $[°C]$.
+- $A_a$ is annual half amplitude of the climatic thermal wave at the surface $[°C]$.
+- $zd_a$ is damping depth with an annual beat, $z_d = \sqrt{\frac{2 \alpha_sol}{w_a}} [m]$.
+- $w_a$ is annual beat $w_a = 2 \cdot \pi / 31536000 [rad.s^-1]$.
+- $t_0$ is day of the year where the surface temperature was the coldest.
+- $\alpha_sol$ is thermal diffusivity of the sol $[m^2/s]$
