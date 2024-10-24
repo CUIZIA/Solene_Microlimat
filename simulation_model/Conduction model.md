@@ -106,7 +106,7 @@ Where:
 - $\mathbf{T}^{t+1}$ is the unknown temperature vector at the next time step $t+1$,
 - $\mathbf{B}$ is a combination of known values, including constant terms and contributions from the previous time step $n$.
 
-For a soil model with \(n\) layers, the matrix form can be expressed as:
+For impermeable soil, between the time steps $[t − 1]$ and $[t]$ the matrix system is written:
 
 $$
 \left[
