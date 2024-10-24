@@ -158,9 +158,9 @@ Where,
 
 The thermal diffusivity is calculated using the following formula:
 
-\[
+$$
 \alpha_{\text{sol\_eq}} = \frac{\lambda_{\text{sol\_eq}}}{\rho_{\text{sol\_eq}} \cdot C_{p_{\text{sol\_eq}}}} \times 24 \times 3600
-\]
+$$
 
 Where:
 - \( \lambda_{\text{sol\_eq}} \) is the equivalent thermal conductivity.
