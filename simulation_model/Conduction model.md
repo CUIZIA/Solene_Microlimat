@@ -144,7 +144,7 @@ $$
 In deep soil, the temperature is assumed to remain constant over the course of a day. For homogeneous soil, an analytical solution can be used to calculate the temperature at any depth if the surface temperature is considered to be sinusoidal. The parameters $T_{\text{ma}}$, $A_a$ and $t_0$ are respectively the mean, the amplitude, and the phase of a day surface temperature signal:
 
 $$
-T(z,t) = T_{\text{ma}} + A_a \cdot exp(-\frac{z}{zd_a})sin(w_a(t-t_0)-\frac{z}{zd_a})
+T(z,t) = T_{\text{ma}} + A_a \cdot exp\left[-\frac{z}{zd_a}\right]sin\left[w_a(t-t_0)-\frac{z}{zd_a})\right]
 $$
 
 Where,
