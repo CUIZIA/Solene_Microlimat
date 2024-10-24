@@ -154,7 +154,7 @@ Where,
 - $w_a$ is annual beat $w_a = 2 \cdot \pi / 365$ $[rad \cdot day^-1]$.
 - $t$ is day of year number (1 to 365).
 - $t_0$ is day of the year where the surface temperature was the coldest.
-- $\alpha_sol$ is thermal diffusivity of the sol $[m^2/s]$
+- $\alpha_{\text{sol}}$ is thermal diffusivity of the sol $[m^2/s]$
 
 The thermal diffusivity is calculated using the following formula:
 
