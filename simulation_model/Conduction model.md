@@ -163,7 +163,7 @@ $$
 $$
 
 Where:
-- \( \lambda_{\text{sol\_eq}} \) is the equivalent thermal conductivity.
-- \( \rho_{\text{sol\_eq}} \) is the equivalent soil density.
-- \( C_{p_{\text{sol\_eq}}} \) is the equivalent specific heat capacity.
-- The multiplication by \( 24 \times 3600 \) converts the thermal diffusivity into units of square meters per day.
+- $\lambda_{\text{sol\_eq}}$ is the equivalent thermal conductivity.
+- $\rho_{\text{sol\_eq}}$ is the equivalent soil density.
+- $C_{p_{\text{sol\_eq}}}$ is the equivalent specific heat capacity.
+- The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per day.
