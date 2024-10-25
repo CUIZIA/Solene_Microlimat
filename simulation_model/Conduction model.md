@@ -159,13 +159,11 @@ Where,
 The thermal diffusivity is calculated using the following formula:
 
 $$
-\alpha_{\text{sol\_eq}} = \frac{\lambda_{\text{sol\_eq}}}{\rho_{\text{sol\_eq}} \cdot C_{p_{\text{sol\_eq}}}} \cdot 24 \cdot 3600
+\alpha_{\text{sol}} = \frac{\lambda_{\text{sol}}}{\rho_{\text{sol}} \cdot C_{p_{\text{sol}}}} \cdot 24 \cdot 3600
 $$
 
 Where:
-$T_{\text{ma}}$
-$\lambda$
-- $\lambda_{\text{sol\_eq}}$ is the equivalent thermal conductivity.
-- $\rho_{\text{sol\_eq}}$ is the equivalent soil density.
-- $C_{p_{\text{sol\_eq}}}$ is the equivalent specific heat capacity.
+- $\lambda_{\text{sol}}$ is the equivalent thermal conductivity.
+- $\rho_{\text{sol}}$ is the equivalent soil density.
+- $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
 - The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per day.
