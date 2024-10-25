@@ -164,6 +164,7 @@ $$
 
 Where:
 $T_{\text{ma}}$
+$\lambda$
 - $\lambda_{\text{sol\_eq}}$ is the equivalent thermal conductivity.
 - $\rho_{\text{sol\_eq}}$ is the equivalent soil density.
 - $C_{p_{\text{sol\_eq}}}$ is the equivalent specific heat capacity.
