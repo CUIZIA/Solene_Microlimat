@@ -80,7 +80,7 @@ $$
 
 #### 3 Deep Soil Boundary Condition
 
-At the deep soil boundary, the temperature is assumed to approach a constant \(T_\infty\). The energy balance equation at the bottom node is:
+At the deep soil boundary, the temperature is assumed to approach a constant $T_{\infty}$. The energy balance equation at the bottom node is:
 
 $$
 C_i \frac{dT_i}{dt} + \frac{T_i - T_{\infty}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}} - T_i}{R_i} = 0
