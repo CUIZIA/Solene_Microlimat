@@ -149,7 +149,7 @@ $$
 
 Where,
 - $T_{\text{ma}}$ is mean annual temperature $[°C]$.
-- $A_a$ is annual half amplitude of the climatic thermal wave at the surface $[°C]$.
+- $A_a$ is annual half amplitude of the climatic thermal wave at the surface $[°C]$, $A_a = \frac{T_{\text{air,max}} - T_{\text{air,min}}}{2}$.
 - $zd_a$ is damping depth with an annual beat, $z_d = \sqrt{\frac{2 \alpha_{\text{sol}}}{w_a}}$ $[m]$.
 - $w_a$ is annual beat $w_a = 2 \cdot \pi / 365$ $[rad \cdot day^-1]$.
 - $t$ is day of year number (1 to 365).
@@ -166,4 +166,6 @@ Where:
 - $\lambda_{\text{sol}}$ is the equivalent thermal conductivity.
 - $\rho_{\text{sol}}$ is the equivalent soil density.
 - $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
-- The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per day.
+- The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per second $[m^2/s]$.
+
+
