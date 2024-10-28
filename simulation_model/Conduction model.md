@@ -168,4 +168,4 @@ Where:
 - $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
 - The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per second $[m^2/s]$.
 
-
+### Convergence conditions
