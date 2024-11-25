@@ -1,8 +1,11 @@
 # Conduction Model - SOLENE THERMAL MODEL
 
-SOLENE-Microclimat 模型是耦合了基于SOLENE的辐射、热模型以及Code_Saturne的流体力学模型。根据表面的类型分为不同的热辐射平衡方案：不透水地面、植被地面和建筑物墙壁（这里我们只详细解释不透水地面的情况，只考虑热传递而忽略湿气传递）。另外在此模型是一维的，所以
+The SOLENE-Microclimat model integrates the radiation and thermal modules of SOLENE with the fluid dynamics module of Code_Saturne. It employs different thermal radiation balance schemes depending on the type of surface: impermeable ground surfaces, vegetated ground surfaces, and building walls. This explanation focuses on the impermeable ground surface case, where only heat transfer is considered, neglecting moisture transfer. The SOLENE code is structured into four main components (as illustrated below): (1) updating surface temperatures using the relaxation factor; (2) solar radiation computation; (3) conduction model methodology; and (4) convergence assessment. The following sections provide a detailed explanation of the model and its implementation.
 
-地面热传导模型采用的是Marie-Hélène Azam开发的土壤模型，她提出的土壤模型是为路面涂层等不透水表面设计的。因此，只考虑热传递（忽略水分传递）。土壤模型是一维的，其中每层都有自己的特性。在非稳定状态下，温度波动是根据方程 (1) 计算的，这是热方程在一维问题中的应用。SOLENE中的热传导的核心是使用电类比的隐式差分形式来求解。热阻代表了通过地面层的热传递阻力，热容代表了地面层的热存储能力，如图1所示。土壤模型由n个节点组成。
+## Conduction model methodology
+The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
+
+The core of the conduction model in SOLENE is solved using an implicit finite difference formulation inspired by electrical analogy. Thermal resistance represents the resistance to heat transfer through the ground layers, and thermal capacitance represents the ability of the ground layers to store heat, as illustrated in **Figure x**. The soil model consists of $n$ nodes, with each node representing a specific layer of the ground.
 
 The general heat conduction equation in soil can be written as:
 
@@ -25,7 +28,6 @@ Where:
 
 <p align="center"><b>Figure 1: Schematic representation of the soil model.</b></p>
 
-## Conduction model methodology
 ### Nomenclature
 - $C_s$ is the surface layer heat capacity $[J/m^2K]$.
 - $T_s$ is the surface temperature $[K]$.
