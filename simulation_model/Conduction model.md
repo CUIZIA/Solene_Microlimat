@@ -176,4 +176,26 @@ Where:
 - $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
 - The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per second $[m^2/s]$.
 
-### Convergence conditions
+
+## Convergence Validation
+This section of the code implements a convergence test for surface temperatures (fc_Tsext) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (eps1 for individual errors and eps2 for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations.
+
+### Principles of the Algorithm
+- **Iterative Testing**: Evaluates the temperature deviations for each surface element in an iterative manner.
+- **Threshold-Based Evaluation**: Compares individual and global deviations against predefined thresholds (`eps1` and `eps2`).
+- **Dynamic Updates**: Tracks and updates the number of non-converged elements across iterations.
+- **Final Convergence Check**: Determines if the simulation can stop based on the percentage of non-converged elements (`ratio_face_non_cv`).
+- **Maximum Iterations**: Caps the number of iterations at 50 to avoid infinite loops and reduce computational cost.
+
+### Code Variables
+| Variable                  | Role                                                                 |
+|---------------------------|----------------------------------------------------------------------|
+| `test_Ts`                 | Tracks the number of non-converged elements in the current iteration.|
+| `somme_deltaT`            | Accumulates the total deviation for computing the global average.    |
+| `deltaT`                  | Absolute difference between the current and previous surface temperatures for an element. |
+| `eps1`                    | Threshold for individual element deviation.                         |
+| `eps2`                    | Threshold for global average deviation.                             |
+| `n_face_non_cv_old_1`     | Number of non-converged elements in the current iteration.           |
+| `n_face_non_cv_old_2`     | Number of non-converged elements in the previous iteration.          |
+| `ratio_face_non_cv`       | Maximum allowable percentage of non-converged elements for acceptable convergence. |
+| `iter`                    | Iteration counter to enforce maximum iteration limits.              |
