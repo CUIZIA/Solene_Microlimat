@@ -26,7 +26,7 @@ Where:
 - $x$ is the spatial coordinate $[m]$.
 - $\alpha_{\text{soil}}$ is the thermal diffusivity of the soil $[m^2/s]$.
 
-The soil is divided into $n$ layers, and we can consider three scenarios, including: (1) the boundary condition where the soil is in contact with the air; (2) the internal nodes of the soil $i$; (3) the boundary condition for deep soil.
+The soil is divided into $n$ layers, and we can consider three scenarios, including: (1) Surface Boundary Condition (Soil-Air Interface); (2) Internal Nodes of the soil $i$; (3) Deep Soil Boundary Condition.
 
 <p align="center">
   <img src="/fig/Conduction_MHA.png" alt="Schematic representation of the soil model." width="25%">
@@ -56,7 +56,7 @@ We consider the soil model divided into \(n\) layers, and we solve the heat cond
 2. Internal nodes,
 3. Deep soil boundary condition.
 
-#### 1 Surface Boundary Condition (Soil-Air Interface)
+#### (1) Surface Boundary Condition (Soil-Air Interface)
 
 At the surface node ($i = 0$), the energy balance equation accounts for latent heat, radiation, and conduction between the surface and the first layer beneath it:
 
@@ -72,7 +72,7 @@ $$
 
 This forms part of the matrix system where $T_s^{t+1}$ depends on the surface and the first internal node.
 
-#### 2 Internal Nodes
+#### (2) Internal Nodes
 
 For internal nodes $i$, the energy balance equation is:
 
@@ -86,7 +86,7 @@ $$
 C_i \frac{T_i^{t+1} - T_i^t}{\Delta t} + \frac{T_i^{t+1} - T_{\text{i+1}}^{t+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{t+1} - T_i^{t+1}}{R_i} = 0
 $$
 
-#### 3 Deep Soil Boundary Condition
+#### (3) Deep Soil Boundary Condition
 
 At the deep soil boundary, the temperature is assumed to approach a constant $T_{\infty}$. The energy balance equation at the bottom node is:
 
