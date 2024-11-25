@@ -2,6 +2,12 @@
 
 The SOLENE-Microclimat model integrates the radiation and thermal modules of SOLENE with the fluid dynamics module of Code_Saturne. It employs different thermal radiation balance schemes depending on the type of surface: impermeable ground surfaces, vegetated ground surfaces, and building walls. This explanation focuses on the impermeable ground surface case, where only heat transfer is considered, neglecting moisture transfer. The SOLENE code is structured into four main components (as illustrated below): (1) updating surface temperatures using the relaxation factor; (2) solar radiation computation; (3) conduction model methodology; and (4) convergence assessment. The following sections provide a detailed explanation of the model and its implementation.
 
+<p align="center">
+  <img src="./fig/workflow.png" alt="Code Flowchart of SOLENE" width="25%">
+</p>
+
+<p align="center"><b>Figure 1: Code Flowchart of SOLENE.</b></p>
+
 ## Conduction model methodology
 The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
 
@@ -23,7 +29,7 @@ Where:
 将土壤分解为n层，我们可以分3种情况考虑，包括：（1）土壤与空气接触的边界条件；（2）土壤内部节点 $i$；（3）深层土壤的边界条件。
 
 <p align="center">
-  <img src="./Conduction_MHA.png" alt="Figure 1: Schematic representation of the soil model." width="25%">
+  <img src="./fig/Conduction_MHA.png" alt="Figure 2: Schematic representation of the soil model." width="25%">
 </p>
 
 <p align="center"><b>Figure 1: Schematic representation of the soil model.</b></p>
