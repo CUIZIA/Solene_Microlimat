@@ -192,10 +192,10 @@ This section of the code implements a convergence test for surface temperatures 
 |---------------------------|----------------------------------------------------------------------|
 | `test_Ts`                 | Tracks the number of non-converged elements in the current iteration.|
 | `somme_deltaT`            | Accumulates the total deviation for computing the global average.    |
-| `deltaT`                  | Absolute difference between the current and previous surface temperatures for an element. |
+| `deltaT`                  | Absolute difference between the current and previous surface temperatures. |
 | `eps1`                    | Threshold for individual element deviation.                         |
 | `eps2`                    | Threshold for global average deviation.                             |
 | `n_face_non_cv_old_1`     | Number of non-converged elements in the current iteration.           |
 | `n_face_non_cv_old_2`     | Number of non-converged elements in the previous iteration.          |
-| `ratio_face_non_cv`       | Maximum allowable percentage of non-converged elements for acceptable convergence. |
+| `ratio_face_non_cv`       | Percentage of non-converged elements for acceptable convergence. |
 | `iter`                    | Iteration counter to enforce maximum iteration limits.              |
