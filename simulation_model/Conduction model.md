@@ -178,7 +178,7 @@ Where:
 
 
 ## Convergence Validation
-This section of the code implements a convergence test for surface temperatures (fc_Tsext) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (eps1 for individual errors and eps2 for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations.
+This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations.
 
 ### Principles of the Algorithm
 - **Iterative Testing**: Evaluates the temperature deviations for each surface element in an iterative manner.
