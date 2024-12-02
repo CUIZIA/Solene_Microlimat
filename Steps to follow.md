@@ -42,6 +42,8 @@ $$ Re = \frac{V_{air} \cdot L}{v},
 Ba = \frac{1}{T_{air} + 273}, 
 Gr = \frac{Ba \cdot g \cdot L^3 \cdot |T_{surf} - T_{air}|}{v^2} $$
 
+<div align="center">
+    
 | Type de convection | Régime de l’écoulement | Condition de validité                | Formule pour \( h \)                               |
 |---------------------|------------------------|---------------------------------------|---------------------------------------------------|
 | Libre              | Laminaire             | $Re^2 << Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.49 \cdot Gr^{\frac{1}{4}}$ |
@@ -50,6 +52,8 @@ Gr = \frac{Ba \cdot g \cdot L^3 \cdot |T_{surf} - T_{air}|}{v^2} $$
 | Forcée             | Turbulent             | $Re^2 >> Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.03 \cdot Re^{\frac{4}{5}}$ |
 | Mixte              | Laminaire             | $10 \cdot Re^2 \approx Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.68 \cdot \left( 0.57 \cdot Gr^{\frac{3}{4}} + Re^{\frac{3}{2}} \right)^{\frac{1}{3}}$ |
 | Mixte              | Turbulent             | $10 \cdot Re^2 \approx Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.03 \cdot \left( 12.1 \cdot Gr + Re^{\frac{12}{5}} \right)^{\frac{1}{3}}$ |
+
+</div>
 
 - **"03"** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of $h_c$ in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with $a_c = 1.4$ and $d_c = 0.5$, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
 - **"04"** Use Denby model, which estimates the convection coefficient using the atmospheric density ($\rho_a$), heat capacity of dry air ($c_{pair}$), and aerodynamic resistance for temperature ($r_T$) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
