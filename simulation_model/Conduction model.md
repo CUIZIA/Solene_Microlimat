@@ -199,3 +199,9 @@ This section of the code implements a convergence test for surface temperatures 
 | `n_face_non_cv_old_2`     | Number of non-converged elements in the previous iteration.          |
 | `ratio_face_non_cv`       | Percentage of non-converged elements for acceptable convergence. |
 | `iter`                    | Iteration counter to enforce maximum iteration limits.              |
+
+<p align="center">
+  <img src="/fig/convergence.png" alt="Code Flowchart of convergence" width="90%">
+</p>
+
+<p align="center"><b>Figure 3: Convergence Validation Process.</b></p>
