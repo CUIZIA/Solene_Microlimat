@@ -37,6 +37,7 @@ Change one correlation at a time:
 
 - **"01"** Keep the default model for the conduction transfer through urban surfaces (`simulation_Ts_EnergieBat.exe`) and no airflow + wind taken at 10m. Wind intensity below 0.5m/s should be fixed to 0.5m/s.
 - **"02"** Use MH Azam correlation for walls, roofs, and ground, it applies the Nusselt model as shown in follow table(script for calculation of $h_c$ in Python: [link](https://cerema.app.box.com/file/1557148585662)).
+
 | Type de convection | Régime de l’écoulement | Condition de validité                | Formule pour \( h \)                               |
 |---------------------|------------------------|---------------------------------------|---------------------------------------------------|
 | Libre              | Laminaire             | \( 10 \cdot Re^2 < Gr \) et \( Gr < 10^9 \) | \( h = \frac{\lambda}{L} \cdot 0.49 \cdot Gr^{\frac{1}{4}} \) |
