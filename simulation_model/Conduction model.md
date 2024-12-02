@@ -201,7 +201,7 @@ This section of the code implements a convergence test for surface temperatures 
 | `iter`                    | Iteration counter to enforce maximum iteration limits.              |
 
 <p align="center">
-  <img src="/fig/convergence.png" alt="Code Flowchart of convergence" width="90%">
+  <img src="/fig/convergence.png" alt="Code Flowchart of convergence" width="100%">
 </p>
 
 <p align="center"><b>Figure 3: Convergence Validation Process.</b></p>
