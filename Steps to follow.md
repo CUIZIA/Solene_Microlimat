@@ -40,10 +40,10 @@ Change one correlation at a time:
 
 | Type de convection | Régime de l’écoulement | Condition de validité                | Formule pour \( h \)                               |
 |---------------------|------------------------|---------------------------------------|---------------------------------------------------|
-| Libre              | Laminaire             | $10 \cdot Re^2 < Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.49 \cdot Gr^{\frac{1}{4}}$ |
-| Libre              | Turbulent             | $10 \cdot Re^2 < Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.13 \cdot Gr^{\frac{1}{3}}$ |
-| Forcée             | Laminaire             | $Re^2 > 10 \cdot Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.56 \cdot Re^{\frac{1}{2}}$ |
-| Forcée             | Turbulent             | $Re^2 > 10 \cdot Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.03 \cdot Re^{\frac{4}{5}}$ |
+| Libre              | Laminaire             | $ Re^2 << Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.49 \cdot Gr^{\frac{1}{4}}$ |
+| Libre              | Turbulent             | $ Re^2 << Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.13 \cdot Gr^{\frac{1}{3}}$ |
+| Forcée             | Laminaire             | $Re^2 >> Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.56 \cdot Re^{\frac{1}{2}}$ |
+| Forcée             | Turbulent             | $Re^2 >> Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.03 \cdot Re^{\frac{4}{5}}$ |
 | Mixte              | Laminaire             | $10 \cdot Re^2 \approx Gr$ et $Gr < 10^9$ | $h = \frac{\lambda}{L} \cdot 0.68 \cdot \left( 0.57 \cdot Gr^{\frac{3}{4}} + Re^{\frac{3}{2}} \right)^{\frac{1}{3}}$ |
 | Mixte              | Turbulent             | $10 \cdot Re^2 \approx Gr$ et $Gr \geq 10^9$ | $h = \frac{\lambda}{L} \cdot 0.03 \cdot \left( 12.1 \cdot Gr + Re^{\frac{12}{5}} \right)^{\frac{1}{3}}$ |
 
