@@ -62,7 +62,8 @@ Gr = \frac{Ba \cdot g \cdot L^3 \cdot |T_{surf} - T_{air}|}{v^2} $$
 - **"03"** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of $h_c$ in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with $a_c = 1.4$ and $d_c = 0.5$, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
 
 $$
-h = U_{10}^b \cdot (a_0 + a_1 \cdot W + a_2 \cdot W^2 + a_3 \cdot W^3 + a_4 \cdot W^4 + a_5 \cdot H + a_6 \cdot H^2 + a_7 \cdot H^3 + a_8 \cdot H^4 + a_9 \cdot W \cdot H + a_{10} \cdot W \cdot H^2 + a_{11} \cdot W \cdot H^3 + a_{12} \cdot W^2 \cdot H + a_{13} \cdot W^2 \cdot H^2 + a_{14} \cdot W^2 \cdot H^3 + a_{15} \cdot W^3 \cdot H + a_{16} \cdot W^3 \cdot H^2 + a_{17} \cdot W^3 \cdot H^3)
+h = U_{10}^b \cdot (a_0 + a_1 \cdot W + a_2 \cdot W^2 + a_3 \cdot W^3 + a_4 \cdot W^4 + a_5 \cdot H + a_6 \cdot H^2 + a_7 \cdot H^3 + a_8 \cdot H^4 + a_9 \cdot W \cdot H + a_{10} \cdot W \cdot H^2 + a_{11} \cdot W \cdot H^3 + 
+a_{12} \cdot W^2 \cdot H + a_{13} \cdot W^2 \cdot H^2 + a_{14} \cdot W^2 \cdot H^3 + a_{15} \cdot W^3 \cdot H + a_{16} \cdot W^3 \cdot H^2 + a_{17} \cdot W^3 \cdot H^3)
 $$
 
 Les valeurs des coefficients ( $a_0, a_1, \dots, a_{17}$ ) et ( $b$ ) dépendent du type de surface étudiée: façade au vent, façade sous le vent, façade latérale, et toiture.
