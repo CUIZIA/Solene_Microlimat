@@ -55,6 +55,10 @@ Gr = \frac{Ba \cdot g \cdot L^3 \cdot |T_{surf} - T_{air}|}{v^2} $$
 
 </div>
 
+<p align="center">
+  <img src="/fig/Nusselt convection model.png" alt="Nusselt convection model" width="90%">
+</p>
+
 - **"03"** Use Montazeri [link](https://cerema.app.box.com/file/1557062701832)[3], script for calculation of $h_c$ in Python [link](https://cerema.app.box.com/file/1592767323891) for roofs and walls (differentiating leeward, windward, and side facades according to the main wind direction) and use Vehrencamp model (second version with $a_c = 1.4$ and $d_c = 0.5$, you can find the equation here: [link](https://cerema.app.box.com/file/1593887985213)[4]) for ground.
 - **"04"** Use Denby model, which estimates the convection coefficient using the atmospheric density ($\rho_a$), heat capacity of dry air ($c_{pair}$), and aerodynamic resistance for temperature ($r_T$) [link](https://cerema.app.box.com/file/1593887985213)[4], with:
 
