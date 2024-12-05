@@ -216,6 +216,7 @@ SOLENE introduces a `calc_GLO` function for calculating the net long-wave radiat
 $$
 GLO_net = GLO_resu - GLO_emi
 $$
+
 where $GLO$ is the long-wave radiation (Grande Longueur d’Onde).
 The long-wave radiation for each surface recieve from the atmosphere $GLO_atm$ and the surrounding surfaces $GLO_env$, which are calculated as follow:
 
@@ -223,4 +224,7 @@ $$
 GLO_atm = SVF \cdot \Sigma \cdot \Epsilon \cdot T_air^4
 $$
 
-where $\Sigma$ is step
+where $\Sigma$ is steph constant value, equals to $5.67e-8$;
+$\Epsilon$ is the emissivity of the surface;
+$SVF$ is the sky view factor;
+$T_air$ is the air temperature.
