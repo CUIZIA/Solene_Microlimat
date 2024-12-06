@@ -224,7 +224,8 @@ $$
 GLO_{\text{atm}} = SVF \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
 $$
 
-where $\sigma$ is Steffan-Boltzman constant $5.67×10^{−8}$;
-$\varepsilon$ is the emissivity of the surface;
-$SVF$ is the sky view factor;
-$T_air$ is the air temperature $[K]$.
+Where,
+- $\sigma$ is Steffan-Boltzman constant $5.67×10^{−8}$;
+- $\varepsilon$ is the emissivity of the surface;
+- $SVF$ is the sky view factor;
+- $T_air$ is the air temperature $[K]$.
