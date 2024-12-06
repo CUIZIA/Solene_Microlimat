@@ -211,14 +211,14 @@ This section of the code implements a convergence test for surface temperatures 
 ## Long-wave radiation calculation (Net)
 After obtain the new surface temperature, we need to also update the long-wave radiation emitting from the surface and again calculate the net long-wave radiation for each surface.
 
-SOLENE introduces a `calc_GLO` function for calculating the net long-wave radiation. As describe in the follow equation, the net long-wave radiation equals to the radiation you recieve minus the radiation you emit:
+SOLENE introduces a `calc_GLO` function for calculating the net long-wave radiation. As describe in the follow equation, the net long-wave radiation equals to the radiation you emit minus the radiation you recieve:
 
 $$
-GLO_{\text{net}} = GLO_{\text{resu}} - GLO_{\text{emi}}
+GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
 $$
 
 where $GLO$ is the long-wave radiation (Grande Longueur d’Onde).
-The long-wave radiation for each surface recieve from the atmosphere $GLO_atm$ and the surrounding surfaces $GLO_env$, which are calculated as follow:
+The long-wave radiation for each surface recieve from the atmosphere $GLO_{\text{atm}}$ and the surrounding surfaces $GLO_env$, which are calculated as follow:
 
 $$
 GLO_{\text{atm}} = SVF \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
