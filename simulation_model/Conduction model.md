@@ -214,17 +214,17 @@ After obtain the new surface temperature, we need to also update the long-wave r
 SOLENE introduces a `calc_GLO` function for calculating the net long-wave radiation. As describe in the follow equation, the net long-wave radiation equals to the radiation you recieve minus the radiation you emit:
 
 $$
-GLO_net = GLO_resu - GLO_emi
+GLO_{\text{net}} = GLO_{\text{resu}} - GLO_{\text{emi}}
 $$
 
 where $GLO$ is the long-wave radiation (Grande Longueur d’Onde).
 The long-wave radiation for each surface recieve from the atmosphere $GLO_atm$ and the surrounding surfaces $GLO_env$, which are calculated as follow:
 
 $$
-GLO_atm = SVF \cdot \Sigma \cdot \Epsilon \cdot T_air^4
+GLO_{\text{atm}} = SVF \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
 $$
 
-where $\Sigma$ is steph constant value, equals to $5.67e-8$;
-$\Epsilon$ is the emissivity of the surface;
+where $\sigma$ is Steffan-Boltzman constant $5.67×10^{−8}$;
+$\varepsilon$ is the emissivity of the surface;
 $SVF$ is the sky view factor;
-$T_air$ is the air temperature.
+$T_air$ is the air temperature $[K]$.
