@@ -209,7 +209,7 @@ This section of the code implements a convergence test for surface temperatures 
 ## Update surface temperature
 
 ## Long-wave radiation calculation (Net)
-After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation from the atmosphere $ GLO_{\text{net,atm}} $ and net long-wave radiation within the scene $ GLO_{\text{net,scene}} $. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
+After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation from the atmosphere $GLO_{\text{net,atm}}$ and net long-wave radiation within the scene $GLO_{\text{net,scene}}$. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
 To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $ GLO_{\text{net}} $ for a surface is given by:
 
@@ -218,21 +218,21 @@ GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
 $$
 
 where:
-- $ GLO $: Long-wave radiation ($ \text{Grande Longueur d’Onde} $).
+- $GLO$: Long-wave radiation ($\text{Grande Longueur d’Onde}$).
 
 ### Calculation of Atmospheric Long-Wave Radiation
 
-The atmospheric long-wave radiation received by each surface ($ GLO_{\text{atm}} $) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
+The atmospheric long-wave radiation received by each surface ($GLO_{\text{atm}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
 
 $$
 GLO_{\text{atm}} = \text{SVF} \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
 $$
 
 Where:
-- $ \sigma $: Stefan-Boltzmann constant, $ 5.67 \times 10^{-8} \, [\text{Wm}^{-2}\text{K}^{-4}] $,
-- $ \varepsilon $: Emissivity of the surface,
-- $ \text{SVF} $: Sky View Factor,
-- $ T_{\text{air}} $: Air temperature $[K]$.
+- $\sigma$: Stefan-Boltzmann constant, $5.67 \times 10^{-8}, [\text{Wm}^{-2}\text{K}^{-4}]$,
+- $\varepsilon$: Emissivity of the surface,
+- $\text{SVF}$: Sky View Factor,
+- $T_{\text{air}}$: Air temperature $[K]$.
 
 #### Internal Reflection of Atmospheric Long-Wave Radiation
 
