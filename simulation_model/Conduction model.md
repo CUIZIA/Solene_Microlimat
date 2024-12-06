@@ -228,4 +228,4 @@ Where,
 - $\sigma$ is Steffan-Boltzman constant $5.67×10^{−8}$;
 - $\varepsilon$ is the emissivity of the surface;
 - $SVF$ is the sky view factor;
-- $T_air$ is the air temperature $[K]$.
+- $T_{\text{air}}$ is the air temperature $[K]$.
