@@ -236,19 +236,21 @@ Where:
 
 #### Internal Reflection of Atmospheric Long-Wave Radiation
 
+todo
+
 ### Scene Long-Wave Radiation Calculation
 
-The net long-wave radiation exchange between surfaces within the scene is computed iteratively. For a reference surface (\( \text{numero\_contour\_ref} \)), the radiation exchange is updated using the following formula:
+The net long-wave radiation exchange between surfaces within the scene is computed iteratively. For a reference surface ($\text{numero\_contour\_ref}$), the radiation exchange is updated using the following formula:
 
-\[
-GLO_{\text{Scene, Net}}[\text{numero\_contour\_ref}] += \sigma \cdot F_{ij} \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
-\]
+$$
+GLO_{\text{net,scene,i}} = \sigma \cdot F_{ij} \cdot A_i \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
+$$
 
 Where:
-- \( \sigma \): Stefan-Boltzmann constant,
-- \( F_{ij} \): Form factor (shape factor) between surfaces \( i \) and \( j \),
-- \( \varepsilon_i \), \( \varepsilon_j \): Emissivities of surfaces \( i \) and \( j \),
-- \( T_i \), \( T_j \): Temperatures of surfaces \( i \) and \( j \).
+- $\sigma$: Stefan-Boltzmann constant,
+- $F_{ij}$: Form factor (shape factor) between surfaces $i$ and $j$,
+- $\varepsilon_i$, $\varepsilon_j$: Emissivities of surfaces $i$ and $j$,
+- $T_i$, $T_j$: Temperatures of surfaces $i$ and $j$.
 
 #### Explanation of the Code Logic
 
