@@ -214,7 +214,10 @@ After obtaining the updated surface temperatures, it is essential to recalculate
 To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $ GLO_{\text{net,i}} $ for surface $i$ is given by:
 
 $$
-GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}} \\
+GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}}
+$$
+
+$$
 GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
 $$
 
