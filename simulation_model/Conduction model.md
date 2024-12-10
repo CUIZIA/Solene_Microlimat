@@ -215,6 +215,7 @@ To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` funct
 
 $$
 GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}}
+
 GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
 $$
 
