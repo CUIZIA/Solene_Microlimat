@@ -178,7 +178,7 @@ Where:
 
 
 ## Convergence Validation
-This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations.
+This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
 
 ### Principles of the Algorithm
 - **Iterative Testing**: Evaluates the temperature deviations for each surface element in an iterative manner.
@@ -209,20 +209,22 @@ This section of the code implements a convergence test for surface temperatures 
 ## Update surface temperature
 
 ## Long-wave radiation calculation (Net)
-After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation from the atmosphere $GLO_{\text{net,atm}}$ and net long-wave radiation within the scene $GLO_{\text{net,scene}}$. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
+After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 4**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
-To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $ GLO_{\text{net}} $ for a surface is given by:
+To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $ GLO_{\text{net,i}} $ for surface $i$ is given by:
 
 $$
+GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}}
 GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
 $$
 
 where:
 - $GLO$: Long-wave radiation ($\text{Grande Longueur d’Onde}$).
 
-### Calculation of Atmospheric Long-Wave Radiation
+### Net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$
 
-The atmospheric long-wave radiation received by each surface ($GLO_{\text{atm}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
+
+The atmospheric long-wave radiation received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
 
 $$
 GLO_{\text{atm}} = \text{SVF} \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
