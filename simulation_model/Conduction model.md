@@ -211,6 +211,12 @@ This section of the code implements a convergence test for surface temperatures 
 ## Long-wave radiation calculation (Net)
 After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 4**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
+<p align="center">
+  <img src="/fig/GLO_net.png" alt="GLO_net" width="50%">
+</p>
+
+<p align="center"><b>Figure 4: Long-wave radiation exchange in surface.</b></p>
+
 To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $ GLO_{\text{net,i}} $ for surface $i$ is given by:
 
 $$
