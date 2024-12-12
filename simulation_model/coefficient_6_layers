@@ -56,3 +56,55 @@ o2 = pow(c1,2.0)*r1/6 + c1*c2*r1/2 + c1*c2*r2/2 + c1*c3*r1/2 + c1*c3*r2 + c1*c3*
 p1 = c1*r1/2 + c1*r2 + c1*r3 + c1*r4 + c1*r5 + c1*r6 + c2*r2/2 + c2*r3 + c2*r4 + c2*r5 + c2*r6 + c3*r3/2 + c3*r4 + c3*r5 + c3*r6 + c4*r4/2 + c4*r5 + c4*r6 + c5*r5/2 + c5*r6 + c6*r6/2;
 
 p2 = pow(c1,2.0)*pow(r1,2.0)/24 + pow(c1,2.0)*r1*r2/6 + pow(c1,2.0)*r1*r3/6 + pow(c1,2.0)*r1*r4/6 + pow(c1,2.0)*r1*r5/6 + pow(c1,2.0)*r1*r6/6 + c1*c2*r1*r2/4 + c1*c2*r1*r3/2 + c1*c2*r1*r4/2 + c1*c2*r1*r5/2 + c1*c2*r1*r6/2 + c1*c2*pow(r2,2.0)/6 + c1*c2*r2*r3/2 + c1*c2*r2*r4/2 + c1*c2*r2*r5/2 + c1*c2*r2*r6/2 + c1*c3*r1*r3/4 + c1*c3*r1*r4/2 + c1*c3*r1*r5/2 + c1*c3*r1*r6/2 + c1*c3*r2*r3/2 + c1*c3*r2*r4 + c1*c3*r2*r5 + c1*c3*r2*r6 + c1*c3*pow(r3,2.0)/6 + c1*c3*r3*r4/2 + c1*c3*r3*r5/2 + c1*c3*r3*r6/2 + c1*c4*r1*r4/4 + c1*c4*r1*r5/2 + c1*c4*r1*r6/2 + c1*c4*r2*r4/2 + c1*c4*r2*r5 + c1*c4*r2*r6 + c1*c4*r3*r4/2 + c1*c4*r3*r5 + c1*c4*r3*r6 + c1*c4*pow(r4,2.0)/6 + c1*c4*r4*r5/2 + c1*c4*r4*r6/2 + c1*c5*r1*r5/4 + c1*c5*r1*r6/2 + c1*c5*r2*r5/2 + c1*c5*r2*r6 + c1*c5*r3*r5/2 + c1*c5*r3*r6 + c1*c5*r4*r5/2 + c1*c5*r4*r6 + c1*c5*pow(r5,2.0)/6 + c1*c5*r5*r6/2 + c1*c6*r1*r6/4 + c1*c6*r2*r6/2 + c1*c6*r3*r6/2 + c1*c6*r4*r6/2 + c1*c6*r5*r6/2 + c1*c6*pow(r6,2.0)/6 + pow(c2,2.0)*pow(r2,2.0)/24 + pow(c2,2.0)*r2*r3/6 + pow(c2,2.0)*r2*r4/6 + pow(c2,2.0)*r2*r5/6 + pow(c2,2.0)*r2*r6/6 + c2*c3*r2*r3/4 + c2*c3*r2*r4/2 + c2*c3*r2*r5/2 + c2*c3*r2*r6/2 + c2*c3*pow(r3,2.0)/6 + c2*c3*r3*r4/2 + c2*c3*r3*r5/2 + c2*c3*r3*r6/2 + c2*c4*r2*r4/4 + c2*c4*r2*r5/2 + c2*c4*r2*r6/2 + c2*c4*r3*r4/2 + c2*c4*r3*r5 + c2*c4*r3*r6 + c2*c4*pow(r4,2.0)/6 + c2*c4*r4*r5/2 + c2*c4*r4*r6/2 + c2*c5*r2*r5/4 + c2*c5*r2*r6/2 + c2*c5*r3*r5/2 + c2*c5*r3*r6 + c2*c5*r4*r5/2 + c2*c5*r4*r6 + c2*c5*pow(r5,2.0)/6 + c2*c5*r5*r6/2 + c2*c6*r2*r6/4 + c2*c6*r3*r6/2 + c2*c6*r4*r6/2 + c2*c6*r5*r6/2 + c2*c6*pow(r6,2.0)/6 + pow(c3,2.0)*pow(r3,2.0)/24 + pow(c3,2.0)*r3*r4/6 + pow(c3,2.0)*r3*r5/6 + pow(c3,2.0)*r3*r6/6 + c3*c4*r3*r4/4 + c3*c4*r3*r5/2 + c3*c4*r3*r6/2 + c3*c4*pow(r4,2.0)/6 + c3*c4*r4*r5/2 + c3*c4*r4*r6/2 + c3*c5*r3*r5/4 + c3*c5*r3*r6/2 + c3*c5*r4*r5/2 + c3*c5*r4*r6 + c3*c5*pow(r5,2.0)/6 + c3*c5*r5*r6/2 + c3*c6*r3*r6/4 + c3*c6*r4*r6/2 + c3*c6*r5*r6/2 + c3*c6*pow(r6,2.0)/6 + pow(c4,2.0)*pow(r4,2.0)/24 + pow(c4,2.0)*r4*r5/6 + pow(c4,2.0)*r4*r6/6 + c4*c5*r4*r5/4 + c4*c5*r4*r6/2 + c4*c5*pow(r5,2.0)/6 + c4*c5*r5*r6/2 + c4*c6*r4*r6/4 + c4*c6*r5*r6/2 + c4*c6*pow(r6,2.0)/6 + pow(c5,2.0)*pow(r5,2.0)/24 + pow(c5,2.0)*r5*r6/6 + c5*c6*r5*r6/4 + c5*c6*pow(r6,2.0)/6 + pow(c6,2.0)*pow(r6,2.0)/24;
+
+
+Formula for each parameter:
+r = [1, 2,3,4,5,6]
+c = [7,8,9,10,11,12]
+
+def calculate_p2(r, c):
+    n = len(r)
+    sum_1 = 0
+    sum_2 = 0
+    
+    #calculate c^2
+    for i in range(n):
+        for j in range(i, n):
+            if i == j:
+                sum_1 += c[i]**2 * r[i] * r[j] / 24
+            else:
+                sum_1 += c[i]**2 * r[i] * r[j] / 6
+
+    #calculate cc
+    for i in range(n-1):
+        for j in range(i+1, n):
+            cc = c[i] * c[j]
+            
+            part_1 = r[i] * r[j]/4 + r[j]**2/6
+            
+            part_2 = 0
+            for x in range(j+1, n):
+                part_2 += r[i] * r[x] / 2 + r[j] *  r[x] / 2
+
+            part_3 = 0
+            part_4 = 0
+            for y in range(i+1, j):
+                part_3 += r[y] * r[j] / 2
+                for z in range(j+1, n):
+                    part_4 += r[y] * r[z]
+
+            sum_2 += cc*(part_1 + part_2 + part_3 + part_4)
+    return sum_1 + sum_2
+
+def calculate_p1(r, c):
+    n = len(r)
+    sum_1 = 0
+    
+    #calculate cr
+    for i in range(n):
+        for j in range(i, n):
+            if i == j:
+                sum_1 += c[i] * r[j] / 2
+            else:
+                sum_1 += c[i] * r[j]
+    return sum_1
