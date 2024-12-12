@@ -155,3 +155,23 @@ def calculate_m2(r, c):
 
             sum_2 += rr*(part_1 + part_2 + part_3 + part_4)
     return sum_1 + sum_2
+
+def calculate_n1(r, c):
+    n = len(r)
+    sum_1 = 0
+
+    #calculate r^2
+    for i in range(n):
+        sum_1 += c[i] * r[i]**2 / 6
+
+    #calculate rr
+    for i in range(n-1):
+        for j in range(i+1, n):
+            rr = r[i] * r[j]
+
+            for x in range(i,j+1):
+                if x == i or x == j:
+                    sum_1 += c[x] * rr / 2
+                else:
+                    sum_1 += c[x] * rr
+    return sum_1
