@@ -108,3 +108,16 @@ def calculate_p1(r, c):
             else:
                 sum_1 += c[i] * r[j]
     return sum_1
+
+def calculate_m1(r, c):
+    n = len(r)
+    sum_1 = 0
+    
+    #calculate cr
+    for i in range(n):
+        for j in range(0, i+1):
+            if i == j:
+                sum_1 += c[i] * r[j] / 2
+            else:
+                sum_1 += c[i] * r[j]
+    return sum_1
