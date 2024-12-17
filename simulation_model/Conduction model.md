@@ -310,8 +310,8 @@ $$
 H(p)_{\text{3R2C}} =
 \left[
 \begin{matrix}
-1+pR_tC_tx_1+(pR_tC_t)^2x_2 & R+p(R_t)^2C_tx_3+p^2(R_t)^3(C_t)^2x_4 \\
-pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
+1+pR_tC_tx_1+(pR_tC_t)^2x_2 & R+p R_t^2 C_tx_3+p^2 R_t^3 C_t^2 x_4 \\
+pC + p^2 R_t C_t^2 x_5 & 1+p R_t C_t x_6+(p R_t C_t)^2x_7
 \end{matrix}
 \right]
 $$
@@ -334,13 +334,13 @@ By correlating the coefficients of the matrices $H(p)_{\text{ref}}$ and $H(p)_{\
 
 $$
 \begin{cases}
-  \beta_1 = \frac{-o_2(1 + \frac{p_2}{m_2}) + R_t C_t^2 + \sqrt[2]{\Delta}}{2R_t C_t^2 \zeta} //
-  \beta_2 = 1 - \beta_1 //
-  \alpha_2 = \frac{o_2}{R_t C_t^2 \beta_1 \beta_2} //
-  \alpha_1 = \frac{m_1}{R_t C_t} - \alpha_2 \beta_2 //
-  \alpha_3 = 1 - \alpha_1 - \alpha_2 //
-  \zeta = 1 - \frac{m_1}{R_t C_t}(1 + \frac{p_2}{m_2}) //
-  \Delta = [o_2(1+\frac{p_2}{m_2}) - R_t C_t^2\zeta]^2 + 4 R_t C_t^2 \zeta o_2 \frac{p_2}{m_2} //
+  \beta_1 = \frac{-o_2(1 + \frac{p_2}{m_2}) + R_t C_t^2 + \sqrt[2]{\Delta}}{2R_t C_t^2 \zeta} \\
+  \beta_2 = 1 - \beta_1 \\
+  \alpha_2 = \frac{o_2}{R_t C_t^2 \beta_1 \beta_2} \\
+  \alpha_1 = \frac{m_1}{R_t C_t} - \alpha_2 \beta_2 \\
+  \alpha_3 = 1 - \alpha_1 - \alpha_2 \\
+  \zeta = 1 - \frac{m_1}{R_t C_t}(1 + \frac{p_2}{m_2}) \\
+  \Delta = [o_2(1+\frac{p_2}{m_2}) - R_t C_t^2\zeta]^2 + 4 R_t C_t^2 \zeta o_2 \frac{p_2}{m_2} \\
 \end{cases}
 $$
 
