@@ -41,7 +41,7 @@ The soil is divided into $n$ layers, and we can consider three scenarios, includ
 - $T_s$ is the surface temperature $[K]$.
 - $T_1$ is the temperature at the first node beneath the surface $[K]$.
 - $T_a$ is the air temperature $[K]$.
-- $R_c$ is defined as $R_c = \frac{1}{h_c}$, where $h_c$ is the convective heat transfer coefficient.
+- $h_c$ is the convective heat transfer coefficient.
 - $R_1$ is the heat resistance between the surface and the first node $[K/W]$.
 - $R_{\text{net}}$ is the net radiation $[W/m^2]$.
 - $LE$ is the latent heat flux $[W/m^2]$.
@@ -121,7 +121,7 @@ For impermeable soil, between the time steps $[t]$ and $[t+1]$ the matrix system
 $$
 \left[
 \begin{matrix}
-\frac{C_s}{\Delta t} + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
+\frac{C_s}{\Delta t} + h_c + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
 -\frac{1}{R_1} & \frac{C_1}{\Delta t} + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & \cdots & 0 \\\\
 0 & -\frac{1}{R_2} & \frac{C_2}{\Delta t}+ \frac{1}{R_2} + \frac{1}{R_3} & \cdots & 0 \\\\
 \vdots & \vdots & \vdots & \ddots & \vdots \\\\
@@ -141,7 +141,7 @@ T_n^{t+1} \\\\
 \quad \text{=} \quad
 \left[
 \begin{matrix}
-\frac{C_s}{\Delta t} T_s^t + R_{\text{net}} - LE + \frac{T_a}{R_c} \\\\
+\frac{C_s}{\Delta t} T_s^t + R_{\text{net}} - LE + h_c T_{a} \\\\
 \frac{C_1}{\Delta t} T_1^t \\\\
 \frac{C_2}{\Delta t} T_2^t \\\\
 \vdots \\\\
@@ -370,7 +370,7 @@ T_{si}^{t+1} \\\\
 \quad \text{=} \quad
 \left[
 \begin{matrix}
-\frac{C_e}{\Delta t} T_{se}^t + h_c T_{air} + \varphi_{CLO,net} - \varphi_{GLO,net} \\\\
+\frac{C_e}{\Delta t} T_{se}^t + h_c T_{a} + \varphi_{CLO,net} - \varphi_{GLO,net} \\\\
 \frac{C_1}{\Delta t} T_{p1}^t \\\\
 \frac{C_2}{\Delta t} T_{p2}^t \\\\
 \frac{C_i}{\Delta t} T_{si}^t + h_{int}T_{int}\\\\
