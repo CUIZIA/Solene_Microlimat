@@ -41,7 +41,7 @@ The soil is divided into $n$ layers, and we can consider three scenarios, includ
 
 <p align="center"><b>Figure 2: Schematic representation of the soil model.</b></p>
 
-### Nomenclature
+### 1.1 Nomenclature
 
 - $C_s$ is the surface layer heat capacity $[J/m^2K]$.
 - $T_s$ is the surface temperature $[K]$.
@@ -56,7 +56,7 @@ The soil is divided into $n$ layers, and we can consider three scenarios, includ
 - $R_i$ is the heat resistance of the layer between the node $i-1$ and $i$ $[K/W]$.
 - $T_{\infty}$ is the deep soil temperature $[K]$.
 
-### Implicit Finite Element Discretization for the Soil Model
+### 1.2 Implicit Finite Element Discretization for the Soil Model
 
 We consider the soil model divided into \(n\) layers, and we solve the heat conduction problem using the implicit finite element method (FEM). The model consists of three parts:
 
@@ -64,7 +64,7 @@ We consider the soil model divided into \(n\) layers, and we solve the heat cond
 2. Internal nodes,
 3. Deep soil boundary condition.
 
-#### (1) Surface Boundary Condition (Soil-Air Interface)
+#### 1.2.1 Surface Boundary Condition (Soil-Air Interface)
 
 At the surface node ($i = 0$), the energy balance equation accounts for latent heat, radiation, and conduction between the surface and the first layer beneath it:
 
@@ -80,7 +80,7 @@ $$
 
 This forms part of the matrix system where $T_s^{t+1}$ depends on the surface and the first internal node.
 
-#### (2) Internal Nodes
+#### 1.2.2 Internal Nodes
 
 For internal nodes $i$, the energy balance equation is:
 
@@ -94,7 +94,7 @@ $$
 C_i \frac{T_i^{t+1} - T_i^t}{\Delta t} + \frac{T_i^{t+1} - T_{\text{i+1}}^{t+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{t+1} - T_i^{t+1}}{R_i} = 0
 $$
 
-#### (3) Deep Soil Boundary Condition
+#### 1.2.3 Deep Soil Boundary Condition
 
 At the deep soil boundary, the temperature is assumed to approach a constant $T_{\infty}$. The energy balance equation at the bottom node is:
 
@@ -108,7 +108,7 @@ $$
 C_i \frac{T_i^{t+1} - T_i^t}{\Delta t} + \frac{T_i^{t+1} - T_{\infty}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{t+1} - T_i^{t+1}}{R_i} = 0
 $$
 
-### Assembling the Matrix System
+### 1.3 Assembling the Matrix System
 
 The soil model with $n$ layers forms a system of equations that can be written in matrix form as:
 
@@ -156,7 +156,7 @@ T_n^{t+1} \\\\
 \right]
 $$
 
-### Deep boundary condition
+### 1.4 Deep boundary condition
 
 In deep soil, the temperature is assumed to remain constant over the course of a day. For homogeneous soil, an analytical solution can be used to calculate the temperature at any depth if the surface temperature is considered to be sinusoidal. The parameters $T_{\text{ma}}$, $A_a$ and $t_0$ are respectively the mean, the amplitude, and the phase of a day surface temperature signal:
 
@@ -191,7 +191,7 @@ Where:
 
 The **wall conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
 
-### Principles of the Algorithm
+### 2.1 Principles of the Algorithm
 
 Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associated with thermal capacitances $C_1$ and $C_2$, respectively. The thermal resistance of the wall, originally denoted as $R$, is divided into **three resistances**: $R_1$, $R_2$, and $R_3$. These resistances are positioned:
 - Between $T_{se}$ (external surface) and $T_{p1}$,
