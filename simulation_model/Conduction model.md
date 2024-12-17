@@ -257,7 +257,7 @@ $$
 **After the second-order expansion:**
 
 $$
-H(p)_{\text{ref}} = 
+H(p)_{\text{ref}} =
 \left[
 \begin{matrix}
 1+pm_1+p^2m_2 & R+pn_1+p^2n_2 \\\\
@@ -312,23 +312,6 @@ H(p)_{\text{3R2C}} =
 \begin{matrix}
 1+pR_tC_tx_1+(pR_tC_t)^2x_2 & R+p(R_t)^2C_tx_3+p^2(R_t)^3(C_t)^2x_4 \\
 pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
-\end{matrix}
-\right]
-$$
-
-$$
-H(p)_{\text{ref}} =
-\left[
-\begin{matrix}
-A_1(p) & B_1(p) \\
-C_1(p) & D_1(p)
-\end{matrix}
-\right]
-\times
-\left[
-\begin{matrix}
-A_{\text{Nc}}(p) & B_{\text{Nc}}(p) \\
-C_{\text{Nc}}(p) & D_{\text{Nc}}(p)
 \end{matrix}
 \right]
 $$
