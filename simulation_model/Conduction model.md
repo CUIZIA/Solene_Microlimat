@@ -319,13 +319,13 @@ $$
 Where,
 $$
 \begin{cases}
-    x_1 = \alpha_2\beta_1 + \alpha_1 \\
-    x_2 = \alpha_1\alpha_2 \beta_1\beta_2 \\
-    x_3 = \alpha_1\alpha_2\beta_1 + \alpha_3(\alpha_2\beta_2 + \alpha_1) \\
-    x_4 = \alpha_1\alpha_2\alpha_3\beta_1\beta_2 \\
-    x_5 = \alpha_2\beta_1\beta_2 \\
-    x_6 = \alpha_3 + \alpha_2\beta_1 \\
-    x_7 = \alpha_2\alpha_3\beta_1\beta_2
+    x_1 = \alpha_2 \beta_1 + \alpha_1 \\
+    x_2 = \alpha_1 \alpha_2 \beta_1 \beta_2 \\
+    x_3 = \alpha_1 \alpha_2 \beta_1 + \alpha_3(\alpha_2 \beta_2 + \alpha_1) \\
+    x_4 = \alpha_1 \alpha_2 \alpha_3 \beta_1 \beta_2 \\
+    x_5 = \alpha_2 \beta_1 \beta_2 \\
+    x_6 = \alpha_3 + \alpha_2 \beta_1 \\
+    x_7 = \alpha_2 \alpha_3 \beta_1 \beta_2
 \end{cases}
 $$
 
