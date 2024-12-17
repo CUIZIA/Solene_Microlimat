@@ -119,7 +119,6 @@ Where:
 For impermeable soil, between the time steps $[t]$ and $[t+1]$ the matrix system is written:
 
 $$
-H^{\text{(p)}}_{\text{ref}} =
 \left[
 \begin{matrix}
 \frac{C_s}{\Delta t} + \frac{1}{R_c} + \frac{1}{R_1} & -\frac{1}{R_1} & 0 & \cdots & 0 \\\\
@@ -239,6 +238,7 @@ The specific method can be referenced in **Fraisse et al., 2002**, where the app
 The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
+\left[
 \begin{matrix}
 1 & R_{\text{he}} \\\\
 0 & 1 \\\\
