@@ -370,7 +370,7 @@ T_{si}^{t+1} \\\\
 \quad \text{=} \quad
 \left[
 \begin{matrix}
-\frac{C_e}{\Delta t} T_{se}^t + h_c T_{a} + \varphi_{CLO,net} - \varphi_{GLO,net} \\\\
+\frac{C_e}{\Delta t} T_{se}^t + h_c T_{a} + R_{\text{net}} \\\\
 \frac{C_1}{\Delta t} T_{p1}^t \\\\
 \frac{C_2}{\Delta t} T_{p2}^t \\\\
 \frac{C_i}{\Delta t} T_{si}^t + h_{int}T_{int}\\\\
