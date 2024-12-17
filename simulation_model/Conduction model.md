@@ -345,6 +345,39 @@ $$
 \end{cases}
 $$
 
+#### (3) Assembling the Matrix System
+
+As the as what we did with the sol, the matrix system between the time steps $[t]$ and $[t+1]$ is for the wall written as:
+
+$$
+\left[
+\begin{matrix}
+ \frac{C_e}{\Delta t} + \frac{1}{R_1} + h_c & -\frac{1}{R_1} & 0 & 0 \\\\
+-\frac{1}{R_1} & \frac{C_1}{\Delta t} + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & 0 \\\\
+0 & -\frac{1}{R_2} & \frac{C_2}{\Delta t}+ \frac{1}{R_2} + \frac{1}{R_3} & \cdots & -\frac{1}{R_3} \\\\
+0 & 0 & -\frac{1}{R_3} & \frac{1}{R_3} + \frac{C_i}{\Delta t} + h_int \\\\
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+T_se^{t+1} \\\\
+T_p1^{t+1} \\\\
+T_p2^{t+1} \\\\
+T_si^{t+1} \\\\
+\end{matrix}
+\right]
+\quad \text{=} \quad
+\left[
+\begin{matrix}
+\frac{C_e}{\Delta t} T_{se}^t + h_c T_{air} + \varphi_{CLO,net} + \varphi_{GLO,net} \\\\
+\frac{C_1}{\Delta t} T_{p1}^t \\\\
+\frac{C_2}{\Delta t} T_{p2}^t \\\\
+\frac{C_i}{\Delta t} T_{si}^t + h_{int}T_{int}\\\\
+\end{matrix}
+\right]
+$$
+
 ## Convergence Validation
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
