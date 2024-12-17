@@ -256,6 +256,26 @@ A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)}
 \end{matrix}
 $$
 
+$$
+H^{\text{(p)}}_{\text{ref}} =
+\begin{bmatrix}
+1 & R_{\text{he}} & 0 & 1
+\end{bmatrix}
+\times
+\begin{bmatrix}
+A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)}
+\end{bmatrix}
+\times
+\begin{bmatrix}
+A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)}
+\end{bmatrix}
+\times
+\begin{bmatrix}
+1 & R_{\text{hs}} & 0 & 1
+\end{bmatrix}
+$$
+
+
 **After the second-order expansion:**
 
 ---
