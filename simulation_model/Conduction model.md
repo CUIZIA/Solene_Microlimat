@@ -354,17 +354,17 @@ $$
 \begin{matrix}
  \frac{C_e}{\Delta t} + \frac{1}{R_1} + h_c & -\frac{1}{R_1} & 0 & 0 \\\\
 -\frac{1}{R_1} & \frac{C_1}{\Delta t} + \frac{1}{R_1} + \frac{1}{R_2} & -\frac{1}{R_2} & 0 \\\\
-0 & -\frac{1}{R_2} & \frac{C_2}{\Delta t}+ \frac{1}{R_2} + \frac{1}{R_3} & \cdots & -\frac{1}{R_3} \\\\
-0 & 0 & -\frac{1}{R_3} & \frac{1}{R_3} + \frac{C_i}{\Delta t} + h_int \\\\
+0 & -\frac{1}{R_2} & \frac{C_2}{\Delta t}+ \frac{1}{R_2} + \frac{1}{R_3} & -\frac{1}{R_3} \\\\
+0 & 0 & -\frac{1}{R_3} & \frac{1}{R_3} + \frac{C_i}{\Delta t} + h_{int} \\\\
 \end{matrix}
 \right]
 \times
 \left[
 \begin{matrix}
-T_se^{t+1} \\\\
-T_p1^{t+1} \\\\
-T_p2^{t+1} \\\\
-T_si^{t+1} \\\\
+T_{se}^{t+1} \\\\
+T_{p1}^{t+1} \\\\
+T_{p2}^{t+1} \\\\
+T_{si}^{t+1} \\\\
 \end{matrix}
 \right]
 \quad \text{=} \quad
