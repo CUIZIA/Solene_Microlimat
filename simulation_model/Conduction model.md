@@ -317,7 +317,7 @@ pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
 $$
 
 $$
-H(p)_{\text{ref}} = 
+H(p)_{\text{3R2C}} = 
 \left[
 \begin{matrix}
 A_1(p) & B_1(p) \\
