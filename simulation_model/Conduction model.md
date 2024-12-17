@@ -8,7 +8,7 @@ The SOLENE-Microclimat model integrates the radiation and thermal modules of SOL
 
 <p align="center"><b>Figure 1: Code Flowchart of SOLENE.</b></p>
 
-## Conduction modeling (Ground)
+## 1. Conduction modeling (Ground)
 
 The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
 
@@ -179,7 +179,7 @@ Where:
 - $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
 - The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per second $[m^2/s]$.
 
-## Conduction modeling (Wall)
+## 2. Conduction modeling (Wall)
 
 The **soil conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
 
@@ -378,7 +378,7 @@ T_{si}^{t+1} \\\\
 \right]
 $$
 
-## Convergence Validation
+## 3. Convergence Validation
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
 
@@ -408,9 +408,9 @@ This section of the code implements a convergence test for surface temperatures 
 
 <p align="center"><b>Figure 3: Convergence Validation Process.</b></p>
 
-## Update surface temperature
+## 4. Update surface temperature
 
-## Long-wave radiation calculation (Net)
+## 5. Long-wave radiation calculation (Net)
 After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 4**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
 To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $GLO_{\text{net,i}}$ for surface $i$ is given by:
