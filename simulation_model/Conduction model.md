@@ -8,7 +8,8 @@ The SOLENE-Microclimat model integrates the radiation and thermal modules of SOL
 
 <p align="center"><b>Figure 1: Code Flowchart of SOLENE.</b></p>
 
-## Conduction model methodology
+## Conduction modeling (Ground)
+
 The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
 
 The core of the conduction model in SOLENE is solved using an implicit finite difference formulation inspired by electrical analogy. Thermal resistance represents the resistance to heat transfer through the ground layers, and thermal capacitance represents the ability of the ground layers to store heat, as illustrated in **Figure 2**. The soil model consists of $n$ nodes, with each node representing a specific layer of the ground.
@@ -35,6 +36,7 @@ The soil is divided into $n$ layers, and we can consider three scenarios, includ
 <p align="center"><b>Figure 2: Schematic representation of the soil model.</b></p>
 
 ### Nomenclature
+
 - $C_s$ is the surface layer heat capacity $[J/m^2K]$.
 - $T_s$ is the surface temperature $[K]$.
 - $T_1$ is the temperature at the first node beneath the surface $[K]$.
@@ -149,6 +151,7 @@ T_n^{t+1} \\\\
 $$
 
 ### Deep boundary condition
+
 In deep soil, the temperature is assumed to remain constant over the course of a day. For homogeneous soil, an analytical solution can be used to calculate the temperature at any depth if the surface temperature is considered to be sinusoidal. The parameters $T_{\text{ma}}$, $A_a$ and $t_0$ are respectively the mean, the amplitude, and the phase of a day surface temperature signal:
 
 $$
@@ -176,6 +179,61 @@ Where:
 - $C_{p_{\text{sol}}}$ is the equivalent specific heat capacity.
 - The multiplication by $24 \cdot 3600$ converts the thermal diffusivity into units of square meters per second $[m^2/s]$.
 
+## Conduction modeling (Wall)
+
+The **soil conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
+
+### Algorithm Principles and Implementation
+
+Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associated with thermal capacitances $C_1$ and $C_2$, respectively. The thermal resistance of the wall, originally denoted as $R$, is divided into **three resistances**: $R_1$, $R_2$, and $R_3$. These resistances are positioned:
+1. Between $T_{se}$ (external surface) and $T_{p1}$,
+2. Between $T_{p1}$ and $T_{p2}$,
+3. Between $T_{p2}$ and $T_{n1}$ (internal surface).
+
+The **3R2C** and **3R4C** models are illustrated in the figure below.
+
+<p align="center">
+  <img src="/fig/3R2C.png" alt="3R2C" width="25%">
+</p>
+
+<p align="center">
+  <img src="/fig/3R4C.png" alt="3R4C" width="25%">
+</p>
+
+<p align="center"><b>Figure 3: Model 3R2C and 3R4C.</b></p>
+
+### Resistance and Capacitance Calculation
+
+Both models compute thermal resistance in the same way, where the total wall resistance $R_t$ is the sum of individual resistances $R_i$, with $\alpha_i$ satisfying the condition $\sum \alpha_i = 1$. In the **3R2C model**, the total thermal capacitance $C_t$ is similarly represented. The values $\beta_1$ and $\beta_2$ are used to determine the capacitance distribution in the **3R2C** model.
+
+$$
+\left\{
+\begin{aligned}
+    R_1 = \alpha_1 \cdot R_t
+    R_2 = \alpha_2 \cdot R_t
+    R_3 = \alpha_3 \cdot R_t
+    \sum \alpha_i = 1
+    C_1 = \beta_1 \cdot C_t
+    C_2 = \beta_2 \cdot C_t
+    \sum \beta_i = 1
+\end{aligned}
+\right.
+$$
+
+According to the following equation, the 5% method is applied to redistribute 5% of the capacitance from the **3R2C model** to the nearest surfaces, creating two additional capacitances:
+- $C_e$: Associated with the external surface,
+- $C_i$: Associated with the internal surface.
+
+$$
+\left\{
+\begin{aligned}
+    C_e = 0,05 \cdot \beta_1 \cdot C_t
+    C_1 = 0,95 \cdot \beta_1 \cdot C_t
+    C_2 = 0,95 \cdot \beta_2 \cdot C_t
+    C_e = 0,05 \cdot \beta_2 \cdot C_t
+\end{aligned}
+\right.
+$$
 
 ## Convergence Validation
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
