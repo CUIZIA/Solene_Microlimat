@@ -193,11 +193,11 @@ Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associ
 The **3R2C** and **3R4C** models are illustrated in the figure below.
 
 <p align="center">
-  <img src="/fig/3R2C.png" alt="3R2C" width="90%">
+  <img src="/fig/3R2C.png" alt="3R2C" width="50%">
 </p>
 
 <p align="center">
-  <img src="/fig/3R4C.png" alt="3R4C" width="90%">
+  <img src="/fig/3R4C.png" alt="3R4C" width="50%">
 </p>
 
 <p align="center"><b>Figure 3: Model 3R2C and 3R4C.</b></p>
