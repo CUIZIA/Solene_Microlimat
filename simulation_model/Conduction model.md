@@ -330,6 +330,20 @@ $$
 \end{cases}
 $$
 
+By correlating the coefficients of the matrices $H(p)_{\text{ref}}$ and $H(p)_{\text{3R2C}}$, you can calculate $\alpha_i$ and $\beta_i$. The coefficients required for this calculation include $m_1$, $m_2$, $o_2$, and $p_2$.
+
+$$
+\begin{cases}
+  \beta_1 = \frac{-o_2(1 + \frac{p_2}{m_2}) + R_t(C_t)^2 + \sqrt[2]{\Delta}}{2R_t(C_t)^2 \zeta}
+  \beta_2 = 1 - \beta_1
+  \alpha_2 = \frac{o_2}{R_t(C_t)^2 \beta_1 \beta_2}
+  \alpha_1 = \frac{m_1}{R_t C_t} - \alpha_2 \beta_2
+  \alpha_3 = 1 - \alpha_1 - \alpha_2
+  \zeta = 1 - \frac{m_1}{R_tC_t}(1 + \frac{p_2}{m_2})
+  \Delta = [o_2(1+\frac{p_2}{m_2}) - R_t(C_t)^2\zeta]^2 + 4 R_t (C_t)^2 \zeta o_2 \frac{p_2}{m_2}
+\end{cases}
+$$
+
 ## Convergence Validation
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
