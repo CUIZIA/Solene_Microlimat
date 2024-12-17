@@ -63,13 +63,13 @@ We consider the soil model divided into \(n\) layers, and we solve the heat cond
 At the surface node ($i = 0$), the energy balance equation accounts for latent heat, radiation, and conduction between the surface and the first layer beneath it:
 
 $$
-C_s \frac{dT_s}{dt} + \frac{T_s - T_a}{R_c} + \frac{T_s - T_1}{R_1} = R_{\text{net}} - L E
+C_s \frac{dT_s}{dt} + h_c(T_s - T_a) + \frac{T_s - T_1}{R_1} = R_{\text{net}} - L E
 $$
 
 In matrix form, this equation can be discretized using the implicit time-stepping method. Assuming $T_s^t$ is the temperature at the current time step and $T_s^{t+1}$ is at the next time step:
 
 $$
-C_s \frac{T_s^{t+1} - T_s^t}{\Delta t} + \frac{T_s^{t+1} - T_a^{t+1}}{R_c} + \frac{T_s^{t+1} - T_1^{t+1}}{R_1} = R_{\text{net}} - L E
+C_s \frac{T_s^{t+1} - T_s^t}{\Delta t} + h_c(T_s^{t+1} - T_a^{t+1}) + \frac{T_s^{t+1} - T_1^{t+1}}{R_1} = R_{\text{net}} - L E
 $$
 
 This forms part of the matrix system where $T_s^{t+1}$ depends on the surface and the first internal node.
