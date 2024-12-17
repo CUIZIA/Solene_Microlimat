@@ -7,7 +7,7 @@ When using the **3R2C conduction model**, four key coefficients $m_1, m_2, o_2$ 
   - `c[]`: List of thermal capacitances of the layers.
   - `n`: Number of layers.
 
-### 1. **Function to Calculate $m_1$ **
+### 1. Function to Calculate $m_1$
 
 The $m_1$ coefficient is computed as:
 
@@ -29,7 +29,7 @@ double calculate_m1(double r[], double c[], int n)
 }
 ```
 
-### 2. **Function to Calculate $m_2$ **
+### 2. Function to Calculate $m_2$
 
 The $m_2$ coefficient includes multiple summations and interactions between layers:
 
@@ -73,7 +73,7 @@ double calculate_m2(double r[], double c[], int n)
 }
 ```
 
-### 3. **Function to Calculate $o_2$ **
+### 3. Function to Calculate $o_2$
 
 The $o_2$ coefficient involves resistances and squared capacitances:
 
@@ -101,8 +101,9 @@ double calculate_o2(double r[], double c[], int n)
   }
   return sum_1;
 }
+```
 
-### 4. **Function to Calculate $p_2$ **
+### 4. Function to Calculate $p_2$
 
 The $p_2$ coefficient involves resistances and squared capacitances:
 
@@ -142,6 +143,6 @@ double calculate_p2(double r[], double c[], int n)
           sum_2 += cc * (part_1 + part_2 + part_3 + part_4);
       }
   }
-
   return sum_1 + sum_2;
 }
+```
