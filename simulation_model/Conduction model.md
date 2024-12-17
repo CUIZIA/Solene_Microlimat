@@ -267,7 +267,53 @@ $$
 
 However, the resulting transfer matrix for the **3R2C model** is as follows:
 
----
+$$
+H(p)_{\text{3R2C}} =
+\left[
+\begin{matrix}
+1 & R_e \\
+0 & 1
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+1 & 0 \\\\
+pC_e & 1 \\\\
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+1 & R_i \\
+0 & 1
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+1 & 0 \\\\
+pC_s & 1 \\\\
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+1 & R_s \\
+0 & 1
+\end{matrix}
+\right]
+$$
+
+$$
+H(p)_{\text{3R2C}} =
+\left[
+\begin{matrix}
+1+pR_tC_tx_1+(pR_tC_t)^2x_2 & R+p(R_t)^2C_tx_3+p^2(R_t)^3(C_t)^2x_4 \\
+pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
+\end{matrix}
+\right]
+$$
 
 ## Convergence Validation
 
