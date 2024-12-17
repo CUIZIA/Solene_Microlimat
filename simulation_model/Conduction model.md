@@ -8,6 +8,7 @@ The SOLENE-Microclimat model integrates the radiation and thermal modules of SOL
 
 <p align="center"><b>Figure 1: Code Flowchart of SOLENE.</b></p>
 
+//
 
 ## 1. Conduction modeling (Ground)
 
