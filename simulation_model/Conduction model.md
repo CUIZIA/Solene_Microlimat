@@ -518,7 +518,7 @@ In SOLENE, the iterative process ensures that all long-wave radiation exchanges 
 
 ## 6. Discussion
 
-This document focuses on explaining the compiled **EXE file** of SOLENE, which forms the core computational structure of the **thermal model**.
+This document focuses on explaining the compiled **.exe file** of SOLENE, which forms the core computational structure of the **thermal model**.
 
 ### （1）Surface Temperature Calculation and GPU Optimization
 Within each time step, the surface temperature is determined through **matrix operations**. Since the computations for each surface are completely independent, this step can be **fully parallelized** and accelerated using **GPU computation**.  
