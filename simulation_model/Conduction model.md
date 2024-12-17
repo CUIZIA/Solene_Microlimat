@@ -316,6 +316,23 @@ pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
 \right]
 $$
 
+$$
+H(p)_{\text{ref}} = 
+\left[
+\begin{matrix}
+A_1(p) & B_1(p) \\\\
+C_1(p) & D_1(p) \\\\
+\end{matrix}
+\right]
+\times
+\left[
+\begin{matrix}
+A_{\text{Nc}}(p) & B_{\text{Nc}}(p) \\\\
+C_{\text{Nc}}(p) & D_{\text{Nc}}(p) \\\\
+\end{matrix}
+\right]
+$$
+
 ## Convergence Validation
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
