@@ -238,9 +238,8 @@ The specific method can be referenced in **Fraisse et al., 2002**, where the app
 The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
+H(p) = 
 \left[
-H(p)
-\right]_{\text{ref}} = \left[
 \begin{matrix}
 1 & R_{\text{he}} \\\\
 0 & 1 \\\\
