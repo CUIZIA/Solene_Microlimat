@@ -64,7 +64,7 @@ We consider the soil model divided into \(n\) layers, and we solve the heat cond
 2. Internal nodes,
 3. Deep soil boundary condition.
 
-#### 1.2.1 Surface Boundary Condition (Soil-Air Interface)
+#### (1) Surface Boundary Condition (Soil-Air Interface)
 
 At the surface node ($i = 0$), the energy balance equation accounts for latent heat, radiation, and conduction between the surface and the first layer beneath it:
 
@@ -80,7 +80,7 @@ $$
 
 This forms part of the matrix system where $T_s^{t+1}$ depends on the surface and the first internal node.
 
-#### 1.2.2 Internal Nodes
+#### (2) Internal Nodes
 
 For internal nodes $i$, the energy balance equation is:
 
@@ -94,7 +94,7 @@ $$
 C_i \frac{T_i^{t+1} - T_i^t}{\Delta t} + \frac{T_i^{t+1} - T_{\text{i+1}}^{t+1}}{R_{\text{i+1}}} - \frac{T_{\text{i-1}}^{t+1} - T_i^{t+1}}{R_i} = 0
 $$
 
-#### 1.2.3 Deep Soil Boundary Condition
+#### (3) Deep Soil Boundary Condition
 
 At the deep soil boundary, the temperature is assumed to approach a constant $T_{\infty}$. The energy balance equation at the bottom node is:
 
@@ -392,14 +392,16 @@ $$
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
 
-### Principles of the Algorithm
+### 3.1 Principles of the Algorithm
+
 - **Iterative Testing**: Evaluates the temperature deviations for each surface element in an iterative manner.
 - **Threshold-Based Evaluation**: Compares individual and global deviations against predefined thresholds (`eps1` and `eps2`).
 - **Dynamic Updates**: Tracks and updates the number of non-converged elements across iterations.
 - **Final Convergence Check**: Determines if the simulation can stop based on the percentage of non-converged elements (`ratio_face_non_cv`).
 - **Maximum Iterations**: Caps the number of iterations at 50 to avoid infinite loops and reduce computational cost.
 
-### Code Variables
+### 3.2 Code Variables
+
 | Variable                  | Role                                                                 |
 |---------------------------|----------------------------------------------------------------------|
 | `test_Ts`                 | Tracks the number of non-converged elements in the current iteration.|
@@ -431,7 +433,7 @@ $$
 Where,
 - $T_{\text{computed}}$ is the temperature value calculated at the current iteration step based on the numerical method being used.
 
-### Piecewise Relaxation Method in Solene
+### 4.1 Piecewise Relaxation Method in Solene
 
 In Solene, a **piecewise relaxation method** is implemented to adjust the relaxation factor dynamically during iterations:
 
@@ -465,7 +467,7 @@ $$
 
 <p align="center"><b>Figure 4: Long-wave radiation exchange in surface.</b></p>
 
-### Net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$
+### 5.1 Net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$
 
 
 The atmospheric long-wave radiation received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
@@ -480,11 +482,11 @@ Where:
 - $\text{SVF}$: Sky View Factor,
 - $T_{\text{air}}$: Air temperature $[K]$.
 
-#### Internal Reflection of Atmospheric Long-Wave Radiation
+#### (1) Internal Reflection of Atmospheric Long-Wave Radiation
 
 todo
 
-### Scene Long-Wave Radiation Calculation
+### 5.2 Scene Long-Wave Radiation Calculation
 
 The net long-wave radiation exchange between surfaces within the scene is computed iteratively. For a reference surface ($\text{numero\_contour\_ref}$), the radiation exchange is updated using the following formula:
 
@@ -520,31 +522,31 @@ In SOLENE, the iterative process ensures that all long-wave radiation exchanges 
 
 This document focuses on explaining the compiled **.exe file** of SOLENE, which forms the core computational structure of the **thermal model**.
 
-### （1）Surface Temperature Calculation and GPU Optimization
+#### （1）Surface Temperature Calculation and GPU Optimization
 Within each time step, the surface temperature is determined through **matrix operations**. Since the computations for each surface are completely independent, this step can be **fully parallelized** and accelerated using **GPU computation**.  
 - **Future Improvement**: Leveraging CUDA or OpenCL for GPU programming can drastically reduce computation time, especially for simulations involving a large number of surfaces.
 
-### （2）Pre-Calculation of Static Parameters
+#### （2）Pre-Calculation of Static Parameters
 The parameters used in matrix operations (e.g., $m_1$, $m_2$, $o_2$, $p_1$, and $p_2$ in the **3R4C model**) are **time-independent**. These parameters do not need to be repeatedly computed within the thermal model. Instead, they can be **pre-computed** outside the module and stored for reuse. The computational load for these coefficients is relatively low but highly repetitive, making this optimization simple yet effective.  
 - **Future Improvement**: Pre-calculate these coefficients during initialization or as part of a **lookup table**. This will streamline the runtime performance of the SOLENE thermal model.
 
-### (3) Time Step Limitation and Future Optimization
+#### (3) Time Step Limitation and Future Optimization
 Currently, due to limitations in the **underlying C code** of SOLENE, the minimum time step is restricted to **30 minutes**.  
 - **Future Improvement**:
     - Reduce the time step to **10 minutes** to better capture high-frequency thermal dynamics, especially for transient simulations or short-term thermal events;
     - Although reducing the time step will increase the overall simulation time, the aforementioned **GPU acceleration** and **pre-computation of static parameters** can compensate for this increase.
 
-### (4) Relaxation Factor $\omega$ Improvement in Iterative Updates
+#### (4) Relaxation Factor $\omega$ Improvement in Iterative Updates
 The relaxation factor $\omega$ plays a key role in stabilizing the iterative updates of surface temperature. Currently, SOLENE uses a **fixed relaxation factor** according to the iteration number, but there is room for improvement:  
 - **Future Improvement**: Implement other relaxaiton algorithms to dynamically tune $\omega$ during runtime.
 
-### (5) Python Integration and Code Refactoring
+#### (5) Python Integration and Code Refactoring
 While the thermal model core is written in C, other parts of SOLENE involve Python for data handling and I/O operations. The Python codebase uses older versions of libraries, which limits its ability to utilize modern features and performance improvements.  
 - **Future Improvement**:
    - Upgrade the Python code to a higher version, ensuring compatibility with **modern packages** like `Pandas`, and GPU-compatible libraries such as `PyTorch`.
    - Refactor Python scripts to leverage GPU acceleration wherever applicable, such as pre-processing large datasets or performing auxiliary calculations.  
 
-### (6) Additional Potential Improvements
+#### (6) Additional Potential Improvements
 - **Visualization Enhancements**: Improve the post-processing visualization tools to handle larger datasets and provide real-time graphical feedback.
 
 This document primarily focuses on the **C-implemented thermal model** of SOLENE and its potential improvements. The Python components will be described in a separate document, where we will address their role in SOLENE's workflow and explore upgrades for better performance and GPU compatibility. By addressing the above improvements—including GPU acceleration, pre-computation of parameters, time step optimization, dynamic relaxation factors, and Python refactoring—I am confident that SOLENE can achieve **higher efficiency, accuracy, and scalability** in future simulations.
