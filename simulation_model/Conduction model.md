@@ -513,3 +513,38 @@ Where:
 
 #### Iterative Energy Redistribution
 In SOLENE, the iterative process ensures that all long-wave radiation exchanges between surfaces, including reflections, are accurately calculated. This is achieved by progressively redistributing unallocated energy among the surfaces, as demonstrated in the provided `GLO_Scene_Net` calculation. 
+
+&nbsp;
+
+## 6. Discussion
+
+This document focuses on explaining the compiled **EXE file** of SOLENE, which forms the core computational structure of the **thermal model**.
+
+### （1）Surface Temperature Calculation and GPU Optimization
+Within each time step, the surface temperature is determined through **matrix operations**. Since the computations for each surface are completely independent, this step can be **fully parallelized** and accelerated using **GPU computation**.  
+- **Future Improvement**: Leveraging CUDA or OpenCL for GPU programming can drastically reduce computation time, especially for simulations involving a large number of surfaces.
+
+### （2）Pre-Calculation of Static Parameters
+The parameters used in matrix operations (e.g., $$m_1, m_2, o_2, p_1, and p_2$$in the **3R4C model**) are **time-independent**. These parameters do not need to be repeatedly computed within the thermal model. Instead, they can be **pre-computed** outside the module and stored for reuse. The computational load for these coefficients is relatively low but highly repetitive, making this optimization simple yet effective.  
+- **Future Improvement**: Pre-calculate these coefficients during initialization or as part of a **lookup table**. This will streamline the runtime performance of the SOLENE thermal model.
+
+### (3) Time Step Limitation and Future Optimization
+Currently, due to limitations in the **underlying C code** of SOLENE, the minimum time step is restricted to **30 minutes**.  
+- **Future Improvement**:
+    - Reduce the time step to **10 minutes** to better capture high-frequency thermal dynamics, especially for transient simulations or short-term thermal events;
+    - Although reducing the time step will increase the overall simulation time, the aforementioned **GPU acceleration** and **pre-computation of static parameters** can compensate for this increase.
+
+### (4) Relaxation Factor $\omega$ Improvement in Iterative Updates
+The relaxation factor $\omega$ plays a key role in stabilizing the iterative updates of surface temperature. Currently, SOLENE uses a **fixed relaxation factor** according to the iteration number, but there is room for improvement:  
+- **Future Improvement**: Implement other relaxaiton algorithms to dynamically tune $\omega$ during runtime.
+
+### (5) Python Integration and Code Refactoring
+While the thermal model core is written in C, other parts of SOLENE involve Python for data handling and I/O operations. The Python codebase uses older versions of libraries, which limits its ability to utilize modern features and performance improvements.  
+- **Future Improvement**:
+   - Upgrade the Python code to a higher version, ensuring compatibility with **modern packages** like `Pandas`, and GPU-compatible libraries such as `PyTorch`.
+   - Refactor Python scripts to leverage GPU acceleration wherever applicable, such as pre-processing large datasets or performing auxiliary calculations.  
+
+### (6) Additional Potential Improvements
+- **Visualization Enhancements**: Improve the post-processing visualization tools to handle larger datasets and provide real-time graphical feedback.
+
+This document primarily focuses on the **C-implemented thermal model** of SOLENE and its potential improvements. The Python components will be described in a separate document, where we will address their role in SOLENE's workflow and explore upgrades for better performance and GPU compatibility. By addressing the above improvements—including GPU acceleration, pre-computation of parameters, time step optimization, dynamic relaxation factors, and Python refactoring—I am confident that SOLENE can achieve **higher efficiency, accuracy, and scalability** in future simulations.
