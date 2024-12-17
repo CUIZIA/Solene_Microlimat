@@ -8,6 +8,7 @@ The SOLENE-Microclimat model integrates the radiation and thermal modules of SOL
 
 <p align="center"><b>Figure 1: Code Flowchart of SOLENE.</b></p>
 
+
 ## 1. Conduction modeling (Ground)
 
 The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
