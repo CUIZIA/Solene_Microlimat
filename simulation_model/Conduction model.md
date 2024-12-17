@@ -239,13 +239,21 @@ The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
 H^{\text{(p)}}_{\text{ref}} =
-\begin{bmatrix}
-1 & R_{\text{he}} & 0 & 1 \\
-A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)} \\
-\vdots & \vdots & \vdots & \vdots \\
-A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)} \\
+\begin{matrix}
+1 & R_{\text{he}} & 0 & 1
+\end{matrix}
+\times
+\begin{matrix}
+A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)}
+\end{matrix}
+\times
+\begin{matrix}
+A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)}
+\end{matrix}
+\times
+\begin{matrix}
 1 & R_{\text{hs}} & 0 & 1
-\end{bmatrix}
+\end{matrix}
 $$
 
 **After the second-order expansion:**
