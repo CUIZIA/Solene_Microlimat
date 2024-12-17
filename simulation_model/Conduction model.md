@@ -193,11 +193,11 @@ Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associ
 The **3R2C** and **3R4C** models are illustrated in the figure below.
 
 <p align="center">
-  <img src="/fig/3R2C.png" alt="3R2C" width="25%">
+  <img src="/fig/3R2C.png" alt="3R2C" width="90%">
 </p>
 
 <p align="center">
-  <img src="/fig/3R4C.png" alt="3R4C" width="25%">
+  <img src="/fig/3R4C.png" alt="3R4C" width="90%">
 </p>
 
 <p align="center"><b>Figure 3: Model 3R2C and 3R4C.</b></p>
@@ -223,14 +223,12 @@ According to the following equation, the 5% method is applied to redistribute 5%
 - $C_i$: Associated with the internal surface.
 
 $$
-\left\{
-\begin{aligned}
+\begin{cases}
     C_e = 0,05 \cdot \beta_1 \cdot C_t \\
     C_1 = 0,95 \cdot \beta_1 \cdot C_t \\
     C_2 = 0,95 \cdot \beta_2 \cdot C_t \\
     C_e = 0,05 \cdot \beta_2 \cdot C_t
-\end{aligned}
-\right.
+\end{cases}
 $$
 
 ## Convergence Validation
