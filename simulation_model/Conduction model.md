@@ -238,39 +238,33 @@ The specific method can be referenced in **Fraisse et al., 2002**, where the app
 The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
-H(p) = 
-\left[
-\begin{matrix}
-1 & R_{\text{he}} \\\\
-0 & 1 \\\\
-\end{matrix}
-\right]
-\times
+H(p)_{\text{ref}} = 
 \left[
 \begin{matrix}
 A_1(p) & B_1(p) \\\\
 C_1(p) & D_1(p) \\\\
 \end{matrix}
 \right]
-\times
+\ddots
 \left[
 \begin{matrix}
 A_{Nc}(p) & B_{Nc}(p) \\\\
 C_{Nc}(p) & D_{Nc}(p) \\\\
 \end{matrix}
 \right]
-\times
-\left[
-\begin{matrix}
-1 & R_{\text{hs}} \\\\\\
-0 & 1 \\\\
-\end{matrix}
-\right]
 $$
 
 **After the second-order expansion:**
 
----
+$$
+H(p)_{\text{ref}} = 
+\left[
+\begin{matrix}
+1+pm_1+p^2m_2 & R+pn_1+p^2n_2 \\\\
+pC+p^2o_2 & 1+pp_1+p^2p_2 \\\\
+\end{matrix}
+\right]
+$$
 
 However, the resulting transfer matrix for the **3R2C model** is as follows:
 
