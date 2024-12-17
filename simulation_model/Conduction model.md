@@ -525,7 +525,7 @@ Within each time step, the surface temperature is determined through **matrix op
 - **Future Improvement**: Leveraging CUDA or OpenCL for GPU programming can drastically reduce computation time, especially for simulations involving a large number of surfaces.
 
 ### （2）Pre-Calculation of Static Parameters
-The parameters used in matrix operations (e.g., $$m_1, m_2, o_2, p_1, and p_2$$in the **3R4C model**) are **time-independent**. These parameters do not need to be repeatedly computed within the thermal model. Instead, they can be **pre-computed** outside the module and stored for reuse. The computational load for these coefficients is relatively low but highly repetitive, making this optimization simple yet effective.  
+The parameters used in matrix operations (e.g., $m_1$, $m_2$, $o_2$, $p_1$, and $p_2$ in the **3R4C model**) are **time-independent**. These parameters do not need to be repeatedly computed within the thermal model. Instead, they can be **pre-computed** outside the module and stored for reuse. The computational load for these coefficients is relatively low but highly repetitive, making this optimization simple yet effective.  
 - **Future Improvement**: Pre-calculate these coefficients during initialization or as part of a **lookup table**. This will streamline the runtime performance of the SOLENE thermal model.
 
 ### (3) Time Step Limitation and Future Optimization
