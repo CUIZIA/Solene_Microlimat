@@ -239,41 +239,35 @@ The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
 H^{\text{(p)}}_{\text{ref}} =
+\left[
 \begin{matrix}
-1 & R_{\text{he}} & 0 & 1
+1 & R_{\text{he}} \\
+0 & 1
 \end{matrix}
+\right]
 \times
+\left[
 \begin{matrix}
-A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)}
+A_1^{(p)} & B_1^{(p)} \\
+C_1^{(p)} & D_1^{(p)}
 \end{matrix}
+\right]
 \times
+\left[
 \begin{matrix}
-A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)}
+A_{Nc}^{(p)} & B_{Nc}^{(p)} \\
+C_{Nc}^{(p)} & D_{Nc}^{(p)}
 \end{matrix}
+\right]
 \times
+\left[
 \begin{matrix}
-1 & R_{\text{hs}} & 0 & 1
+1 & R_{\text{hs}} \\
+0 & 1
 \end{matrix}
+\right]
 $$
 
-$$
-H^{\text{(p)}}_{\text{ref}} =
-\begin{bmatrix}
-1 & R_{\text{he}} & 0 & 1
-\end{bmatrix}
-\times
-\begin{bmatrix}
-A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)}
-\end{bmatrix}
-\times
-\begin{bmatrix}
-A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)}
-\end{bmatrix}
-\times
-\begin{bmatrix}
-1 & R_{\text{hs}} & 0 & 1
-\end{bmatrix}
-$$
 
 
 **After the second-order expansion:**
