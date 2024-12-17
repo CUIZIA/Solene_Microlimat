@@ -410,12 +410,10 @@ This section of the code implements a convergence test for surface temperatures 
 
 ## 4. Update surface temperature
 
-Before convergence verification is successful, the calculated surface temperature must be continuously updated. This is primarily done to improve **numerical stability** and **convergence speed**. By introducing a **relaxation factor** $\omega$ (where $0 < \omega \leq 1$), the update process can be smoothed, avoiding abrupt oscillations and gradually approaching the converged solution.
-
-The update formula is as follows:
+Before convergence verification is successful, the calculated surface temperature must be continuously updated. This is primarily done to improve **numerical stability** and **convergence speed**. By introducing a **relaxation factor** $\omega$ (where $0 < \omega \leq 1$), the update process can be smoothed, avoiding abrupt oscillations and gradually approaching the converged solution. The update formula is as follows:
 
 $$
-T_^{t+1} = \omega \cdot T_{\text{computed}} + (1 - \omega) \cdot T_^{t}
+T_{t+1} = \omega \cdot T_{\text{computed}} + (1 - \omega) \cdot T_{t}
 $$
 
 Where,
