@@ -272,7 +272,7 @@ $$
 H(p)_{\text{3R2C}} =
 \left[
 \begin{matrix}
-1 & R_e \\
+1 & R_1 \\
 0 & 1
 \end{matrix}
 \right]
@@ -280,13 +280,13 @@ H(p)_{\text{3R2C}} =
 \left[
 \begin{matrix}
 1 & 0 \\\\
-pC_e & 1 \\\\
+pC_1 & 1 \\\\
 \end{matrix}
 \right]
 \times
 \left[
 \begin{matrix}
-1 & R_i \\
+1 & R_2 \\
 0 & 1
 \end{matrix}
 \right]
@@ -294,13 +294,13 @@ pC_e & 1 \\\\
 \left[
 \begin{matrix}
 1 & 0 \\\\
-pC_s & 1 \\\\
+pC_2 & 1 \\\\
 \end{matrix}
 \right]
 \times
 \left[
 \begin{matrix}
-1 & R_s \\
+1 & R_3 \\
 0 & 1
 \end{matrix}
 \right]
@@ -319,13 +319,13 @@ $$
 Where,
 $$
 \begin{cases}
-    x_1 = \alpha_2 \beta_1 + \alpha_1 \\
-    x_2 = \alpha_1 \alpha_2 \beta_1 \beta_2 \\
-    x_3 = \alpha_1 \alpha_2 \beta_1 + \alpha_3 (\alpha_2 \beta_2 + \alpha_1)
-    x_4 = \alpha_1 \alpha_2 \alpha_3 \beta_1 \beta_2 \\
-    x_5 = \alpha_2 \beta_1 \beta_2 \\
-    x_6 = \alpha_3 + \alpha_2 \beta_1 \\
-    x_7 = \alpha_2 \alpha_3 \beta_1 \beta_2 \\
+    x_1 = \alpha_2\beta_1 + \alpha_1 \\
+    x_2 = \alpha_1\alpha_2 \beta_1\beta_2 \\
+    x_3 = \alpha_1\alpha_2\beta_1 + \alpha_3(\alpha_2\beta_2 + \alpha_1) \\
+    x_4 = \alpha_1\alpha_2\alpha_3\beta_1\beta_2 \\
+    x_5 = \alpha_2\beta_1\beta_2 \\
+    x_6 = \alpha_3 + \alpha_2\beta_1 \\
+    x_7 = \alpha_2\alpha_3\beta_1\beta_2
 \end{cases}
 $$
 
