@@ -330,7 +330,7 @@ $$
 \end{cases}
 $$
 
-By correlating the coefficients of the matrices $H(p)$ and $H(p)_{\text{3R2C}}$, you can calculate $\alpha_i$ and $\beta_i$. The coefficients required for this calculation include $m_1$, $m_2$, $o_2$, and $p_2$.
+By correlating the coefficients of the matrices $H(p)_{\text{3R2C}}$ and $H(p)_ref$ , you can calculate $\alpha_i$ and $\beta_i$. The coefficients required for this calculation include $m_1$, $m_2$, $o_2$, and $p_2$.
 
 $$
 \begin{cases}
