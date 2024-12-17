@@ -1,4 +1,4 @@
-# Conduction Model - SOLENE THERMAL MODEL
+# SOLENE Microclimat - THERMAL MODEL
 
 The SOLENE-Microclimat model integrates the radiation and thermal modules of SOLENE with the fluid dynamics module of Code_Saturne. It employs different thermal radiation balance schemes depending on the type of surface: impermeable ground surfaces, vegetated ground surfaces, and building walls. This explanation focuses on the impermeable ground surface case, where only heat transfer is considered, neglecting moisture transfer. The SOLENE code is structured into four main components (as **Figure 1**):
 - updating surface temperatures using the relaxation factor;
