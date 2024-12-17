@@ -316,6 +316,19 @@ pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
 \right]
 $$
 
+Where,
+$$
+\begin{cases}
+    x_1 = \alpha_2 \beta_1 + \alpha_1 \\
+    x_2 = \alpha_1 \alpha_2 \beta_1 \beta_2 \\
+    x_3 = \alpha_1 \alpha_2 \beta_1 + \alpha_3 (\alpha_2 \beta_2 + \alpha_1)
+    x_4 = \alpha_1 \alpha_2 \alpha_3 \beta_1 \beta_2 \\
+    x_5 = \alpha_2 \beta_1 \beta_2 \\
+    x_6 = \alpha_3 + \alpha_2 \beta_1 \\
+    x_7 = \alpha_2 \alpha_3 \beta_1 \beta_2 \\
+\end{cases}
+$$
+
 ## Convergence Validation
 
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
