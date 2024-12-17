@@ -317,6 +317,7 @@ pC+p^2R_t(C_t)^2x_5 & 1+pR_tC_tx_6+(pR_tC_t)^2x_7
 $$
 
 Where,
+
 $$
 \begin{cases}
     x_1 = \alpha_2 \beta_1 + \alpha_1 \\
