@@ -189,7 +189,7 @@ Where:
 
 ## 2. Conduction modeling (Wall)
 
-The **soil conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
+The **wall conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
 
 ### Principles of the Algorithm
 
