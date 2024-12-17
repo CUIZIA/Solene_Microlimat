@@ -240,8 +240,7 @@ The resulting transfer matrix for the multi-layer system is as follows:
 $$
 \left[
 H(p)
-\right]_{\text{ref}} = 
-\left[
+\right]_{\text{ref}} = \left[
 \begin{matrix}
 1 & R_{\text{he}} \\\\
 0 & 1 \\\\
