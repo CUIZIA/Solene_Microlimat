@@ -183,7 +183,7 @@ Where:
 
 The **soil conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
 
-### Algorithm Principles and Implementation
+### Principles of the Algorithm
 
 Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associated with thermal capacitances $C_1$ and $C_2$, respectively. The thermal resistance of the wall, originally denoted as $R$, is divided into **three resistances**: $R_1$, $R_2$, and $R_3$. These resistances are positioned:
 - Between $T_{se}$ (external surface) and $T_{p1}$,
@@ -193,16 +193,16 @@ Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associ
 The **3R2C** and **3R4C** models are illustrated in the figure below.
 
 <p align="center">
-  <img src="/fig/3R2C.png" alt="3R2C" width="50%">
+  <img src="/fig/3R2C.png" alt="3R2C" width="40%">
 </p>
 
 <p align="center">
-  <img src="/fig/3R4C.png" alt="3R4C" width="50%">
+  <img src="/fig/3R4C.png" alt="3R4C" width="40%">
 </p>
 
 <p align="center"><b>Figure 3: Model 3R2C and 3R4C.</b></p>
 
-### Resistance and Capacitance Calculation
+#### (1) Resistance and Capacitance Calculation
 
 Both models compute thermal resistance in the same way, where the total wall resistance $R_t$ is the sum of individual resistances $R_i$, with $\alpha_i$ satisfying the condition $\sum \alpha_i = 1$. In the **3R2C model**, the total thermal capacitance $C_t$ is similarly represented. The values $\beta_1$ and $\beta_2$ are used to determine the capacitance distribution in the **3R2C** model.
 
@@ -218,7 +218,7 @@ $$
 \end{cases}
 $$
 
-According to the following equation, the 5% method is applied to redistribute 5% of the capacitance from the **3R2C model** to the nearest surfaces, creating two additional capacitances:
+When the simulation time step is short (approximately 10 minutes), it is necessary to account for the thin layers of the wall to consider high-frequency effects [10]. Conversely, since the model’s thermal capacity is concentrated within the wall, the internal temperature node $T_{\text{int}}$ immediately accounts for the heat flux reaching the inner surfaces of the **3R2C** model. Our approach systematically transfers 5% of the two internal capacities to each surface of the wall. As a result, we define the **3R4C model**. The advantage of this method lies in its simplicity and sufficient accuracy. According to the following equation, the 5% method is applied to redistribute 5% of the capacitance from the **3R2C model** to the nearest surfaces, creating two additional capacitances:
 - $C_e$: Associated with the external surface,
 - $C_i$: Associated with the internal surface.
 
@@ -231,7 +231,33 @@ $$
 \end{cases}
 $$
 
+#### (2) Parameter Calculation in 3R2C Transfer Matrix (αi, βi)
+
+The specific method can be referenced in **Fraisse et al., 2002**, where the approach is described in great detail. In short, it involves constructing a **multi-layer transfer matrix** (by calculating the product of matrices), followed by the construction of a **3R2C transfer matrix**. Using a **second-order expansion**, an equivalence between these two matrices is established, and the coefficients $\alpha_i$ and $\beta_i$ can then be calculated. The matrix multiplication is not particularly complex, and the corresponding code can be found in the file **x** for reference (calculating the coefficients $m_1$, $m_2$, $o_2$, $p_1$, and $p_2$).
+
+The resulting transfer matrix for the multi-layer system is as follows:
+
+$$
+H^{\text{(p)}}_{\text{ref}} =
+\begin{bmatrix}
+1 & R_{\text{he}} & 0 & 1 \\
+A_1^{(p)} & B_1^{(p)} & C_1^{(p)} & D_1^{(p)} \\
+\vdots & \vdots & \vdots & \vdots \\
+A_{Nc}^{(p)} & B_{Nc}^{(p)} & C_{Nc}^{(p)} & D_{Nc}^{(p)} \\
+1 & R_{\text{hs}} & 0 & 1
+\end{bmatrix}
+$$
+
+**After the second-order expansion:**
+
+---
+
+However, the resulting transfer matrix for the **3R2C model** is as follows:
+
+---
+
 ## Convergence Validation
+
 This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
 
 ### Principles of the Algorithm
