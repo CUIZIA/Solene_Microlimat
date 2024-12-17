@@ -241,7 +241,7 @@ $$
 
 #### (2) Parameter Calculation in 3R2C Transfer Matrix (αi, βi)
 
-The specific method can be referenced in **Fraisse et al., 2002**, where the approach is described in great detail. In short, it involves constructing a **multi-layer transfer matrix** (by calculating the product of matrices), followed by the construction of a **3R2C transfer matrix**. Using a **second-order expansion**, an equivalence between these two matrices is established, and the coefficients $\alpha_i$ and $\beta_i$ can then be calculated. The matrix multiplication is not particularly complex, and the corresponding code can be found in the file **x** for reference (calculating the coefficients $m_1$, $m_2$, $o_2$, $p_1$, and $p_2$).
+The specific method can be referenced in **Fraisse et al., 2002**, where the approach is described in great detail. In short, it involves constructing a **multi-layer transfer matrix** (by calculating the product of matrices), followed by the construction of a **3R2C transfer matrix**. Using a **second-order expansion**, an equivalence between these two matrices is established, and the coefficients $\alpha_i$ and $\beta_i$ can then be calculated. The matrix multiplication is not particularly complex, and the corresponding code can be found in the file **x** for reference (calculating the coefficients $m_1$, $m_2$, $o_2$, and $p_2$).
 
 The resulting transfer matrix for the multi-layer system is as follows:
 
