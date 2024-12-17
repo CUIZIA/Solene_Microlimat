@@ -205,6 +205,7 @@ The **3R2C** and **3R4C** models are illustrated in the figure below.
 ### Resistance and Capacitance Calculation
 
 Both models compute thermal resistance in the same way, where the total wall resistance $R_t$ is the sum of individual resistances $R_i$, with $\alpha_i$ satisfying the condition $\sum \alpha_i = 1$. In the **3R2C model**, the total thermal capacitance $C_t$ is similarly represented. The values $\beta_1$ and $\beta_2$ are used to determine the capacitance distribution in the **3R2C** model.
+
 $$
 \begin{cases}
     R_1 = \alpha_1 \cdot R_t \\
