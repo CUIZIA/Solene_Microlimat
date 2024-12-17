@@ -415,8 +415,11 @@ Before convergence verification is successful, the calculated surface temperatur
 The update formula is as follows:
 
 $$
-T_{\text{new}} = \omega \cdot T_{\text{computed}} + (1 - \omega) \cdot T_{\text{old}}
+T_^{t+1} = \omega \cdot T_{\text{computed}} + (1 - \omega) \cdot T_^{t}
 $$
+
+Where,
+- $T_{\text{computed}}$ is the temperature value calculated at the current iteration step based on the numerical method being used.
 
 ### Piecewise Relaxation Method in Solene
 
@@ -424,10 +427,10 @@ In Solene, a **piecewise relaxation method** is implemented to adjust the relaxa
 
 $$
 \begin{cases}
-  For iterations greater than 10, \omega = 0.8 \\
-  For iterations greater than 20, \omega = 0.7 \\
-  For iterations greater than 30, \omega = 0.6 \\
-  For iterations greater than 40, \omega = 0.5 \\
+  iter > 10, \omega = 0.8 \\
+  iter > 20, \omega = 0.7 \\
+  iter > 30, \omega = 0.6 \\
+  iter > 40, \omega = 0.5 \\
 \end{cases}
 $$
 
