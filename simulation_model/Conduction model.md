@@ -186,9 +186,9 @@ The **soil conduction model** was initially developed as the **1R2C model** by J
 ### Algorithm Principles and Implementation
 
 Two new nodes, $T_{p1}$ and $T_{p2}$, are created within the wall and are associated with thermal capacitances $C_1$ and $C_2$, respectively. The thermal resistance of the wall, originally denoted as $R$, is divided into **three resistances**: $R_1$, $R_2$, and $R_3$. These resistances are positioned:
-1. Between $T_{se}$ (external surface) and $T_{p1}$,
-2. Between $T_{p1}$ and $T_{p2}$,
-3. Between $T_{p2}$ and $T_{n1}$ (internal surface).
+- Between $T_{se}$ (external surface) and $T_{p1}$,
+- Between $T_{p1}$ and $T_{p2}$,
+- Between $T_{p2}$ and $T_{n1}$ (internal surface).
 
 The **3R2C** and **3R4C** models are illustrated in the figure below.
 
