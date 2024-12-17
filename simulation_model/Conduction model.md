@@ -209,12 +209,12 @@ Both models compute thermal resistance in the same way, where the total wall res
 $$
 \left\{
 \begin{aligned}
-    R_1 = \alpha_1 \cdot R_t
-    R_2 = \alpha_2 \cdot R_t
-    R_3 = \alpha_3 \cdot R_t
-    \sum \alpha_i = 1
-    C_1 = \beta_1 \cdot C_t
-    C_2 = \beta_2 \cdot C_t
+    R_1 = \alpha_1 \cdot R_t \\
+    R_2 = \alpha_2 \cdot R_t \\
+    R_3 = \alpha_3 \cdot R_t \\
+    \sum \alpha_i = 1 \\
+    C_1 = \beta_1 \cdot C_t \\
+    C_2 = \beta_2 \cdot C_t \\
     \sum \beta_i = 1
 \end{aligned}
 \right.
@@ -227,9 +227,9 @@ According to the following equation, the 5% method is applied to redistribute 5%
 $$
 \left\{
 \begin{aligned}
-    C_e = 0,05 \cdot \beta_1 \cdot C_t
-    C_1 = 0,95 \cdot \beta_1 \cdot C_t
-    C_2 = 0,95 \cdot \beta_2 \cdot C_t
+    C_e = 0,05 \cdot \beta_1 \cdot C_t \\
+    C_1 = 0,95 \cdot \beta_1 \cdot C_t \\
+    C_2 = 0,95 \cdot \beta_2 \cdot C_t \\
     C_e = 0,05 \cdot \beta_2 \cdot C_t
 \end{aligned}
 \right.
