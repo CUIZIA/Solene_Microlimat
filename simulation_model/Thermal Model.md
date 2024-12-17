@@ -241,7 +241,7 @@ $$
 
 #### (2) Parameter Calculation in 3R2C Transfer Matrix (αi, βi)
 
-The specific method can be referenced in **Fraisse et al., 2002**, where the approach is described in great detail. In short, it involves constructing a **multi-layer transfer matrix** (by calculating the product of matrices), followed by the construction of a **3R2C transfer matrix**. Using a **second-order expansion**, an equivalence between these two matrices is established, and the coefficients $\alpha_i$ and $\beta_i$ can then be calculated. The matrix multiplication is not particularly complex, and the corresponding code can be found in the file [3R2C coefficient calculation](simulation_model/3R2C coefficient calculation.md) for reference (calculating the coefficients $m_1$, $m_2$, $o_2$, and $p_2$).
+The specific method can be referenced in **Fraisse et al., 2002**, where the approach is described in great detail. In short, it involves constructing a **multi-layer transfer matrix** (by calculating the product of matrices), followed by the construction of a **3R2C transfer matrix**. Using a **second-order expansion**, an equivalence between these two matrices is established, and the coefficients $\alpha_i$ and $\beta_i$ can then be calculated. The matrix multiplication is not particularly complex, and the corresponding code can be found in the file [3R2C coefficient calculation](3R2C coefficient calculation.md) for reference (calculating the coefficients $m_1$, $m_2$, $o_2$, and $p_2$).
 
 The resulting transfer matrix for the multi-layer system is as follows:
 
@@ -390,7 +390,7 @@ $$
 
 ## 3. Convergence Validation
 
-This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 3**.
+This section of the code implements a convergence test for surface temperatures (`fc_Tsext`) over multiple iterations. It evaluates both individual and global discrepancies between current and previous values of surface temperatures. The algorithm determines whether the simulation has converged based on defined thresholds (`eps1` for individual errors and `eps2` for average global error). If convergence criteria are not met, the process iterates until a maximum of 50 iterations. The flowchart of the convergence process is shown in **Figure 4**.
 
 ### 3.1 Principles of the Algorithm
 
@@ -418,7 +418,7 @@ This section of the code implements a convergence test for surface temperatures 
   <img src="/fig/convergence.png" alt="Code Flowchart of convergence" width="100%">
 </p>
 
-<p align="center"><b>Figure 3: Convergence Validation Process.</b></p>
+<p align="center"><b>Figure 4: Convergence Validation Process.</b></p>
 
 &nbsp;
 
@@ -449,7 +449,7 @@ $$
 &nbsp;
 
 ## 5. Long-wave radiation calculation (Net)
-After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 4**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
+After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 5**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
 To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $GLO_{\text{net,i}}$ for surface $i$ is given by:
 
@@ -465,7 +465,7 @@ $$
   <img src="/fig/GLO_net.png" alt="GLO_net" width="40%">
 </p>
 
-<p align="center"><b>Figure 4: Long-wave radiation exchange in surface.</b></p>
+<p align="center"><b>Figure 5: Long-wave radiation exchange in surface.</b></p>
 
 ### 5.1 Net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$
 
