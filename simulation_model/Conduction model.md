@@ -410,6 +410,27 @@ This section of the code implements a convergence test for surface temperatures 
 
 ## 4. Update surface temperature
 
+Before convergence verification is successful, the calculated surface temperature must be continuously updated. This is primarily done to improve **numerical stability** and **convergence speed**. By introducing a **relaxation factor** $\omega$ (where $0 < \omega \leq 1$), the update process can be smoothed, avoiding abrupt oscillations and gradually approaching the converged solution.
+
+The update formula is as follows:
+
+$$
+T_{\text{new}} = \omega \cdot T_{\text{computed}} + (1 - \omega) \cdot T_{\text{old}}
+$$
+
+### Piecewise Relaxation Method in Solene
+
+In Solene, a **piecewise relaxation method** is implemented to adjust the relaxation factor dynamically during iterations:
+
+$$
+\begin{cases}
+  For iterations greater than 10, \omega = 0.8 \\
+  For iterations greater than 20, \omega = 0.7 \\
+  For iterations greater than 30, \omega = 0.6 \\
+  For iterations greater than 40, \omega = 0.5 \\
+\end{cases}
+$$
+
 ## 5. Long-wave radiation calculation (Net)
 After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 4**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
