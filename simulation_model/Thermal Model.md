@@ -422,7 +422,7 @@ This section of the code implements a convergence test for surface temperatures 
 
 &nbsp;
 
-## 4. Update surface temperature
+## 4. Update Surface Temperature
 
 Before convergence verification is successful, the calculated surface temperature must be continuously updated. This is primarily done to improve **numerical stability** and **convergence speed**. By introducing a **relaxation factor** $\omega$ (where $0 < \omega \leq 1$), the update process can be smoothed, avoiding abrupt oscillations and gradually approaching the converged solution. The update formula is as follows:
 
@@ -448,10 +448,10 @@ $$
 
 &nbsp;
 
-## 5. Long-wave radiation calculation (Net)
-After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave radiation** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave radiation for each surface can then be determined. It includs tow part: net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave radiation within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 5**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
+## 5. Long-wave Irradiance Calculation (Net)
+After obtaining the updated surface temperatures, it is essential to recalculate the **long-wave irradiance** ($GLO, \text{Grande Longueur d’Onde}$) emitted by each surface. The net long-wave irradiance for each surface can then be determined. It includs tow part: net long-wave irradiance exchange with the sky $GLO_{\text{ciel,net}}$ and net long-wave irradiance within the scene $GLO_{\text{scene, net}}$ as shown in **Figure 5**. In SOLENE, while the reflection of atmospheric long-wave radiation within the study area is considered, the reflection of long-wave radiation emitted by the surfaces themselves is currently neglected. This decision is based on a prior sensitivity analysis, which concluded that its impact is negligible.
 
-To handle long-wave radiation calculations, SOLENE introduces a `calc_GLO` function. The net long-wave radiation $GLO_{\text{net,i}}$ for surface $i$ is given by:
+To handle long-wave irradiance calculations, SOLENE introduces a `calc_GLO` function. The net long-wave irradiance $GLO_{\text{net,i}}$ for surface $i$ is given by:
 
 $$
 GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}}
@@ -465,12 +465,11 @@ $$
   <img src="/fig/GLO_net.png" alt="GLO_net" width="40%">
 </p>
 
-<p align="center"><b>Figure 5: Long-wave radiation exchange in surface.</b></p>
+<p align="center"><b>Figure 5: Long-wave irradiance exchange in surface.</b></p>
 
-### 5.1 Net long-wave radiation exchange with the sky $GLO_{\text{ciel,net}}$
+### 5.1 Net Long-wave Irradiance Exchange with the Sky $GLO_{\text{ciel,net}}$
 
-
-The atmospheric long-wave radiation received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave radiation is calculated as follows:
+The atmospheric long-wave irradiance received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave irradiance is calculated as follows:
 
 $$
 GLO_{\text{atm}} = \text{SVF} \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
@@ -482,39 +481,22 @@ Where:
 - $\text{SVF}$: Sky View Factor,
 - $T_{\text{air}}$: Air temperature $[K]$.
 
-#### (1) Internal Reflection of Atmospheric Long-Wave Radiation
+#### (1) Internal Reflection of Atmospheric Long-Wave Irradiance
 
 todo
 
-### 5.2 Scene Long-Wave Radiation Calculation
+### 5.2 Net Long-Wave Irradiance Exchange within the Scene
 
-The net long-wave radiation exchange between surfaces within the scene is computed iteratively. For a reference surface ($\text{numero\_contour\_ref}$), the radiation exchange is updated using the following formula:
+The net long-wave irradiance exchange between surfaces within the scene is computed directly. For a reference surface ($\text{numero\_contour\_ref}$), the radiation exchange is updated using the following formula:
 
 $$
-GLO_{\text{net,scene,i}} = \sigma \cdot F_{ij} \cdot A_i \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
+GLO_{\text{net,scene,i}} = \sigma \cdot F_{ij} \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
 $$
 
 Where:
-- $\sigma$: Stefan-Boltzmann constant,
 - $F_{ij}$: Form factor (shape factor) between surfaces $i$ and $j$,
 - $\varepsilon_i$, $\varepsilon_j$: Emissivities of surfaces $i$ and $j$,
 - $T_i$, $T_j$: Temperatures of surfaces $i$ and $j$.
-
-#### Explanation of the Code Logic
-
-1. **Net Radiation Calculation**:
-   - \( \varepsilon_i \cdot T_i^4 \) represents the emitted long-wave radiation from surface \( i \).
-   - \( \varepsilon_j \cdot T_j^4 \) represents the radiation received by surface \( j \).
-   - The difference accounts for the net radiation exchange between the two surfaces.
-
-2. **Form Factor Influence**:
-   - \( F_{ij} \) quantifies the geometric relationship between the surfaces, determining how much radiation is exchanged based on their orientations and distances.
-
-3. **Iterative Adjustment**:
-   - Radiation exchange values are updated iteratively for all surfaces until the energy balance is achieved, ensuring accuracy and convergence.
-
-#### Iterative Energy Redistribution
-In SOLENE, the iterative process ensures that all long-wave radiation exchanges between surfaces, including reflections, are accurately calculated. This is achieved by progressively redistributing unallocated energy among the surfaces, as demonstrated in the provided `GLO_Scene_Net` calculation. 
 
 &nbsp;
 
