@@ -252,7 +252,7 @@ A_1(p) & B_1(p) \\\\
 C_1(p) & D_1(p)
 \end{matrix}
 \right]
-\times
+\cdot \cdot \cdot
 \left[
 \begin{matrix}
 A_{\text{Nc}}(p) & B_{\text{Nc}}(p) \\\\
