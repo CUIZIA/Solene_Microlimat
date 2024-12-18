@@ -495,17 +495,14 @@ Where:
 
 The calculation of the net irradiance received by surface is more complex than it may initially appear. Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **xxx** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky.
 
-1. Calculate the initial **reflected irradiance** $GLO_{ref}$ `exitance_init` and their total initial **reflected radiation** from the sky $Q_{ref}=\sum_{i=1}^n GLO_{ref,i} A_i$ `energie_totale`.
-2. Iteratively compute the **reflected radiation** $GLO_{ref,i} A_i$ within the scene and find the highest value of reflected radiation `a_distribuer_max`.
-5. At each iteration, sum up the reflected radiation from all surfaces.
-6. Stop the iteration when the sum of the reflected longwave radiation across all surfaces is less than **2%** of the initial incoming sky radiation.
-
 1. **Calculate the Initial Reflected Irradiance**:  
    - Compute the initial reflected irradiance $GLO_{\text{ref}}$ (`exitance_init`) for each surface.  
-   - Sum the total initial reflected radiation from the sky:  
+   - Sum the total initial reflected radiation from the sky:
+   
      $$
      Q_{\text{ref}} = \sum_{i=1}^n GLO_{\text{ref},i} \cdot A_i
-     $$  
+     $$
+     
      where $A_i$ is the surface area, and `energie_totale` stores the total initial reflected radiation.
 
 2. **Iteratively Compute Reflected Radiation**:  
