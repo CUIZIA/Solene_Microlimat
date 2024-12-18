@@ -487,10 +487,10 @@ todo
 
 ### 5.2 Net Long-Wave Irradiance Exchange within the Scene
 
-The net long-wave irradiance exchange between surfaces within the scene is computed directly. For the reference surface $i$, the radiation exchange is updated using the following formula:
+The net long-wave irradiance exchange between surfaces within the scene is computed directly. For the surface $i$, the radiation exchange is updated using the following formula:
 
 $$
-GLO_{\text{net,scene,i}} = \sum_{i=1}^n \sigma \cdot F_{ij} \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
+GLO_{\text{net,scene,i}} = \sum_{j=1}^n \sigma \cdot F_{ij} \cdot \left( \varepsilon_i \cdot T_i^4 - \varepsilon_j \cdot T_j^4 \right)
 $$
 
 Where:
