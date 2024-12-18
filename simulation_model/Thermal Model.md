@@ -458,7 +458,7 @@ GLO_{\text{net,i}} = GLO_{\text{ciel,net,i}} + GLO_{\text{scene,net,i}}
 $$
 
 $$
-GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{resu}}
+GLO_{\text{net}} = GLO_{\text{emis}} - GLO_{\text{recu}}
 $$
 
 <p align="center">
