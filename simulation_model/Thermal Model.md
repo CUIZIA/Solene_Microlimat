@@ -246,7 +246,6 @@ The specific method can be referenced in **Fraisse et al., 2002**, where the app
 The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
-H(p)_{\text{ref}} =
 \left[
 \begin{matrix}
 A_1(p) & B_1(p) \\\\
@@ -260,6 +259,7 @@ A_{\text{Nc}}(p) & B_{\text{Nc}}(p) \\\\
 C_{\text{Nc}}(p) & D_{\text{Nc}}(p)
 \end{matrix}
 \right]
+= H(p)_{\text{ref}}
 $$
 
 **After the second-order expansion:**
