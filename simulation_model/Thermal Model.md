@@ -246,7 +246,6 @@ The specific method can be referenced in **Fraisse et al., 2002**, where the app
 The resulting transfer matrix for the multi-layer system is as follows:
 
 $$
-H(p)_{\text{ref}} =
 \left[
 \begin{matrix}
 A_1(p) & B_1(p) \\\\
