@@ -14,7 +14,7 @@ The SOLENE-Microclimat model integrates the radiation and thermal modules of SOL
 
 &nbsp;
 
-## 1. Conduction modeling (Ground)
+## 1. Conduction Modeling (Ground)
 
 The ground conduction model in SOLENE is based on the soil model developed by Marie-Hélène Azam. This model is specifically designed for impermeable surfaces such as pavement coatings, considering only heat transfer (while ignoring moisture transfer). The soil model is one-dimensional, with each layer characterized by its unique properties. Under transient conditions, temperature fluctuations are calculated using **Equation 1**, which represents the heat conduction equation applied to a one-dimensional problem.
 
@@ -156,7 +156,7 @@ T_n^{t+1} \\\\
 \right]
 $$
 
-### 1.4 Deep boundary condition
+### 1.4 Deep Boundary Condition
 
 In deep soil, the temperature is assumed to remain constant over the course of a day. For homogeneous soil, an analytical solution can be used to calculate the temperature at any depth if the surface temperature is considered to be sinusoidal. The parameters $T_{\text{ma}}$, $A_a$ and $t_0$ are respectively the mean, the amplitude, and the phase of a day surface temperature signal:
 
@@ -187,7 +187,7 @@ Where:
 
 &nbsp;
 
-## 2. Conduction modeling (Wall)
+## 2. Conduction Modeling (Wall)
 
 The **wall conduction model** was initially developed as the **1R2C model** by Julien Bouyer, and later evolved into the **3R4C model** proposed by Fraisse et al. (2002). The core principle of this method involves transforming a multi-layered wall into a simplified **3R2C model** through mathematical operations, which is then further refined into the **3R4C model** using the **5% method**. Below are the principles and implementation details of the algorithm:
 
