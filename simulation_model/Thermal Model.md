@@ -469,15 +469,31 @@ $$
 
 ### 5.1 Net Long-wave Irradiance Exchange with the Sky $GLO_{\text{ciel,net}}$
 
-The atmospheric long-wave irradiance received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. We can intuitively understand that $GLO_{\text{ciel,net,i}}$ represents the net irradiance received by a surface, which is the sum of the net irradiance received by the surface and the net irradiance emitted from it. The first and simplest component to calculate is the longwave irradiance emitted by the surface to the sky $GLO_{\text{ciel,net,emis,i}}$, which is expressed using the following formula:
+The atmospheric long-wave irradiance received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. We can intuitively understand that $GLO_{\text{ciel,net,i}}$ represents the net irradiance received by a surface, which is the sum of the net irradiance received by the surface and the net irradiance emitted from it. 
 
 $$
-GLO_{\text{ciel,net}} = GLO_{\text{ciel,net,emis}} + GLO_{\text{ciel,net,resu}}
+GLO_{\text{ciel,net}} = GLO_{\text{ciel,net,emis}} + GLO_{\text{ciel,net,recu}}
 $$
+
+#### (1) Net Long-Wave Irradiance Emitted by the Surface $GLO_{\text{ciel,net,emis}}$
+
+The calculation of the net irradiance received by surface is more complex than it may initially appear. Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area.
+
+The first and simplest component to calculate is the longwave irradiance emitted by the surface to the sky $GLO_{\text{ciel,net,emis,i}}$, which is expressed using the following formula:
 
 $$
 GLO_{\text{ciel,net,emis,i}} = \text{SVF} \cdot \varepsilon_i \cdot \sigma \cdot T_i^4
 $$
+
+Where:
+- $\sigma$: Stefan-Boltzmann constant, $5.67 \times 10^{-8}, [\text{Wm}^{-2}\text{K}^{-4}]$,
+- $\varepsilon$: Emissivity of the surface,
+- $\text{SVF}$: Sky View Factor,
+- $T_i$: Surface temperature $[K]$.
+
+#### (2) Net Long-Wave Irradiance Received by the Surface $GLO_{\text{ciel,net,recu}}$
+
+The calculation of the net irradiance received by surface is more complex than it may initially appear. Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **xxx** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky.
 
 The atmospheric long-wave irradiance is calculated as follows:
 
@@ -490,8 +506,6 @@ Where:
 - $\varepsilon$: Emissivity of the surface,
 - $\text{SVF}$: Sky View Factor,
 - $T_{\text{air}}$: Air temperature $[K]$.
-
-#### (1) Internal Reflection of Atmospheric Long-Wave Irradiance
 
 todo
 
