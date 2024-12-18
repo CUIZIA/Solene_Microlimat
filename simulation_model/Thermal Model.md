@@ -493,7 +493,7 @@ Where:
 
 #### (2) Net Long-Wave Irradiance Received by the Surface $GLO_{\text{ciel,net,recu}}$
 
-The calculation of the net irradiance received by surface is more complex than it may initially appear (see function `calc_flux_atm_intereflexion`). Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **Radiosity** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky. Key steps are as follow:
+The calculation of the net irradiance received by surface is more complex than it may initially appear (see function `calc_flux_atm_intereflexion`). Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **radiosity method** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky. Key steps are as follow:
 
 1. **Calculate the Initial Reflected Irradiance**:  
    - Compute the initial reflected irradiance $GLO_{\text{ref}}$ (`exitance_init`) for each surface.  
