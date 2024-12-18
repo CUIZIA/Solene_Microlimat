@@ -493,15 +493,15 @@ Where:
 
 #### (2) Net Long-Wave Irradiance Received by the Surface $GLO_{\text{ciel,net,recu}}$
 
-The calculation of the net irradiance received by surface is more complex than it may initially appear. Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **xxx** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky.
+The calculation of the net irradiance received by surface is more complex than it may initially appear. Its only source is the **longwave radiation from the sky** and the **multiple reflections** of longwave radiation within the study area. To account for these reflections, SOLENE employs an **xxx** (`radiog` function in code). The method iteratively calculates the reflected longwave radiation within the scene. The iteration process continues until the total reflected longwave radiation from all surfaces in the scene becomes less than **2%** (could be modified) of the initial incoming longwave radiation from the sky. Key steps are as follow:
 
 1. **Calculate the Initial Reflected Irradiance**:  
    - Compute the initial reflected irradiance $GLO_{\text{ref}}$ (`exitance_init`) for each surface.  
    - Sum the total initial reflected radiation from the sky:
    
-     $$
-     Q_{\text{ref}} = \sum_{i=1}^n GLO_{\text{ref},i} \cdot A_i
-     $$
+$$
+Q_{\text{ref}} = \sum_{i=1}^n GLO_{\text{ref},i} \cdot A_i
+$$
      
      where $A_i$ is the surface area, and `energie_totale` stores the total initial reflected radiation.
 
