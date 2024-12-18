@@ -570,5 +570,4 @@ This document primarily focuses on the **C-implemented thermal model** of SOLENE
 1. Fraisse G, Viardot C, Lafabrie O, et al. Development of a simplified and accurate building model based on electrical analogy[J]. Energy and buildings, 2002, 34(10): 1017-1031. DOI: [Link](https://doi.org/10.1016/S0378-7788(02)00019-1)
 2. Baptiste B, Auline R, et al. DIRT : Utilisation de données satellitaires thermiques urbaines dans les outils de simulation microclimatique à l’échelle du quartier dans le cadre de la mission TRISHNA.
 3. Azam M H, Morille B, Bernard J, et al. A new urban soil model for SOLENE-microclimat: Review, sensitivity analysis and validation on a car park[J]. Urban climate, 2018, 24: 728-746. DOI: [Link](https://doi.org/10.1016/j.uclim.2017.08.010)
-4. 
-
+4. Bouyer J. Modélisation et simulation des microclimats urbains-Etude de l'impact de l'aménagement urbain sur les consommations énergétiques des bâtiments[D]. Université de Nantes, 2009. [Lind](https://theses.hal.science/tel-00426508/)
