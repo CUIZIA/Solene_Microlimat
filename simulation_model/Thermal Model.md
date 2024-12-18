@@ -497,13 +497,11 @@ The calculation of the net irradiance received by surface is more complex than i
 
 1. **Calculate the Initial Reflected Irradiance**:  
    - Compute the initial reflected irradiance $GLO_{\text{ref}}$ (`exitance_init`) for each surface.  
-   - Sum the total initial reflected radiation from the sky:
+   - Sum the total initial reflected radiation from the sky $Q_{\text{ref,total}}$ (`energie_totale`) where $A_i$ is the surface area:
    
 $$
-Q_{\text{ref}} = \sum_{i=1}^n GLO_{\text{ref},i} \cdot A_i
+Q_{\text{ref,total}} = \sum_{i=1}^n GLO_{\text{ref},i} \cdot A_i
 $$
-     
-     where $A_i$ is the surface area, and `energie_totale` stores the total initial reflected radiation.
 
 2. **Iteratively Compute Reflected Radiation**:  
    - Calculate the reflected radiation for each surface $GLO_{\text{ref},i} \cdot A_i$ (`delta_exitance[] * surf[]`) within the scene.  
