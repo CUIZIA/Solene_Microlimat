@@ -565,3 +565,10 @@ While the thermal model core is written in C, other parts of SOLENE involve Pyth
 - **Transparent surfaces**: Non-transparent surfaces are considered opaque and obey Lambert's law.
 
 This document primarily focuses on the **C-implemented thermal model** of SOLENE and its potential improvements. The Python components will be described in a separate document, where we will address their role in SOLENE's workflow and explore upgrades for better performance and GPU compatibility. By addressing the above improvements—including GPU acceleration, pre-computation of parameters, time step optimization, dynamic relaxation factors, and Python refactoring—I am confident that SOLENE can achieve **higher efficiency, accuracy, and scalability** in future simulations.
+
+## References
+1. Fraisse G, Viardot C, Lafabrie O, et al. Development of a simplified and accurate building model based on electrical analogy[J]. Energy and buildings, 2002, 34(10): 1017-1031. DOI: [Link](https://doi.org/10.1016/S0378-7788(02)00019-1)
+2. Baptiste B, Auline R, et al. DIRT : Utilisation de données satellitaires thermiques urbaines dans les outils de simulation microclimatique à l’échelle du quartier dans le cadre de la mission TRISHNA.
+3. Azam M H, Morille B, Bernard J, et al. A new urban soil model for SOLENE-microclimat: Review, sensitivity analysis and validation on a car park[J]. Urban climate, 2018, 24: 728-746. DOI: [Link](https://doi.org/10.1016/j.uclim.2017.08.010)
+4. 
+
