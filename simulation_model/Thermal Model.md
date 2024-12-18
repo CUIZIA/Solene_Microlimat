@@ -469,7 +469,17 @@ $$
 
 ### 5.1 Net Long-wave Irradiance Exchange with the Sky $GLO_{\text{ciel,net}}$
 
-The atmospheric long-wave irradiance received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. The atmospheric long-wave irradiance is calculated as follows:
+The atmospheric long-wave irradiance received by surface $i$ ($GLO_{\text{atm,i}}$) is treated as a constant value for a fixed time step. Thus, it is not recalculated during the iterative loop for updating surface temperatures. We can intuitively understand that $GLO_{\text{ciel,net,i}}$ represents the net radiation received by a surface, which is the difference between the radiation received by the surface and the radiation emitted from it. The first and simplest component to calculate is the longwave radiation emitted by the surface to the sky $GLO_{\text{ciel,emis,i}}$, which is expressed using the following formula:
+
+$$
+GLO_{\text{ciel,net}} = GLO_{\text{ciel,emis}} - GLO_{\text{ciel,resu}}
+$$
+
+$$
+GLO_{\text{ciel,emis,i}} = \text{SVF} \cdot \varepsilon_i \cdot \sigma \cdot T_i^4
+$$
+
+The atmospheric long-wave irradiance is calculated as follows:
 
 $$
 GLO_{\text{atm}} = \text{SVF} \cdot \varepsilon \cdot \sigma \cdot T_{\text{air}}^4
