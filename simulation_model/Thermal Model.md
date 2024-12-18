@@ -545,7 +545,7 @@ The parameters used in matrix operations (e.g., $m_1$, $m_2$, $o_2$, $p_1$, and 
 - **Future Improvement**: Pre-calculate these coefficients during initialization or as part of a **lookup table**. This will streamline the runtime performance of the SOLENE thermal model.
 
 #### (3) Time Step Limitation and Future Optimization
-Currently, due to limitations in the **underlying C code** of SOLENE, the minimum time step is restricted to **30 minutes**.  
+Currently, due to limitations in the **underlying C code** of SOLENE, the minimum time step is restricted to **30 minutes**. The paper mentions that the choice of time step needs to find a balance between calculation time, shadow dynamics and material response, and is usually 30 minutes to 1 hour.
 - **Future Improvement**:
     - Reduce the time step to **10 minutes** to better capture high-frequency thermal dynamics, especially for transient simulations or short-term thermal events;
     - Although reducing the time step will increase the overall simulation time, the aforementioned **GPU acceleration** and **pre-computation of static parameters** can compensate for this increase.
@@ -562,5 +562,6 @@ While the thermal model core is written in C, other parts of SOLENE involve Pyth
 
 #### (6) Additional Potential Improvements
 - **Visualization Enhancements**: Improve the post-processing visualization tools to handle larger datasets and provide real-time graphical feedback.
+- **Transparent surfaces**: Non-transparent surfaces are considered opaque and obey Lambert's law.
 
 This document primarily focuses on the **C-implemented thermal model** of SOLENE and its potential improvements. The Python components will be described in a separate document, where we will address their role in SOLENE's workflow and explore upgrades for better performance and GPU compatibility. By addressing the above improvements—including GPU acceleration, pre-computation of parameters, time step optimization, dynamic relaxation factors, and Python refactoring—I am confident that SOLENE can achieve **higher efficiency, accuracy, and scalability** in future simulations.
