@@ -37,10 +37,10 @@ jour heure vitesse_vent direction_vent global infrarouge Tair HR Patm qs Pluvio 
 | `infrarouge`   | Infrared radiation           |
 | `Tair`         | Air temperature (°C)         |
 | `HR`           | Relative Humidity (%)        |
-| `Patm`         | Atmospheric pressure (hPa?)   |
-| `qs`           | Specific humidity (?)        |
+| `Patm`         | Atmospheric pressure (hPa)   |
+| `qs`           | Specific humidity (%)        |
 | `Pluvio`       | Precipitation (mm?)           |
-| `te`           | Unknown field?                |
+| `te`           | Set to `0`                    |
 
 </div>
 
