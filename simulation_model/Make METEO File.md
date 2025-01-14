@@ -76,7 +76,7 @@ Below is a table explaining the key variables and their meanings:
 | `T`            | Instantaneous air temperature (in °C, scaled by 1/10)         |
 | `U`            | Relative humidity (in %)                                      |
 | `PSTAT`        | Station pressure (in hPa, scaled by 1/10)                     |
-| `Qs`           | Set to `0`                                                    |
+| `qs`           | Set to `0`                                                    |
 | `Pluvio`       | Set to `0`                                                    |
 | `te`           | Set to `0`                                                    |
 
