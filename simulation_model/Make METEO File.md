@@ -61,7 +61,7 @@ Here are **two recommended approaches** for quickly converting your weather data
 ### 2.1 Using `generate_meteo.py`
 
 If you download weather data from [Météo France Open Data](https://meteo.data.gouv.fr/datasets?topic=6571f26dc009674feb726be9), 
-it is recommended to choose the **“Données climatologiques de base – horaires”** dataset.
+it is recommended to choose the **“Données climatologiques de base – horaires”** dataset (the times are expressed in UTC for mainland France and in FU for overseas territories).
 Below is a table explaining the key variables and their meanings:
 
 <div align="center">
