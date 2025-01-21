@@ -24,8 +24,8 @@
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li><a href="#Introduction">Introduction</a></li>
-    <li><a href="#Key Features">Key Features</a></li>
-    <li><a href="#Quick Start">Quick Start</a></li>
+    <li><a href="#KeyFeatures">Key Features</a></li>
+    <li><a href="#QuickStart">Quick Start</a></li>
     <li><a href="#input files">Input Files</a></li>
     <li><a href="#solar radiation">Solar Radiation</a></li>
     <li>
