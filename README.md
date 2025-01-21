@@ -68,7 +68,7 @@ team for their collaborative efforts.
 
 ## Installation
 
-All the installation steps you might need are summarized in the [Install.md]() file.
+All the installation steps you might need are summarized in the [Install.md](Install.md) file.
 
 > [!WARNING]
 > **Pre-installation Notice—Hardware and Software Environment Support**
