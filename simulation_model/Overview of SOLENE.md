@@ -2,7 +2,7 @@
 
 <!-- logo -->
 <p align="center">
-  <img src="/fig/logo.png" width="300px" style="vertical-align:middle;">
+  <img src="/fig/logo.png" width="250px" style="vertical-align:middle;">
 </p>
 
 <!-- language -->
@@ -18,26 +18,26 @@
   accuracy and complexity. Therefore, we combined the finite differences conductive model for the ground
   with the 3R4C model for building surfaces. We refer to the integrated model as ‘simulation_Ts_EnergieBat_mixture’,
   which has been shared on Box for download and review, including the source code.
+  
 <!-- Table of content -->
 
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li><a href="#Introduction">Introduction</a></li>
-    <li><a href="#KeyFeatures">Key Features</a></li>
-    <li><a href="#QuickStart">Quick Start</a></li>
-    <li><a href="#input files">Input Files</a></li>
-    <li><a href="#solar radiation">Solar Radiation</a></li>
+    <li><a href="#Key Features">Key Features</a></li>
+    <li><a href="#Installation">Installation</a></li>
     <li>
-      <a href="#thermal model">Thermal Model</a>
+      <a href="#Quick Start">Quick Start</a>
       <ul>
-        <li><a href="#3R4C">3R4C</a></li>
-        <li><a href="#MHA">MHA</a></li>
-        <li><a href="#hybrid model">Hybrid Model</a></li>
+        <li><a href="#input files">Input Files</a></li>
+        <li><a href="#solar radiation">Solar Radiation</a></li>
+        <li><a href="#thermal model">Thermal Model</a></li>
+        <li><a href="#couplage">Coupling with Saturne</a></li>
+        <li><a href="#output files">Output Files</a></li>
       </ul>
     </li>
-    <li><a href="#couplage">Coupling with Saturne</a></li>
-    <li><a href="#output files">Output Files</a></li>
+    <li><a href="#acknowledgments">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -66,12 +66,25 @@ team for their collaborative efforts.
 - Coupling with FLUENT software (CFD)  
 - Evaluation of outdoor comfort  
 
-## Quick Start
+## Installation
+
+All the installation steps you might need are summarized in the [Install.md]() file.
 
 > [!WARNING]
 > **Pre-installation Notice—Hardware and Software Environment Support**
 > 
-> 为了确保项目的稳定性和可靠性，我们在开发过程中仅对特定的软硬件环境进行优化和测试。这样当用户在推荐的系统配置上部署和运行项目时，能够获得最佳的性能表现和最少的兼容性问题。
->
-> 通过集中资源和精力于主线环境，我们团队能够更高效地解决潜在的BUG，及时开发新功能。
->
+> To ensure the stability and reliability of the project, we have optimized and tested it only for specific software and hardware environments during development. Due to legacy issues, we are working on migrating our development language to a newer version. Hopefully, in the near future 🤞.
+> 
+> Due to the diversity of hardware and software configurations, as well as compatibility issues with third-party dependencies, we cannot guarantee full functionality of the project with 100% certainty. Therefore, for users who wish to use this project in non-recommended environments, we suggest thoroughly reviewing the documentation beforehand. Additionally, we encourage users to report any issues they encounter, allowing us to gradually expand the range of supported environments.
+
+<div align="center">
+  
+| Operating System | Ubuntu 20.04+   | Windows 10 Pro   |
+|----------------|-----------------|------------------|
+| CPU            | Intel i5 4 cores+ | Intel i5 4 cores+ |
+| Memory         | 8GB+            | 8GB+            |
+| Storage        | 100GB+ SSD       | 100GB+ SSD       |
+| Python Version | 3.8 - 3.11      | 3.9 - 3.11       |
+
+</div>
+
