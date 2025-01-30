@@ -38,7 +38,7 @@ $$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T
 - **Equation:**
 
 <p align="center">
-  <img src="/fig/Nusselt model.png" width="250px" style="vertical-align:middle;">
+  <img src="/fig/Nusselt model.png" width="90%" style="vertical-align:middle;">
 </p>
 
 - **Approach:**
