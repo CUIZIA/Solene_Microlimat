@@ -1,116 +1,68 @@
-############### 01: Wind speed model ###############
-# This function currently implements simplified models that only consider wind speed.
-############### 01: Wind speed model ###############
-def calculer_convection_coefficient(wind_speed, model='ashrae'):
-    """
-    Calculate the convective heat transfer coefficient based on the given model and wind speed.
+# Convective Heat Transfer Models in Urban Environments
 
-    Parameters:
-    wind_speed (float): The wind speed in m/s, could be a list.
-    model (str): The model to use for calculation. Default is 'ashrae'.
+## Overview
+The convective heat flux exchanged between an urban surface and the air is calculated using:
 
-    Returns:
-    float: The convective heat transfer coefficient in W/(m^2·K).
-    """
-    if model.lower() == 'ashrae':
-        # ASHRAE model 
-        h = 5.7 + 3.8 * wind_speed
-    elif model.lower() == 'jayamaha':
-        # JAYAMAHA model
-        h = 4.955 + 1.444 * wind_speed
-    elif model.lower() == 'vinet': #used by J.Bouyer
-        # VINET default model in SOLENE
-        h = 5.85 + 1.7 * wind_speed
-    else:
-        raise ValueError(f"Unknown model: {model}")
-    return h
+$$ q_c = h_c (T_{surf} - T_{air}) $$
 
-############### COMPREHENSIVE model ###############
-# More comprehensive models can take into account additional factors such as:
-# - Surface temperature and air temperature difference
-# - Surface roughness
-# - Other environmental conditions
-############### COMPREHENSIVE model ###############
-def angle_to_vector(angle):
-    rad = np.radians(angle)
-    return np.array([np.cos(rad), np.sin(rad), 0])
+where:
+- $q_c$: Heat convection flux $[W.m^{-2}]$
+- $h_c$: Convective heat transfer coefficient $[W.m^{-2}K^{-1}]$
+- $T_{surf}$: Surface temperature $[K]$
+- $T_{air}$: Air temperature $[K]$
 
-def calculate_windward_leeward(normals, wind_direction):
-    """
-    normals is the sim.solEnv.geom.triangles.normale
-    """
-    wind_vector = angle_to_vector(wind_direction)
-    
-    Wf = []
-    for normal in normals:
-        dot_product = np.dot(wind_vector, normal)
-        norm_wind = np.linalg.norm(wind_vector)
-        norm_normal = np.linalg.norm(normal)
-        cos_theta = dot_product / (norm_wind * norm_normal)
-        angle = np.degrees(np.arccos(cos_theta))
+The convective heat transfer coefficient $h_c$ is a crucial parameter in urban heat flux simulations. It depends on both wind speed $U$ and surface roughness. Higher wind speeds increase $h_c$, which enhances convective cooling, reducing surface and near-surface air temperatures in summer.
 
-        if angle <= 100:
-            Wf.append(1)  # windward
-        else:
-            Wf.append(0.5)  # leeward
-            
-    return Wf
+## Convection Models
+Currently, **SOLENE-Microclimat** supports four convection models, each differing in input parameters and complexity. These models are categorized as follows:
 
-############### 02: MHAzam model ###############
-# - Surface temperature (degree)
-# - Air temperature (degree)
-# - wind speed (m/s)
-############### 02: MHAzam model ###############
-def calculer_hc(Tsurf,Tair,Vair):
-	v=1.57*10.**(-5.)
-	Cpair=1006.
-	lamb=0.0262
-	Pr=0.708 
-	L=1.
-	g=9.81
-	Re=Vair*L/v
-	Ba=1./(Tair+273.)
-	Gr=Ba*g*L**3.*abs(Tsurf-Tair)/v**2.  ## à la place de 25 faut mettre Tsurf 	#libre 
-	if 10*Re**2 < np.mean(Gr):		#laminaire 
-		if np.mean(Gr)<10**9:
-			h=(lamb/L)*0.49*Gr**(1./4.)		#turbulent
-		else:
-			h=(lamb/L)*0.13*Gr**(1./3.)	
-	#forcé 
-	elif Re**2 > 10*np.mean(Gr):
-		#laminaire 
-		if np.mean(Gr)<10**9:
-			h=(lamb/L)*0.56*Re**(1./2.)		#turbulent
-		else:
-			h=(lamb/L)*0.03*Re**(4./5.)
-	#mixte 
-	else:		#laminaire 
-		if np.mean(Gr)<10**9:
-			h=(lamb/L)*0.68*(0.57*Gr**(3./4.)+Re**(3./2.))**(1./3.)		#turbulent
-		else:
-			h=(lamb/L)*0.03*(12.1*Gr+Re**(12./5.))**(1./3.)
-	return h 
+### 1. **Wind Speed-Based Model (ASHRAE Model, Default model in SOLENE-Microclimat.)**
+- **Equation:**
 
-############### 03: Vehrencamp model (ground) ###############
-# - Surface temperature (degree)
-# - Air temperature (degree)
-# - wind speed (m/s)
-############### 03: Vehrencamp model (ground) ###############
-def calculer_hc(Tsurf,Tair,Vair):
-      Tm = (Tsurf + Tair)/2
-      a = 1.4
-      d = 0.5
-      h = 698.24*a*(0.00144*(Tm+273.15)**0.3*Vair**d + 0.00097*abs(Tsurf - Tair)**0.3)
-      return h
+$$ h_c = 5.7 + 3.8U $$
 
-############### 04: Dendy model ###############
-# - Air temperature (degree)
-# - height (m)
-# - roughness length for (m)
-############### 04: Dendy model ###############
-def calculer_hc(Vair, z, z0):
-      rhoa = 1.2
-      Cp = 1006
-      k = 0.4
-      rT = math.log(z/z0)*math.log(10*z/z0)/(Vair*k**2)
-      h = rhoa*Cp/rT 
+- **Source:** ASHRAE (1985)
+- **Parameters:**
+  - $U$: Wind speed $[m.s^{-1}]$.
+
+### 2. **Empirical Correlations Model**
+- **Equation:** **Ground Surface (Verhencamp Model, Gui et al., 2007):**
+
+$$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T_{air})|^{0.3} \right] $$
+
+- **Parameters:**
+  - Constants: $a_c = 1.4$, $d_c = 0.5$ for the ground.
+  - $T_m$: Mean temperature of air and surface $[K]$.
+
+### 3. **Horizontal Flat Plate model (Nusselt number)**
+- **Equation:**
+
+<p align="center">
+  <img src="/fig/Nusselt model.png" width="250px" style="vertical-align:middle;">
+</p>
+
+- **Approach:**
+  - Accounts for different convection modes: Free, mixed, and forced convection.
+  - Considers laminar and turbulent flow regimes.
+  - Applied to ground, walls, and roofs.
+
+### 4. **Aerodynamic Resistance Model (Denby Model, Denby et al., 2013)**
+- **Equation:**
+
+$$ h_c = \frac{\rho_a C_p}{r_T} $$
+
+- **Parameters:**
+  - $\rho_a$: Air density $[kg.m^{-3}]$
+  - $C_p$: Heat capacity of dry air $[J.kg^{-1}.K^{-1}]$
+  - $r_T$: Aerodynamic resistance $[s.m^{-1})]$
+
+## Model Comparison Table
+
+| Model Category               | Equation | Parameters Considered | Application |
+|-----------------------------|----------|----------------------|-------------|
+| **Wind Speed-Based Model** (ASHRAE, 1985) | \( h_c = 5.7 + 3.8U \) | Wind speed \(U\) | Default in SOLENE-Microclimat |
+| **Empirical Correlations Model** (Gui et al., 2007; Montazeri & Blocken, 2017) | Multiple equations | Temperature difference, wind speed, surface type, building dimensions | Ground (Verhencamp), Walls & Roofs (Montazeri & Blocken) |
+| **Dimensionless Number-Based Model** (Cengel, 2002; Morille, 2012) | Uses dimensionless numbers | Convection mode (free, mixed, forced), flow regime (laminar, turbulent) | Applied to all urban surfaces |
+| **Aerodynamic Resistance Model** (Denby et al., 2013) | \( h_c = \frac{\rho_a C_p}{r_T} \) | Air density, heat capacity, aerodynamic resistance | Applied to all urban surfaces |
+
+This selection of models ensures comprehensive coverage of convective heat transfer mechanisms for different urban surfaces, enabling accurate urban microclimate simulations.
