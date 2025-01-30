@@ -38,26 +38,32 @@ $$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T
 ### 3. **Horizontal Flat Plate model (Nusselt number)**
 - **Equation:**
 
-$$ hc = \frac{Nu \cdot \lambda_a}{d} $$
-
-$$ Re = \frac{\rho_a \cdot V \cdot d}{\mu_a} $$
-
-$$ Gr = \frac{g \cdot \beta \cdot \delta T \cdot d^3 \cdot \rho_a^2}{\mu_a^2}$$
-
 <p align="center">
   <img src="/fig/Nusselt model.png" width="90%" style="vertical-align:middle;">
 </p>
+
+$$ h_c = \frac{Nu \cdot \lambda_a}{d} $$
+
+$$ Re = \frac{\rho_a \cdot U \cdot d}{\mu_a} $$
+
+$$ Gr = \frac{g \cdot \beta \cdot \Delta T \cdot d^3 \cdot \rho_a^2}{\mu_a^2}$$
 
 - **Source:** Morille 2012
 - **Parameters:**
   - $\lambda_a$: air thermal conductivity $[W.m^{-1}.K^{-1}]$
   - $d$: characteristic dimension of the flat plate $[m]$
+  - $\rho_a$: air density $[kg.m^{-3}]$
+  - $U$: Wind speed $[m.s^{-1}]$
+  - $\mu_a$: air dynamic viscosity $[Pa.s]$
+  - $\beta$: volumetric thermal expension coefficient $[K^{-1}]$
+  - $\Delta T$: temperature difference between the surface temperature and air temperature $[K]$
+  - $g$: acceleration of gravity $[m.s^{-2}]$
 - **Approach:**
   - Accounts for different convection modes: Free, mixed, and forced convection.
   - Considers laminar and turbulent flow regimes.
   - Applied to ground, walls, and roofs.
 
-### 4. **Aerodynamic Resistance Model (Denby Model, Denby et al., 2013)**
+### 4. **Aerodynamic Resistance Model**
 - **Equation:**
 
 $$ h_c = \frac{\rho_a C_p}{r_T} $$
@@ -67,14 +73,3 @@ $$ h_c = \frac{\rho_a C_p}{r_T} $$
   - $\rho_a$: Air density $[kg.m^{-3}]$
   - $C_p$: Heat capacity of dry air $[J.kg^{-1}.K^{-1}]$
   - $r_T$: Aerodynamic resistance $[s.m^{-1}]$
-
-## Model Comparison Table
-
-| Model Category               | Equation | Parameters Considered | Application |
-|-----------------------------|----------|----------------------|-------------|
-| **Wind Speed-Based Model** (ASHRAE, 1985) | \( h_c = 5.7 + 3.8U \) | Wind speed \(U\) | Default in SOLENE-Microclimat |
-| **Empirical Correlations Model** (Gui et al., 2007; Montazeri & Blocken, 2017) | Multiple equations | Temperature difference, wind speed, surface type, building dimensions | Ground (Verhencamp), Walls & Roofs (Montazeri & Blocken) |
-| **Dimensionless Number-Based Model** (Cengel, 2002; Morille, 2012) | Uses dimensionless numbers | Convection mode (free, mixed, forced), flow regime (laminar, turbulent) | Applied to all urban surfaces |
-| **Aerodynamic Resistance Model** (Denby et al., 2013) | \( h_c = \frac{\rho_a C_p}{r_T} \) | Air density, heat capacity, aerodynamic resistance | Applied to all urban surfaces |
-
-This selection of models ensures comprehensive coverage of convective heat transfer mechanisms for different urban surfaces, enabling accurate urban microclimate simulations.
