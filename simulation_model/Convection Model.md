@@ -21,15 +21,16 @@ Currently, **SOLENE-Microclimat** supports four convection models, each differin
 
 $$ h_c = 5.7 + 3.8U $$
 
-- **Source:** ASHRAE (1985)
+- **Source:** ASHRAE 1985
 - **Parameters:**
   - $U$: Wind speed $[m.s^{-1}]$.
 
 ### 2. **Empirical Correlations Model**
-- **Equation:** **Ground Surface (Verhencamp Model, Gui et al., 2007):**
+- **Equation:** **Ground Surface:**
 
 $$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T_{air})|^{0.3} \right] $$
 
+- **Source:** Verhencamp Model, Gui et al., 2007
 - **Parameters:**
   - Constants: $a_c = 1.4$, $d_c = 0.5$ for the ground.
   - $T_m$: Mean temperature of air and surface $[K]$.
@@ -37,10 +38,20 @@ $$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T
 ### 3. **Horizontal Flat Plate model (Nusselt number)**
 - **Equation:**
 
+$$ hc = \frac{Nu \cdot \lambda_a}{d} $$
+
+$$ Re = \frac{\rho_a \cdot V \cdot d}{\mu_a} $$
+
+$$ Gr = \frac{g \cdot \beta \cdot \delta T \cdot d^3 \cdot \rho_a^2}{\mu_a^2}$$
+
 <p align="center">
   <img src="/fig/Nusselt model.png" width="90%" style="vertical-align:middle;">
 </p>
 
+- **Source:** Morille 2012
+- **Parameters:**
+  - $\lambda_a$: air thermal conductivity $[W.m^{-1}.K^{-1}]$
+  - $d$: characteristic dimension of the flat plate $[m]$
 - **Approach:**
   - Accounts for different convection modes: Free, mixed, and forced convection.
   - Considers laminar and turbulent flow regimes.
@@ -51,10 +62,11 @@ $$ h_c = 698.24 a_c \left[ 0.00144|T_{m}|^{0.3} U^{d_c} + 0.00097 |(T_{surf} - T
 
 $$ h_c = \frac{\rho_a C_p}{r_T} $$
 
+- **Source:** Denby et al., 2013
 - **Parameters:**
   - $\rho_a$: Air density $[kg.m^{-3}]$
   - $C_p$: Heat capacity of dry air $[J.kg^{-1}.K^{-1}]$
-  - $r_T$: Aerodynamic resistance $[s.m^{-1})]$
+  - $r_T$: Aerodynamic resistance $[s.m^{-1}]$
 
 ## Model Comparison Table
 
