@@ -84,6 +84,6 @@ All the installation steps you might need are summarized in the [Install.md](Ins
 | CPU            | Intel i5 4 cores+ | Intel i5 4 cores+ |
 | Memory         | 8GB+            | 8GB+            |
 | Storage        | 100GB+ SSD       | 100GB+ SSD       |
-| Python Version | 3.8 - 3.11      | 3.9 - 3.11       |
+| Python Version | 2.7      | 2.7       |
 
 </div>
