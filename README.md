@@ -30,11 +30,27 @@
     <li>
       <a href="#Quick Start">Quick Start</a>
       <ul>
-        <li><a href="#input files">Input Files</a></li>
+        <li>
+          <a href="#input files">Input Files</a>
+          <ul>
+            <li><a href="#3D">Create 3D Model</a></li>
+            <li><a href="#meteo">Make METEO File</a></li>
+            <li><a href="#other input">Make Material, Famille File</a></li>
+          </ul>
+        </li>
+        <li><a href="#update thermal model">Update Thermal Model</a></li>
+        <li><a href="#couplage">Coupling with Saturne (CFD)</a></li>
+        <li><a href="#output files">Output Files</a></li>
+        <li><a href="#Tmrt">Tmrt</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#How It Works">How It Works</a>
+      <ul>
+        <li><a href="#SVF">Sky View Factor</a></li>
         <li><a href="#solar radiation">Solar Radiation</a></li>
         <li><a href="#thermal model">Thermal Model</a></li>
-        <li><a href="#couplage">Coupling with Saturne</a></li>
-        <li><a href="#output files">Output Files</a></li>
+        <li><a href="#Tmrt theory">Themal Comfort Indices</a></li>
       </ul>
     </li>
     <li><a href="#acknowledgments">Acknowledgements</a></li>
