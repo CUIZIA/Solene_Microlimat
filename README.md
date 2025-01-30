@@ -38,7 +38,7 @@
             <li><a href="#Make-Material-Famille-File">Make Material, Famille File</a></li>
           </ul>
         </li>
-        <li><a href="#update thermal model">Update Thermal Model</a></li>
+        <li><a href="#update-thermal-model">Update Thermal Model</a></li>
         <li><a href="#couplage">Coupling with Saturne (CFD)</a></li>
         <li><a href="#output files">Output Files</a></li>
         <li><a href="#Tmrt">Tmrt</a></li>
@@ -112,14 +112,18 @@ All the installation steps you might need are summarized in the [Install.md](Ins
 
 ## Quick Start
 
-In this section, you will quickly learn how to set up and run your first simulation using **Solene-Microclimat**. The guide covers the entire process, from creating the input files and selecting the appropriate **thermal model**, to coupling with **CFD software**, and finally, reading and interpreting the output files.  
+In this section, you will quickly learn how to set up and run your first simulation using **SOLENE-Microclimat**. The guide covers the entire process, from creating the input files and selecting the appropriate **thermal model**, to coupling with **CFD software**, and finally, reading and interpreting the output files.  
 
 Additionally, you can enhance your simulation by incorporating the **Tmrt model** to assess thermal comfort.  
 
 ### Input Files
 
-#### Create 3D Model
+#### Make 3D Model
 
 #### Make METEO File
 
 #### Make Material, Famille File
+
+### Update Thermal Model
+
+SOLENE-Microclimat includes various thermal models, such as **3R4C, 1R2C, and finite differences**. If you want to switch between different models or test a custom thermal model in your simulation, you can follow the guide in **[Update Thermal Model](simulation_model/Update%20Thermal%20Model.md)** to learn how to do so.  
