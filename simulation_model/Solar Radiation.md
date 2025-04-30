@@ -26,7 +26,7 @@ $$
 
 ## Measured Radiation Data
 
-In solar radiation measurements, instruments typically provide only the Global Horizontal Irradiance (GHI), which includes both direct and diffuse components. However, for simulation purposes, it is often necessary to separate GHI into these two components. Below is a summary of commonly used decomposition models. The first model listed is the one implemented in SOLENE.
+In solar radiation measurements, instruments somtimes provide only the Global Horizontal Irradiance (GHI), which includes both direct and diffuse components. However, for simulation purposes, it is often necessary to separate GHI into these two components. Below is a summary of commonly used decomposition models. The first model listed is the one implemented in SOLENE.
 
 ### (1) Black (1956) + Muneer et al. (2004)
 
