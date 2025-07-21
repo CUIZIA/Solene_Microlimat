@@ -129,5 +129,5 @@ for fid, val in face_mean_tse.items():
     print(f"Face {fid} mean Tse = {val:.2f}")
 ```
 
-This will print all mean value of the `Tse` on this surface.
+This will print the mean value of `Tse` on this surface at this timestamp.
 
