@@ -3,6 +3,7 @@
 To facilitate the inspection and 3D visualization of simulation outputs from **Solene-Microclimat**, we recommend using [`pyvista`](https://docs.pyvista.org/). It provides a simple interface to read and render VTK-compatible files.
 
 &nbsp;
+
 ## Simulation Output Files
 
 The simulation generates two types of files:
@@ -80,15 +81,53 @@ plotter.show()
 > This will return a list of all scalar field names contained in the mesh — such as `Tse` (surface temperature), `flux_sol_direct`
 > radiation values, or `humidite_relative` humidity — which can then be passed to `add_mesh(..., scalars="FIELD_NAME")` for visualization.
 
+&nbsp;
 
 ## Identify Triangles in a Face and Compute Mean Values
 
 After identifying an interesting face, you can locate its corresponding triangular mesh cells in the time-step `.vtu` files, extract data, and compute temporal features such as mean surface temperature or radiation.
 
-A full script is provided in [`extract_face_time_series.py`](./Scripts/extract_face_time_series.py.py)
+> While `pyvista`’s `find_containing_cell()` is one of the **fastest** ways to locate which face (cell) contains a given point, it is not always the **most reliable**.
 
-* Match triangle cells with a selected face
-* Calculate average values
-* Export a `.csv` with time-varying metrics
+In practice, you should take **special care when constructing or visualizing the face mesh**, especially to ensure that:
 
+* Faces are correctly grouped by region
+* There are no overlapping or duplicated faces
+
+This method internally uses VTK's optimized spatial locator and can **quickly find the index of a cell that contains a given point** (typically the centroid of a triangle). Once identified, these indices can be used to:
+
+* **Group triangles** under their parent faces
+* **Extract relevant scalar values** (e.g., `Tse`)
+* **Compute face-level statistics**, such as area-weighted or mean values
+  
+```python
+import pyvista as pv
+import numpy as np
+
+face_mesh = pv.read('./post/resu_simu_face.vtu')
+tri_mesh = pv.read('./post/resu_simu24.vtu')
+
+face_locator = face_mesh.find_containing_cell
+
+tse_values = tri_mesh['Tse']
+tri_centers = tri_mesh.cell_centers().points
+triangle_to_face = [face_locator(center) for center in tri_centers]
+
+from collections import defaultdict
+face_to_triangles = defaultdict(list)
+
+for tri_id, face_id in enumerate(triangle_to_face):
+    if face_id >= 0:
+        face_to_triangles[face_id].append(tri_id)
+face_mean_tse = {}
+for face_id, tri_ids in face_to_triangles.items():
+    values = tse_values[tri_ids]
+    mean_val = np.mean(values)
+    face_mean_tse[face_id] = mean_val
+
+for fid, val in face_mean_tse.items():
+    print(f"Face {fid} mean Tse = {val:.2f}")
+```
+
+This will print all mean value of the `Tse` on this surface.
 
