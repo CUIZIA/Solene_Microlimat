@@ -14,7 +14,7 @@ The study investigates two types of surface conditions:
 2. A shaded area located near vegetation with shorter solar exposure.  
 
 <p align="center">
-  <img src="/fig/3D Khalid.png" alt="3D model of simlation area" width="50%">
+  <img src="/fig/3D Khalid 1.png" alt="3D model of simlation area" width="50%">
 </p>
 
 <p align="center"><b>Figure 1: 3D model of simlation area.</b></p>
