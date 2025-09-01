@@ -70,6 +70,92 @@ $$
 \text{DIFF2} = 1 - \left(1 - \frac{3}{4} \left(\frac{N}{8}\right)^{3.4} \right)
 $$
 
+# Atmospheric Calculations
+
+This document summarizes the formulas used to compute **specific humidity** and **downward longwave radiation** from meteorological data.
+
+## Specific Humidity and Moisture Variables
+
+Given:
+- $T_{air}$ : Air temperature (K)  
+- $P_{atm}$ : Atmospheric pressure (Pa)  
+- $RH$ : Relative humidity (%)  
+- $R_d = 287.06$ J·kg⁻¹·K⁻¹ : Gas constant for dry air  
+- $R_v = 461$ J·kg⁻¹·K⁻¹ : Gas constant for water vapor  
+- $L_v = 2.46 \times 10^6$ J·kg⁻¹ : Latent heat of vaporization  
+
+### a) Saturation vapor pressure
+$$
+e_s = 611 \cdot \exp\left( \frac{L_v}{R_v} \left(\frac{1}{273.16} - \frac{1}{T_{air}} \right) \right)
+$$
+
+### b) Actual vapor pressure
+$$
+e = \frac{RH}{100} \cdot e_s
+$$
+
+### c) Specific humidity (kg·kg⁻¹)
+$$
+q = \frac{0.622 \, e}{P_{atm} - 0.378 \, e}
+$$
+
+### d) Air density (g·m⁻³)
+$$
+\rho = \frac{1}{R_d \, T_{air}} \left( P_{atm} - f(e, RH, T_{air}) \right)
+$$
+
+(where $f(\cdot)$ is a correction term accounting for water vapor)
+
+### e) Absolute humidity (kg·m⁻³)
+$$
+q_a = q \cdot \rho
+$$
+
+### f) Saturated specific humidity
+$$
+q_s = \frac{0.622 \cdot e_s / P_{atm}}{1 + (0.622 - 1) \cdot e_s / P_{atm}}
+$$
+
+### g) Final humidity output (g·kg⁻¹)
+$$
+Q = 1000 \cdot \frac{RH}{100} \cdot q_s
+$$
+
+## Downward Longwave Radiation ($L_\downarrow$)
+
+Following **Prata (1996)** and **Diak (2000)** formulations:
+
+### a) Intermediate variable
+$$
+w = 46.5 \cdot \frac{e}{100 \cdot T_{air}}
+$$
+
+### b) Effective emissivity
+$$
+\varepsilon = 1 - (1 + w) \cdot \exp \left( -\sqrt{1.2 + 3w} \right)
+$$
+
+### c) Clear-sky longwave radiation
+$$
+L = \varepsilon \cdot \sigma \cdot T_{air}^4
+$$
+
+where $\sigma = 5.6704 \times 10^{-8}$ W·m⁻²·K⁻⁴ is the Stefan–Boltzmann constant.
+
+### d) Cloud correction (using cloud cover $N$ in oktas, from 0 to 8)
+$$
+L_\downarrow = \left(1 - \frac{N}{8}\right) L + \frac{N}{8} \cdot \sigma T_{air}^4
+$$
+
+
+## **Outputs**
+
+- $q$ : Specific humidity (kg·kg⁻¹)  
+- $q_a$ : Absolute humidity (kg·m⁻³)  
+- $Q$ : Humidity in g·kg⁻¹  
+- $L_\downarrow$ : Downwelling longwave radiation (W·m⁻²)  
+
+
 ## References
 1. Black, J. N. "The distribution of solar radiation over the earth's surface." Archiv für Meteorologie, Geophysik und Bioklimatologie, Serie B 7 (1956): 165-189.
 2. Muneer, Tariq. Solar radiation and daylight models. Routledge, 2007. P49
